@@ -1,64 +1,107 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 import base64
+import os
 
-# CONFIGURAÇÕES INICIAIS
+# CONFIG INICIAL
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide")
 
+# CONTADOR DE ACESSO
+contador_path = os.path.join(".streamlit", "contador.txt")
+if not os.path.exists(contador_path):
+    with open(contador_path, "w") as f:
+        f.write("0")
+with open(contador_path, "r+") as f:
+    total_acessos = int(f.read()) + 1
+    f.seek(0)
+    f.write(str(total_acessos))
+
+# FUNÇÃO PARA IMAGEM DA LOGO
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+        return base64.b64encode(f.read()).decode()
 
-logo_path = "logo_travelex.png"
-logo_base64 = get_base64_of_bin_file(logo_path)
+logo_base64 = get_base64_of_bin_file("logo_travelex.png")
 
-# CSS PERSONALIZADO
-st.markdown(f"""
+# CSS
+st.markdown("""
 <style>
-    html {{ scroll-behavior: smooth; }}
-    .sidebar-links a {{
+    .card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: all 0.2s ease-in-out;
+        font-size: 16px;
+    }
+    .card:hover {
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        transform: scale(1.02);
+    }
+    .metric-block {
+        background-color: #00205B;
+        padding: 1.2rem;
+        border-radius: 12px;
         color: white;
-        display: block;
-        padding: 8px 0;
-        text-decoration: none;
-    }}
-    .sidebar-links a:hover {{ text-decoration: underline; }}
-    .custom-card {{
-        border: 1px solid #003366;
-        padding: 12px 20px;
-        border-radius: 10px;
-        margin: 10px 0;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        cursor: pointer;
-    }}
-    .custom-card:hover {{
-        transform: scale(1.03);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }}
+        text-align: center;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h2.section-title {
+        background-color: #002B5B;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 18px;
+        margin-top: 2rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# SIDEBAR
+# SIDEBAR COM OPTION MENU
 with st.sidebar:
-    st.markdown(f"""
-    <div style='text-align: center; background-color: #002b5b; padding: 20px; border-radius: 10px;'>
-        <img src='data:image/png;base64,{logo_base64}' width='150'>
-    </div>
-    <div class="sidebar-links" style='color: white; margin-top: 20px;'>
-        <h4>Seções</h4>
-        <a href="#inicio">🏠 Início</a>
-        <a href="#dashboards">📊 Dashboards</a>
-        <a href="#formularios">📄 Formulários</a>
-        <a href="#materiais">📚 Materiais</a>
-        <a href="#credito">🏢 Crédito</a>
-    </div>
-    """, unsafe_allow_html=True)
+    st.image(f"data:image/png;base64,{logo_base64}", width=150)
+    selected = option_menu(
+        "Seções",
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais", "🏢 Crédito"],
+        icons=["house", "bar-chart", "file-earmark-text", "folder", "building"],
+        default_index=0
+    )
+
+# DADOS
+dashboards = [
+    ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+    ("🧭 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
+    ("🔎 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+    ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
+]
+
+formularios = [
+    ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+    ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
+]
+
+materiais = [
+    ("📁 Treinamentos e Manuais", "https://example.com/materials")
+]
+
+credito = [
+    ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
+    ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
+    ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdash")
+]
+
+eventos = [
+    ("🔔 Reunião Trimestral - 20 de Junho"),
+    ("🧠 Workshop Estratégico - 27 de Junho"),
+    ("📊 Atualização Power BI - 01 de Julho")
+]
 
 # CABEÇALHO
 st.markdown(f"""
-<div id="inicio" style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
+<div style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px;
+box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
     <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
     <div>
         <h1 style='margin-bottom: 0px; color: #002B5B;'>Central de Planejamento Comercial</h1>
@@ -68,100 +111,81 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # NOTIFICAÇÃO
-st.markdown("""
-<div style="background-color: #e6f0fb; border-radius: 8px; padding: 10px 20px; margin-top: 20px;">
-    🔔 Atualização: Adicionamos o novo relatório de Telemetria!
-</div>
-""", unsafe_allow_html=True)
+st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
-# BARRA DE PESQUISA
-col1, col2 = st.columns([9, 1])
-with col1:
-    query = st.text_input("Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
-with col2:
+# CONTEÚDO POR SEÇÃO
+if selected == "🏠 Início":
+    # Busca
+    st.markdown("### 🔎 Pesquisar")
+    col1, col2 = st.columns([8, 1])
+    query = col1.text_input("", placeholder="Buscar dashboards, formulários ou materiais").lower()
+    col2.button("🔍 Buscar")
+
+    # Meta
+    st.markdown("### 📈 Meta do Mês")
     st.markdown("""
-    <div style="padding-top: 30px;">
-        <button style="background-color: white; border: 1px solid #002B5B; border-radius: 6px; padding: 6px 12px; cursor: pointer;">
-            🔍 Buscar
-        </button>
+    <div class="metric-block">
+        🎯 X%<br>
+        <small>Meta atingida até agora</small>
     </div>
     """, unsafe_allow_html=True)
 
-# ESPAÇAMENTO
-st.markdown("<div style='margin-top: 25px'></div>", unsafe_allow_html=True)
+    # Eventos
+    st.markdown("### 📅 Próximos Eventos")
+    for evento in eventos:
+        st.markdown(f"- {evento}")
 
-# META DO MÊS (DISCRETA)
-st.markdown("""
-<h3 style='color: #002B5B; font-size: 18px;'>📉 Meta do Mês</h3>
-<div style="background-color: #E8EEF7; padding: 14px; border-radius: 10px; text-align: center; color: #002B5B; font-size: 16px;">
-    🎯 X%<br>
-    <span style="font-size: 13px;">Meta atingida até agora</span>
-</div>
-""", unsafe_allow_html=True)
-
-# ESPAÇAMENTO
-st.markdown("<div style='margin-top: 25px'></div>", unsafe_allow_html=True)
-
-# PRÓXIMOS EVENTOS
-st.markdown("""
-<h3 style='color: #002B5B; font-size: 18px;'>🗓️ Próximos Eventos</h3>
-<ul style='line-height: 1.7; font-size: 15px;'>
-    <li>🔔 Reunião Trimestral - 20 de Junho</li>
-    <li>🧠 Workshop Estratégico - 27 de Junho</li>
-    <li>📊 Atualização Power BI - 01 de Julho</li>
-</ul>
-""", unsafe_allow_html=True)
-
-# DADOS DAS SEÇÕES
-secoes = {
-    "📊 Dashboards Comerciais": [
-        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
-        ("🧭 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
-        ("🔎 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
-        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
-    ],
-    "📄 Formulários": [
-        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
-        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
-    ],
-    "📚 Materiais": [
-        ("📁 Treinamentos e Manuais", "https://example.com/materials")
-    ],
-    "🏢 Área de Crédito": [
-        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
-        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
-        ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdash")
-    ]
-}
-
-anchors = ["dashboards", "formularios", "materiais", "credito"]
-
-# LOOP DAS SEÇÕES
-for i, (secao, links) in enumerate(secoes.items()):
-    st.markdown(f"""
-    <div id="{anchors[i]}" style="background-color: #002B5B; color: white; padding: 10px 15px; border-radius: 8px; font-size: 18px; margin-top: 40px;">
-        {secao}
-    </div>
-    """, unsafe_allow_html=True)
-
+    # Dashboards
+    st.markdown('<h2 class="section-title">📊 Dashboards Comerciais</h2>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-    metade = len(links) // 2 + len(links) % 2
-    for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
-        with col:
-            for nome, url in chunk:
-                st.markdown(f"""
-                <a href="{url}" target="_blank" style="text-decoration: none;">
-                    <div class="custom-card">
-                        <span style="display: block;">{nome}</span>
-                    </div>
-                </a>
-                """, unsafe_allow_html=True)
+    for i, (nome, link) in enumerate(dashboards):
+        if query in nome.lower():
+            with (col1 if i % 2 == 0 else col2):
+                st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+    # Formulários
+    st.markdown('<h2 class="section-title">📄 Formulários</h2>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(formularios):
+        if query in nome.lower():
+            with (col1 if i % 2 == 0 else col2):
+                st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+    # Materiais
+    st.markdown('<h2 class="section-title">📚 Materiais</h2>', unsafe_allow_html=True)
+    for nome, link in materiais:
+        if query in nome.lower():
+            st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+    # Crédito
+    st.markdown('<h2 class="section-title">🏢 Área de Crédito</h2>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(credito):
+        if query in nome.lower():
+            with (col1 if i % 2 == 0 else col2):
+                st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+elif selected == "📊 Dashboards":
+    st.markdown("### 📊 Dashboards Comerciais")
+    for nome, link in dashboards:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+elif selected == "📄 Formulários":
+    st.markdown("### 📄 Formulários Úteis")
+    for nome, link in formularios:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+elif selected == "📚 Materiais":
+    st.markdown("### 📚 Materiais e Documentos")
+    for nome, link in materiais:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+elif selected == "🏢 Crédito":
+    st.markdown("### 🏢 Área de Crédito")
+    for nome, link in credito:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
 
 # RODAPÉ
-st.markdown("""
-<br><br>
-<div style="text-align: center; font-size: 13px; color: #6c757d;">
-    Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-    🔒 Acesso: somente uso interno | 📋 Dados de uso sendo monitorados | 📊 Total de acessos: <b>23</b>
-</div>
-""", unsafe_allow_html=True)
+st.markdown("---")
+st.caption("Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank")
+st.markdown(f"<sub>🔒 Acesso: somente uso interno | 🧾 Dados de uso sendo monitorados | 📊 Total de acessos: <b>{total_acessos}</b></sub>", unsafe_allow_html=True)
