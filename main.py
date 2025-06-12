@@ -1,154 +1,125 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
-import os
+import base64
 from PIL import Image
+import time
 
-# CONFIGURANDO A PÁGINA
-st.set_page_config(
-    page_title="Portal Comercial Travelex",
-    layout="wide",
-    page_icon="📊"
-)
+st.set_page_config(layout="wide", page_title="Portal Comercial Travelex", page_icon="📊")
 
-# CSS PERSONALIZADO
+# Função para estilo customizado com hover animado
+def local_css():
+    st.markdown("""
+        <style>
+            .section-title {
+                font-size: 26px;
+                font-weight: bold;
+                margin-top: 40px;
+                color: #00205B;
+                display: flex;
+                align-items: center;
+            }
+            .section-title img {
+                margin-right: 10px;
+            }
+            .resource-box {
+                padding: 15px 20px;
+                margin-bottom: 12px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+                border-left: 5px solid #00205B;
+                display: block;
+                text-decoration: none;
+            }
+            .resource-box:hover {
+                transform: scale(1.015);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .search-box input {
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                width: 100%;
+            }
+            .header-container {
+                background-color: white;
+                padding: 20px 40px;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin-bottom: 30px;
+                display: flex;
+                align-items: center;
+            }
+            .header-logo {
+                height: 42px;
+                margin-right: 20px;
+            }
+            .header-text {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+local_css()
+
+# Cabeçalho com logo
+col1, col2 = st.columns([1, 10])
+with col1:
+    st.image("https://i.imgur.com/H9Xj7nd.png", width=100)
+with col2:
+    st.markdown("""
+        <div class="header-container">
+            <div class="header-text">
+                <h2 style="margin: 0; color: #00205B;">Central de Planejamento Comercial</h2>
+                <span style="color: #6c757d;">Travelex Bank · Tudo o que você precisa em um só lugar.</span>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+# 🔍 Barra de busca
 st.markdown("""
-    <style>
-    .main {
-        background-color: #F5F7FA;
-    }
-    .block-container {
-        padding: 2rem 4rem;
-    }
-    h1, h2, h3, h4 {
-        color: #00205B;
-    }
-    .section-title {
-        font-size: 1.6rem;
-        font-weight: 600;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        color: #00205B;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .card {
-        background-color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        margin-bottom: 1rem;
-        transition: transform 0.2s ease;
-    }
-    .card:hover {
-        transform: scale(1.01);
-    }
-    .search-section {
-        margin-bottom: 2rem;
-    }
-    .header-wrapper {
-        background: white;
-        padding: 1rem 2rem 2rem 2rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        border-radius: 12px;
-    }
-    .search-bar-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .stTextInput>div>input {
-        border: 1px solid #00205B;
-        border-radius: 6px;
-        padding: 0.5rem;
-    }
-    .stButton>button {
-        background-color: white;
-        border: 1px solid #00205B;
-        border-radius: 6px;
-        color: #00205B;
-    }
-    </style>
+### 🔍 Pesquisar
+<div style="display: flex; gap: 10px; align-items: center;">
+    <input type="text" placeholder="Buscar dashboards, formulários ou materiais" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;"/>
+    <button style="padding: 10px 15px; background-color: #fff; color: #00205B; border: 1px solid #00205B; border-radius: 8px;">
+        🔍 Buscar
+    </button>
+</div>
 """, unsafe_allow_html=True)
 
-# CONTADOR DE ACESSO
-contador_path = os.path.join(".streamlit", "contador.txt")
-os.makedirs(".streamlit", exist_ok=True)
-if not os.path.exists(contador_path):
-    with open(contador_path, "w") as f:
-        f.write("0")
+st.markdown("<br>", unsafe_allow_html=True)
 
-with open(contador_path, "r+") as f:
-    total_acessos = int(f.read()) + 1
-    f.seek(0)
-    f.write(str(total_acessos))
+# Função para gerar seção
+def section(title, emoji, links):
+    st.markdown(f"""<div class='section-title'>{emoji} {title}</div>""", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, url) in enumerate(links):
+        link_html = f"<a href='{url}' target='_blank' class='resource-box'>{nome}</a>"
+        if i % 2 == 0:
+            col1.markdown(link_html, unsafe_allow_html=True)
+        else:
+            col2.markdown(link_html, unsafe_allow_html=True)
 
-# SIDEBAR
-with st.sidebar:
-    selected = option_menu(
-        "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais", "🏦 Área de Crédito"],
-        icons=["house", "bar-chart", "file-earmark-text", "folder", "building"],
-        menu_icon="cast",
-        default_index=0,
-        styles={
-            "container": {"background-color": "#00205B"},
-            "icon": {"color": "white", "font-size": "20px"},
-            "nav-link": {"color": "white", "font-size": "16px", "text-align": "left", "margin": "5px 0"},
-            "nav-link-selected": {"background-color": "#004C99"},
-        }
-    )
+# Seções do portal
+section("Dashboards Comerciais", "📊", [
+    ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+    ("📈 Telemetria", "https://app.powerbi.com/links/DN8vawnQyN"),
+    ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+    ("📊 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
+])
 
-# CABEÇALHO
-st.markdown('<div class="header-wrapper">', unsafe_allow_html=True)
-col1, col2 = st.columns([1, 9])
-with col1:
-    st.image("logo_travelex.png", width=110)
-with col2:
-    st.markdown("## Central de Planejamento Comercial")
-    st.caption("Travelex Bank · Tudo o que você precisa em um só lugar.")
-st.markdown('</div>', unsafe_allow_html=True)
+section("Formulários", "📝", [
+    ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+    ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
+])
 
-# BARRA DE BUSCA
-st.markdown("<div class='section-title'>🔍 Pesquisar</div>", unsafe_allow_html=True)
-with st.container():
-    col1, col2 = st.columns([10, 1])
-    with col1:
-        search_query = st.text_input("", placeholder="Buscar dashboards, formulários ou materiais")
-    with col2:
-        st.button("🔎 Buscar")
+section("Materiais", "📚", [
+    ("📁 Treinamentos e Manuais", "https://seulink.com/treinamentos")
+])
 
-# BLOCOS DE CONTEÚDO
-
-st.markdown("<div class='section-title'>📊 Dashboards Comerciais</div>", unsafe_allow_html=True)
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown("<div class='card'>📌 [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)</div>", unsafe_allow_html=True)
-    st.markdown("<div class='card'>🔎 [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)</div>", unsafe_allow_html=True)
-with col2:
-    st.markdown("<div class='card'>📈 [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)</div>", unsafe_allow_html=True)
-    st.markdown("<div class='card'>📊 [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)</div>", unsafe_allow_html=True)
-
-st.markdown("<div class='section-title'>📝 Formulários</div>", unsafe_allow_html=True)
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown("<div class='card'>📄 [Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>", unsafe_allow_html=True)
-with col2:
-    st.markdown("<div class='card'>🧾 [Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>", unsafe_allow_html=True)
-
-st.markdown("<div class='section-title'>📚 Materiais</div>", unsafe_allow_html=True)
-st.markdown("<div class='card'>📁 [Treinamentos e Manuais](#)</div>", unsafe_allow_html=True)
-
-st.markdown("<div class='section-title'>🏦 Área de Crédito</div>", unsafe_allow_html=True)
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown("<div class='card'>📝 [Proposta de Crédito](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>", unsafe_allow_html=True)
-    st.markdown("<div class='card'>📊 [New Dashboard - Crédito](https://app.powerbi.com/links/creditdashboard)</div>", unsafe_allow_html=True)
-with col2:
-    st.markdown("<div class='card'>🌱 [Formulário ESG](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>", unsafe_allow_html=True)
-
-# RODAPÉ
-st.markdown("---")
-st.caption("Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank")
-st.markdown(f"<sub>🔒 Acesso: somente uso interno | 🧾 Dados de uso sendo monitorados | 📊 Total de acessos: <b>{total_acessos}</b></sub>", unsafe_allow_html=True)
+section("Área de Crédito", "🏢", [
+    ("📝 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform1"),
+    ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform2"),
+    ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdashboard")
+])
