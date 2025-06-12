@@ -3,7 +3,6 @@ import base64
 
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide")
 
-# Função para carregar a logo
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -15,18 +14,14 @@ logo_base64 = get_base64_of_bin_file(logo_path)
 # Estilos customizados
 st.markdown(f"""
 <style>
-    html {{
-        scroll-behavior: smooth;
-    }}
+    html {{ scroll-behavior: smooth; }}
     .sidebar-links a {{
         color: white;
         display: block;
         padding: 8px 0;
         text-decoration: none;
     }}
-    .sidebar-links a:hover {{
-        text-decoration: underline;
-    }}
+    .sidebar-links a:hover {{ text-decoration: underline; }}
     .custom-card {{
         border: 1px solid #003366;
         padding: 12px 20px;
@@ -41,8 +36,13 @@ st.markdown(f"""
         transform: scale(1.03);
         box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }}
-    .search-button-container {{
-        margin-top: 26px;
+    .section-title {{
+        background-color: #002B5B;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 20px;
+        margin-top: 40px;
     }}
 </style>
 """, unsafe_allow_html=True)
@@ -81,7 +81,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Barra de busca (abaixo da notificação)
+# Barra de busca (agora logo abaixo da notificação)
 col1, col2 = st.columns([9, 1])
 with col1:
     query = st.text_input("Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
@@ -94,12 +94,12 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
-# Meta do mês
+# Meta do mês (menos chamativa)
 st.markdown("""
 <h3 style='margin-top: 30px;'>📉 Meta do Mês</h3>
-<div style="background-color: #002B5B; padding: 20px; border-radius: 10px; text-align: center; color: white; font-size: 18px;">
+<div style="background-color: #002B5B; padding: 12px; border-radius: 10px; text-align: center; color: white; font-size: 16px;">
     🎯 Meta: 75%<br>
-    <span style="font-size: 14px;">Meta atingida até agora</span>
+    <span style="font-size: 13px;">Meta atingida até agora</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -138,11 +138,7 @@ secoes = {
 anchors = ["dashboards", "formularios", "materiais", "credito"]
 
 for i, (secao, links) in enumerate(secoes.items()):
-    st.markdown(f"""
-    <h3 id="{anchors[i]}" style="background-color: #002B5B; color: white; padding: 10px 15px; border-radius: 8px; margin-top: 40px;">
-        {secao}
-    </h3>
-    """, unsafe_allow_html=True)
+    st.markdown(f"<h3 id='{anchors[i]}' class='section-title'>{secao}</h3>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     metade = len(links) // 2 + len(links) % 2
