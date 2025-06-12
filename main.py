@@ -1,32 +1,30 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+import re
+
+# Contador de acessos (simples)
+if "access_count" not in st.session_state:
+    st.session_state.access_count = 0
+st.session_state.access_count += 1
 
 # CONFIGURAÇÃO DA PÁGINA
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
 
-# ESTILO FORÇADO TRAVELEX
+# ESTILO CUSTOMIZADO
 st.markdown("""
     <style>
-        body, .main, .block-container {
+        body {
             background-color: #F5F7FA;
         }
-
-        h1, h2, h3, h4 {
-            color: #00205B !important;
+        .main {
+            background-color: #F5F7FA;
         }
-
-        .st-emotion-cache-6qob1r, .css-10trblm { /* títulos */
-            color: #00205B !important;
+        .block-container {
+            padding: 2rem;
         }
-
-        .st-emotion-cache-1avcm0n.ezrtsby0 {
-            background-color: #E4002B !important;
+        h1, h2, h3 {
+            color: #00205B;
         }
-
-        .st-emotion-cache-1v0mbdj, .st-emotion-cache-16txtl3 {
-            color: #00205B !important;
-        }
-
         .card {
             background-color: #ffffff;
             padding: 1.5rem;
@@ -34,39 +32,19 @@ st.markdown("""
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             margin-bottom: 1.5rem;
         }
-
+        a {
+            color: #0072CE;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #005bb5;
+        }
         .center-logo {
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 10px;
-        }
-
-        .center-logo img {
-            max-height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .footer {
-            font-size: 0.85rem;
-            color: gray;
-            text-align: left;
-            padding-top: 1.5rem;
-        }
-
-        a {
-            color: #00205B;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #E4002B;
-        }
-
-        .search-box {
-            margin-top: 15px;
-            margin-bottom: 25px;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -75,14 +53,11 @@ st.markdown("""
 st.markdown('<div class="center-logo">', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 9])
 with col1:
-    st.image("logo_travelex.png")
+    st.image("logo_travelex.png", width=90)
 with col2:
     st.markdown("## Portal Comercial Travelex")
     st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
 st.markdown('</div>', unsafe_allow_html=True)
-
-# ALERTA DE ATUALIZAÇÃO
-st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
 # MENU LATERAL
 with st.sidebar:
@@ -94,70 +69,74 @@ with st.sidebar:
         default_index=0
     )
 
-# BARRA DE BUSCA (aperfeiçoada)
-search_term = st.text_input("🔎 Buscar algo no portal:", "").lower()
+# AVISO TOPO
+st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
-# RESULTADOS DE BUSCA FLEXÍVEL
-def buscar_resultados(term):
-    banco = {
-        "Gestão Comercial – Market Share": "https://app.powerbi.com/links/VrFjeMY32s",
-        "Telemetria": "https://app.powerbi.com/links/DN8VawnQyN",
-        "Raio X": "https://app.powerbi.com/links/r_cCxY0hQF",
-        "Resultados vs Meta": "https://app.powerbi.com/links/5tOpR8JJh4",
-        "Pedidos de Migração de Carteira": "https://forms.office.com/pages/responsepage.aspx?id=...",
-        "Pedidos de Extração de CAM57": "https://forms.office.com/pages/responsepage.aspx?id=..."
-    }
-    resultados = [f"- [{k}]({v})" for k, v in banco.items() if term in k.lower()]
-    return resultados
+# DADOS
+dashboards = {
+    "Gestão Comercial – Market Share": "https://app.powerbi.com/links/VrFjeMY32s",
+    "Telemetria": "https://app.powerbi.com/links/DN8VawnQyN",
+    "Raio X": "https://app.powerbi.com/links/r_cCxY0hQF",
+    "Resultados vs Meta": "https://app.powerbi.com/links/5tOpR8JJh4"
+}
+formularios = {
+    "Pedidos de Migração de Carteira": "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVodaBv4SADNOrM5qGKC6CrhUODZPTUtHWU4xTTFDWTcwQkRIRlk0QVVNNS4u",
+    "Pedidos de Extração de CAM57": "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u"
+}
 
-if search_term:
-    st.markdown("### 🔍 Resultados da Busca:")
-    resultados = buscar_resultados(search_term)
-    if resultados:
-        for item in resultados:
-            st.markdown(item)
-    else:
-        st.warning("Nenhum resultado encontrado.")
+materiais = {
+    # Adicione aqui quando quiser
+}
 
-# CONTEÚDO PRINCIPAL (apenas se não estiver buscando)
-if not search_term:
-    if selected == "🏠 Início":
-        st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
-        st.markdown(
-            "Use o menu lateral para navegar entre dashboards, formulários e materiais. "
-            "Esse portal está em constante evolução para melhor servir o time comercial."
-        )
+# FILTRAGEM (apenas na aba Início)
+def buscar_itens(query, itens):
+    return {k: v for k, v in itens.items() if re.search(query, k, re.IGNORECASE)}
 
-    elif selected == "📊 Dashboards":
-        st.markdown("### 📊 Dashboards Comerciais")
-        with st.container():
-            st.markdown('<div class="card">', unsafe_allow_html=True)
-            st.markdown("- [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)")
-            st.markdown("- [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)")
-            st.markdown("- [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)")
-            st.markdown("- [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)")
-            st.markdown('</div>', unsafe_allow_html=True)
+# SEÇÕES
+if selected == "🏠 Início":
+    st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
+    st.markdown("Use o menu lateral para navegar entre dashboards, formulários e materiais. Esse portal está em constante evolução para melhor servir o time comercial.")
 
-    elif selected == "📄 Formulários":
-        st.markdown("### 📄 Formulários Úteis")
-        with st.container():
-            st.markdown('<div class="card">', unsafe_allow_html=True)
-            st.markdown("- [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=...)")
-            st.markdown("- [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=...)")
-            st.markdown('</div>', unsafe_allow_html=True)
+    search_term = st.text_input("🔎 Buscar algo no portal:")
+    if search_term:
+        st.subheader("🔗 Resultados da Busca")
+        resultados = {
+            "Dashboards": buscar_itens(search_term, dashboards),
+            "Formulários": buscar_itens(search_term, formularios),
+            "Materiais": buscar_itens(search_term, materiais)
+        }
+        for secao, links in resultados.items():
+            if links:
+                st.markdown(f"#### {secao}")
+                for nome, url in links.items():
+                    st.markdown(f"- [{nome}]({url})")
 
-    elif selected == "📚 Materiais":
-        st.markdown("### 📚 Materiais e Documentos")
-        with st.container():
-            st.markdown('<div class="card">', unsafe_allow_html=True)
-            st.markdown("*(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
-            st.markdown('</div>', unsafe_allow_html=True)
+elif selected == "📊 Dashboards":
+    st.markdown("### 📊 Dashboards Comerciais")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        for nome, url in dashboards.items():
+            st.markdown(f"- [{nome}]({url})")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+elif selected == "📄 Formulários":
+    st.markdown("### 📄 Formulários Úteis")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        for nome, url in formularios.items():
+            st.markdown(f"- [{nome}]({url})")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+elif selected == "📚 Materiais":
+    st.markdown("### 📚 Materiais e Documentos")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("*(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # RODAPÉ
 st.markdown("---")
-st.markdown(
-    '<div class="footer">Desenvolvido pela área de Planejamento Comercial '
-    '(Gestão Felipe Von Pressentin) – Travelex Bank<br>'
-    '🔒 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados | 📈 Total de acessos: <strong>1234</strong></div>',
-    unsafe_allow_html=True
-)
+st.caption("""
+Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank  
+🔒 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados | 📈 Total de acessos: **{:,}**
+""".format(st.session_state.access_count))
