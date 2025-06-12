@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 # CONFIGURAÇÃO DA PÁGINA
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
 
-# ESTILO CUSTOMIZADO
+# ESTILO CUSTOMIZADO + RESPONSIVIDADE
 st.markdown("""
     <style>
         body {
@@ -34,27 +34,26 @@ st.markdown("""
         a:hover {
             color: #005bb5;
         }
-        .center-logo {
+        .sidebar-logo {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            .block-container {
+                padding: 1rem;
+            }
+            .card {
+                padding: 1rem;
+            }
         }
     </style>
 """, unsafe_allow_html=True)
 
-# LOGO E TÍTULO
-st.markdown('<div class="center-logo">', unsafe_allow_html=True)
-col1, col2 = st.columns([1, 9])
-with col1:
-    st.image("logo.png", width=100)
-with col2:
-    st.markdown("## Portal Comercial Travelex")
-    st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
-st.markdown('</div>', unsafe_allow_html=True)
-
-# MENU LATERAL
+# MENU LATERAL COM LOGO
 with st.sidebar:
+    st.markdown('<div class="sidebar-logo"><img src="https://i.imgur.com/TycsZPT.png" width="160"></div>', unsafe_allow_html=True)
+
     selected = option_menu(
         "Seções",
         ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais"],
@@ -62,6 +61,10 @@ with st.sidebar:
         menu_icon="cast",
         default_index=0
     )
+
+# TÍTULO
+st.markdown("## Portal Comercial Travelex")
+st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
 
 # CONTEÚDO DAS SEÇÕES
 if selected == "🏠 Início":
