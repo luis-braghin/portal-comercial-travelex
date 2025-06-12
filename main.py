@@ -24,12 +24,14 @@ st.markdown("""
         }
         .main {
             background-color: #F5F7FA;
+            font-size: 16px;
         }
         .block-container {
             padding: 2rem 3rem;
         }
         h1, h2, h3, h4 {
             color: #00205B;
+            font-size: 20px;
         }
         a {
             text-decoration: none;
@@ -44,6 +46,7 @@ st.markdown("""
             margin-bottom: 1rem;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: 0.3s;
+            font-size: 16px;
         }
         .card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -56,6 +59,14 @@ st.markdown("""
             color: white;
             text-align: center;
             margin-bottom: 2rem;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 1rem;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -85,6 +96,11 @@ st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
 # INÍCIO
 if selected == "🏠 Início":
+    # BARRA DE BUSCA
+    st.markdown("### 🔎 Pesquisar")
+    search = st.text_input("Digite para buscar em dashboards, formulários ou materiais:", "").lower()
+
+    # META DO MÊS
     st.markdown("## 📈 Meta do Mês")
     st.markdown("""
         <div class="metric-block">
@@ -93,113 +109,70 @@ if selected == "🏠 Início":
         </div>
     """, unsafe_allow_html=True)
 
+    # DADOS
+    dashboards = [
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("📡 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
+        ("🩺 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+        ("📊 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+    ]
+    formularios = [
+        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+    ]
+    materiais = [
+        ("📁 Treinamentos e Manuais", "#"),
+    ]
+
     # DASHBOARDS
     st.markdown("## 📊 Dashboards Comerciais")
     dash_cols = st.columns(2)
-    with dash_cols[0]:
-        st.markdown("""
-            <a href="https://app.powerbi.com/links/VrFjeMY32s" target="_blank">
-                <div class="card">
-                    <h4>📌 Gestão Comercial – Market Share</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
-        st.markdown("""
-            <a href="https://app.powerbi.com/links/r_cCxY0hQF" target="_blank">
-                <div class="card">
-                    <h4>🩺 Raio X</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
-    with dash_cols[1]:
-        st.markdown("""
-            <a href="https://app.powerbi.com/links/DN8VawnQyN" target="_blank">
-                <div class="card">
-                    <h4>📡 Telemetria</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
-        st.markdown("""
-            <a href="https://app.powerbi.com/links/5tOpR8JJh4" target="_blank">
-                <div class="card">
-                    <h4>📊 Resultados vs Meta</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
+    for i, (nome, link) in enumerate(dashboards):
+        if search in nome.lower():
+            with dash_cols[i % 2]:
+                st.markdown(f"""
+                    <a href="{link}" target="_blank">
+                        <div class="card">{nome}</div>
+                    </a>
+                """, unsafe_allow_html=True)
 
     # FORMULÁRIOS
     st.markdown("## 📝 Formulários Úteis")
     form_cols = st.columns(2)
-    with form_cols[0]:
-        st.markdown("""
-            <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
-                <div class="card">
-                    <h4>📄 Migração de Carteira</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
-    with form_cols[1]:
-        st.markdown("""
-            <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
-                <div class="card">
-                    <h4>📄 Extração de CAM57</h4>
-                </div>
-            </a>
-        """, unsafe_allow_html=True)
+    for i, (nome, link) in enumerate(formularios):
+        if search in nome.lower():
+            with form_cols[i % 2]:
+                st.markdown(f"""
+                    <a href="{link}" target="_blank">
+                        <div class="card">{nome}</div>
+                    </a>
+                """, unsafe_allow_html=True)
 
     # MATERIAIS
     st.markdown("## 📚 Materiais")
-    st.markdown("""
-        <div class="card">
-            <h4>📁 Esta seção pode conter links para treinamentos, manuais, apresentações internas etc.</h4>
-            <p>Me envie o que quiser que eu coloco aqui!</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-# OUTRAS SEÇÕES
-elif selected == "📊 Dashboards":
-    st.markdown("### 📊 Dashboards Comerciais")
-    dashboards = [
-        {"nome": "Gestão Comercial – Market Share", "link": "https://app.powerbi.com/links/VrFjeMY32s"},
-        {"nome": "Telemetria", "link": "https://app.powerbi.com/links/DN8VawnQyN"},
-        {"nome": "Raio X", "link": "https://app.powerbi.com/links/r_cCxY0hQF"},
-        {"nome": "Resultados vs Meta", "link": "https://app.powerbi.com/links/5tOpR8JJh4"},
-    ]
-    col1, col2 = st.columns(2)
-    for i, dash in enumerate(dashboards):
-        with (col1 if i % 2 == 0 else col2):
+    for nome, link in materiais:
+        if search in nome.lower():
             st.markdown(f"""
-                <a href="{dash['link']}" target="_blank">
-                    <div class="card">
-                        <h4>{dash['nome']}</h4>
-                    </div>
+                <a href="{link}" target="_blank">
+                    <div class="card">{nome}</div>
                 </a>
             """, unsafe_allow_html=True)
 
+# OUTRAS SEÇÕES (mantidas simples)
+elif selected == "📊 Dashboards":
+    st.markdown("### 📊 Dashboards Comerciais")
+    for nome, link in dashboards:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
 elif selected == "📄 Formulários":
     st.markdown("### 📄 Formulários Úteis")
-    st.markdown("""
-        <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
-            <div class="card">
-                <h4>📝 Pedidos de Migração de Carteira</h4>
-            </div>
-        </a>
-    """, unsafe_allow_html=True)
-    st.markdown("""
-        <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
-            <div class="card">
-                <h4>📑 Pedidos de Extração de CAM57</h4>
-            </div>
-        </a>
-    """, unsafe_allow_html=True)
+    for nome, link in formularios:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
 
 elif selected == "📚 Materiais":
     st.markdown("### 📚 Materiais e Documentos")
-    st.markdown("""
-        <div class="card">
-            <p>📂 *(Envie os links ou materiais que deseja adicionar aqui)*</p>
-        </div>
-    """, unsafe_allow_html=True)
+    for nome, link in materiais:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
 
 # RODAPÉ
 st.markdown("---")
