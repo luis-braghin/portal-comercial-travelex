@@ -47,7 +47,7 @@ st.markdown("""
 st.markdown('<div class="center-logo">', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 9])
 with col1:
-    st.image("logo.png", width=100)
+    st.image("logo_travelex.png", width=100)
 with col2:
     st.markdown("## Portal Comercial Travelex")
     st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
