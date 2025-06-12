@@ -1,62 +1,77 @@
 import streamlit as st
 import base64
-from PIL import Image
 
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide")
 
-# Função para carregar imagens como base64 para uso inline em HTML
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
     return base64.b64encode(data).decode()
 
-# Logo
 logo_path = "logo_travelex.png"
 logo_base64 = get_base64_of_bin_file(logo_path)
 
-# Scroll suave
-st.markdown("""
+# Estilos personalizados
+st.markdown(f"""
 <style>
-  html {
-    scroll-behavior: smooth;
-  }
+    html {{
+        scroll-behavior: smooth;
+    }}
+    .sidebar-links a {{
+        color: white;
+        display: block;
+        padding: 8px 0;
+        text-decoration: none;
+    }}
+    .sidebar-links a:hover {{
+        text-decoration: underline;
+    }}
+    .custom-card {{
+        border: 1px solid #003366;
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+    }}
+    .custom-card:hover {{
+        transform: scale(1.03);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }}
+    .search-button-container {{
+        margin-top: 26px;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
-# Sidebar com cor da Travelex
+# Sidebar
 with st.sidebar:
-    st.markdown(
-        f"""
-        <div style='text-align: center; background-color: #002b5b; padding: 20px; border-radius: 10px;'>
-            <img src='data:image/png;base64,{logo_base64}' width='150'>
-        </div>
-        <div style='color: white; margin-top: 20px;'>
-            <h4>Seções</h4>
-            <ul style='list-style: none; padding-left: 0;'>
-                <li><a href="#inicio" style='color: white;'>🏠</a></li>
-                <li><a href="#dashboards" style='color: white;'>📊</a></li>
-                <li><a href="#formularios" style='color: white;'>📄</a></li>
-                <li><a href="#materiais" style='color: white;'>📚</a></li>
-                <li><a href="#credito" style='color: white;'>🏢</a></li>
-            </ul>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Cabeçalho com fundo e logo centralizada
-st.markdown(
-    f"""
-    <div id="inicio" style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
-        <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
-        <div>
-            <h1 style='margin-bottom: 0px; color: #002B5B;'>Central de Planejamento Comercial</h1>
-            <p style='margin-top: 5px; color: #6c757d;'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
-        </div>
+    st.markdown(f"""
+    <div style='text-align: center; background-color: #002b5b; padding: 20px; border-radius: 10px;'>
+        <img src='data:image/png;base64,{logo_base64}' width='150'>
     </div>
-    """,
-    unsafe_allow_html=True
-)
+    <div class="sidebar-links" style='color: white; margin-top: 20px;'>
+        <h4>Seções</h4>
+        <a href="#inicio">🏠 Início</a>
+        <a href="#dashboards">📊 Dashboards</a>
+        <a href="#formularios">📄 Formulários</a>
+        <a href="#materiais">📚 Materiais</a>
+        <a href="#credito">🏢 Crédito</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Cabeçalho
+st.markdown(f"""
+<div id="inicio" style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
+    <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+    <div>
+        <h1 style='margin-bottom: 0px; color: #002B5B;'>Central de Planejamento Comercial</h1>
+        <p style='margin-top: 5px; color: #6c757d;'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("""<br>""", unsafe_allow_html=True)
 
@@ -65,15 +80,15 @@ col1, col2 = st.columns([9, 1])
 with col1:
     query = st.text_input("🔎 Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
 with col2:
-    st.markdown("""
-    <div style="padding-top: 22px;">
+    st.markdown(f"""
+    <div class="search-button-container">
         <button style="background-color: white; border: 1px solid #002B5B; border-radius: 6px; padding: 6px 12px; cursor: pointer;">
             🔍 Buscar
         </button>
     </div>
     """, unsafe_allow_html=True)
 
-# Seções com links
+# Seções e links
 secoes = {
     "📊 Dashboards Comerciais": [
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -105,15 +120,10 @@ for i, (secao, links) in enumerate(secoes.items()):
     for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
         with col:
             for nome, url in chunk:
-                st.markdown(
-                    f"""
-                    <a href="{url}" target="_blank" style="text-decoration: none;">
-                        <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s ease-in-out; cursor: pointer;">
-                            <span style="display: block;" onmouseover="this.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-                                {nome}
-                            </span>
-                        </div>
-                    </a>
-                    """,
-                    unsafe_allow_html=True
-                )
+                st.markdown(f"""
+                <a href="{url}" target="_blank" style="text-decoration: none;">
+                    <div class="custom-card">
+                        <span style="display: block;">{nome}</span>
+                    </div>
+                </a>
+                """, unsafe_allow_html=True)
