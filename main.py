@@ -14,31 +14,35 @@ def get_base64_of_bin_file(bin_file):
 logo_path = "logo_travelex.png"
 logo_base64 = get_base64_of_bin_file(logo_path)
 
-# Sidebar com cor de fundo personalizada
+# Scroll suave
+st.markdown("""
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+""", unsafe_allow_html=True)
+
+# Sidebar com cor da Travelex
 with st.sidebar:
     st.markdown(
         f"""
         <div style='text-align: center; background-color: #002b5b; padding: 20px; border-radius: 10px;'>
             <img src='data:image/png;base64,{logo_base64}' width='150'>
         </div>
+        <div style='color: white; margin-top: 20px;'>
+            <h4>Seções</h4>
+            <ul style='list-style: none; padding-left: 0;'>
+                <li><a href="#inicio" style='color: white;'>🏠</a></li>
+                <li><a href="#dashboards" style='color: white;'>📊</a></li>
+                <li><a href="#formularios" style='color: white;'>📄</a></li>
+                <li><a href="#materiais" style='color: white;'>📚</a></li>
+                <li><a href="#credito" style='color: white;'>🏢</a></li>
+            </ul>
+        </div>
         """,
         unsafe_allow_html=True
     )
-
-    st.markdown("""
-    <div style='color: white;'>
-        <h4>Seções</h4>
-        <ul style='list-style: none; padding-left: 0;'>
-            <li><a href="#inicio" style='color: white;'>🏠 Início</a></li>
-            <li><a href="#dashboards" style='color: white;'>📊 Dashboards</a></li>
-            <li><a href="#formularios" style='color: white;'>📄 Formulários</a></li>
-            <li><a href="#materiais" style='color: white;'>📚 Materiais</a></li>
-            <li><a href="#credito" style='color: white;'>🏢 Área de Crédito</a></li>
-        </ul>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 
 # Cabeçalho com fundo e logo centralizada
 st.markdown(
@@ -62,14 +66,14 @@ with col1:
     query = st.text_input("🔎 Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
 with col2:
     st.markdown("""
-    <div style="padding-top: 14px;">
+    <div style="padding-top: 22px;">
         <button style="background-color: white; border: 1px solid #002B5B; border-radius: 6px; padding: 6px 12px; cursor: pointer;">
             🔍 Buscar
         </button>
     </div>
     """, unsafe_allow_html=True)
 
-# Exemplo de seções com cards clicáveis e separados
+# Seções com links
 secoes = {
     "📊 Dashboards Comerciais": [
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -77,7 +81,7 @@ secoes = {
         ("🔎 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
         ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
     ],
-    "📝 Formulários": [
+    "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
         ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
     ],
@@ -98,27 +102,18 @@ for i, (secao, links) in enumerate(secoes.items()):
     st.markdown(f"<h3 id='{anchors[i]}'>{secao}</h3>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     metade = len(links) // 2 + len(links) % 2
-    with col1:
-        for nome, url in links[:metade]:
-            st.markdown(
-                f"""
-                <a href="{url}" target="_blank" style="text-decoration: none;">
-                    <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)';">
-                        {nome}
-                    </div>
-                </a>
-                """,
-                unsafe_allow_html=True
-            )
-    with col2:
-        for nome, url in links[metade:]:
-            st.markdown(
-                f"""
-                <a href="{url}" target="_blank" style="text-decoration: none;">
-                    <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)';">
-                        {nome}
-                    </div>
-                </a>
-                """,
-                unsafe_allow_html=True
-            )
+    for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
+        with col:
+            for nome, url in chunk:
+                st.markdown(
+                    f"""
+                    <a href="{url}" target="_blank" style="text-decoration: none;">
+                        <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s ease-in-out; cursor: pointer;">
+                            <span style="display: block;" onmouseover="this.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                                {nome}
+                            </span>
+                        </div>
+                    </a>
+                    """,
+                    unsafe_allow_html=True
+                )
