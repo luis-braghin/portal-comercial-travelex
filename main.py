@@ -48,6 +48,14 @@ st.markdown(f"""
         color: #6c757d;
         text-align: center;
     }}
+    .section-title {{
+        background-color: #002b5b;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -81,25 +89,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Meta do Mês
-st.markdown("""
-<h3>📉 Meta do Mês</h3>
-<div style='background-color: #001f5b; color: white; padding: 30px; border-radius: 12px; text-align: center;'>
-    <div style='font-size: 32px;'>🎯 75%</div>
-    <div style='margin-top: 10px;'>Meta atingida até agora</div>
-</div>
-""", unsafe_allow_html=True)
-
-# Próximos Eventos
-st.markdown("""
-<h3>📅 Próximos Eventos</h3>
-<ul>
-    <li>🔔 Reunião Trimestral - 20 de Junho</li>
-    <li>🧠 Workshop Estratégico - 27 de Junho</li>
-    <li>📊 Atualização Power BI - 01 de Julho</li>
-</ul>
-""", unsafe_allow_html=True)
-
 # Barra de busca
 col1, col2 = st.columns([9, 1])
 with col1:
@@ -112,6 +101,25 @@ with col2:
         </button>
     </div>
     """, unsafe_allow_html=True)
+
+# Meta do Mês
+st.markdown("""
+<h3>📉 Meta do Mês</h3>
+<div style='background-color: #001f5b; color: white; padding: 15px; border-radius: 10px; text-align: center; max-width: 300px;'>
+    <div style='font-size: 24px;'>🎯 75%</div>
+    <div style='margin-top: 5px; font-size: 14px;'>Meta atingida até agora</div>
+</div>
+""", unsafe_allow_html=True)
+
+# Próximos Eventos
+st.markdown("""
+<h3>📅 Próximos Eventos</h3>
+<ul>
+    <li>🔔 Reunião Trimestral - 20 de Junho</li>
+    <li>🧠 Workshop Estratégico - 27 de Junho</li>
+    <li>📊 Atualização Power BI - 01 de Julho</li>
+</ul>
+""", unsafe_allow_html=True)
 
 # Seções e links
 secoes = {
@@ -139,7 +147,7 @@ anchors = ["dashboards", "formularios", "materiais", "credito"]
 
 for i, (secao, links) in enumerate(secoes.items()):
     st.markdown("""<br>""", unsafe_allow_html=True)
-    st.markdown(f"<h3 id='{anchors[i]}'>{secao}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<div id='{anchors[i]}' class='section-title'>{secao}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     metade = len(links) // 2 + len(links) % 2
     for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
