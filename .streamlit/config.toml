@@ -1,6 +1,7 @@
 [theme]
-primaryColor = "#E4002B"
-backgroundColor = "#F5F7FA"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#00205B"
-font = "sans serif"
+base="light"
+primaryColor="#00205B"        # Azul Travelex escuro
+backgroundColor="#F5F7FA"     # Cinza claro suave
+secondaryBackgroundColor="#FFFFFF"  # Branco para cartões
+textColor="#00205B"           # Texto principal
+font="sans serif"
