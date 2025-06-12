@@ -16,7 +16,7 @@ with open(contador_path, "r+") as f:
     f.seek(0)
     f.write(str(total_acessos))
 
-# ESTILO
+# ESTILO CUSTOMIZADO
 st.markdown("""
     <style>
         body {
@@ -28,38 +28,39 @@ st.markdown("""
         .block-container {
             padding: 2rem 3rem;
         }
-        .sidebar .sidebar-content {
-            background-color: #00205B;
+        h1, h2, h3, h4 {
+            color: #00205B;
         }
-        .css-1d391kg {
-            background-color: #00205B !important;
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            opacity: 0.9;
         }
         .card {
-            background-color: #ffffff;
-            padding: 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
         .card:hover {
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
         }
-        h1, h2, h3, h4, h5 {
-            color: #00205B;
-        }
-        .metric-card {
-            background-color: #DDE7F2;
-            border-radius: 12px;
-            padding: 1.2rem;
+        .metric-block {
+            background-color: #00205B;
+            padding: 1.5rem;
+            border-radius: 16px;
+            color: white;
             text-align: center;
-            color: #00205B;
+            margin-bottom: 2rem;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# SIDEBAR
+# MENU LATERAL
 with st.sidebar:
     selected = option_menu(
         "Seções",
@@ -79,38 +80,83 @@ with col2:
     st.caption("Travelex Bank · Tudo o que você precisa em um só lugar.")
 st.markdown("</div>", unsafe_allow_html=True)
 
-# ALERTA
+# AVISO NO TOPO
 st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
-# CONTEÚDO
+# INÍCIO
 if selected == "🏠 Início":
-    # Bloco de meta do mês
-    st.markdown("### 📈 Meta do Mês")
-    with st.container():
-        st.markdown('<div class="metric-card"><h2>75%</h2><p>Meta atingida até agora</p></div>', unsafe_allow_html=True)
+    st.markdown("## 📈 Meta do Mês")
+    st.markdown("""
+        <div class="metric-block">
+            <h2 style="margin:0;">🎯 75%</h2>
+            <p style="margin:0;">Meta atingida até agora</p>
+        </div>
+    """, unsafe_allow_html=True)
 
-    # Dashboards
-    st.markdown("### 📊 Dashboards Comerciais")
-    dash1, dash2 = st.columns(2)
-    with dash1:
-        st.markdown('<div class="card">📈 [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)</div>', unsafe_allow_html=True)
-        st.markdown('<div class="card">📊 [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)</div>', unsafe_allow_html=True)
-    with dash2:
-        st.markdown('<div class="card">📡 [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)</div>', unsafe_allow_html=True)
-        st.markdown('<div class="card">📋 [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)</div>', unsafe_allow_html=True)
+    # DASHBOARDS
+    st.markdown("## 📊 Dashboards Comerciais")
+    dash_cols = st.columns(2)
+    with dash_cols[0]:
+        st.markdown("""
+            <a href="https://app.powerbi.com/links/VrFjeMY32s" target="_blank">
+                <div class="card">
+                    <h4>📌 Gestão Comercial – Market Share</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+            <a href="https://app.powerbi.com/links/r_cCxY0hQF" target="_blank">
+                <div class="card">
+                    <h4>🩺 Raio X</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    with dash_cols[1]:
+        st.markdown("""
+            <a href="https://app.powerbi.com/links/DN8VawnQyN" target="_blank">
+                <div class="card">
+                    <h4>📡 Telemetria</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+            <a href="https://app.powerbi.com/links/5tOpR8JJh4" target="_blank">
+                <div class="card">
+                    <h4>📊 Resultados vs Meta</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
 
-    # Formulários
-    st.markdown("### 📄 Formulários Úteis")
-    form1, form2 = st.columns(2)
-    with form1:
-        st.markdown('<div class="card">📝 [Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>', unsafe_allow_html=True)
-    with form2:
-        st.markdown('<div class="card">📑 [Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>', unsafe_allow_html=True)
+    # FORMULÁRIOS
+    st.markdown("## 📝 Formulários Úteis")
+    form_cols = st.columns(2)
+    with form_cols[0]:
+        st.markdown("""
+            <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
+                <div class="card">
+                    <h4>📄 Migração de Carteira</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    with form_cols[1]:
+        st.markdown("""
+            <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
+                <div class="card">
+                    <h4>📄 Extração de CAM57</h4>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
 
-    # Materiais
-    st.markdown("### 📚 Materiais")
-    st.markdown('<div class="card">📂 Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!</div>', unsafe_allow_html=True)
+    # MATERIAIS
+    st.markdown("## 📚 Materiais")
+    st.markdown("""
+        <div class="card">
+            <h4>📁 Esta seção pode conter links para treinamentos, manuais, apresentações internas etc.</h4>
+            <p>Me envie o que quiser que eu coloco aqui!</p>
+        </div>
+    """, unsafe_allow_html=True)
 
+# OUTRAS SEÇÕES
 elif selected == "📊 Dashboards":
     st.markdown("### 📊 Dashboards Comerciais")
     dashboards = [
@@ -120,19 +166,40 @@ elif selected == "📊 Dashboards":
         {"nome": "Resultados vs Meta", "link": "https://app.powerbi.com/links/5tOpR8JJh4"},
     ]
     col1, col2 = st.columns(2)
-    cols = [col1, col2]
     for i, dash in enumerate(dashboards):
-        with cols[i % 2]:
-            st.markdown(f'<div class="card">🔗 [{dash["nome"]}]({dash["link"]})</div>', unsafe_allow_html=True)
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f"""
+                <a href="{dash['link']}" target="_blank">
+                    <div class="card">
+                        <h4>{dash['nome']}</h4>
+                    </div>
+                </a>
+            """, unsafe_allow_html=True)
 
 elif selected == "📄 Formulários":
     st.markdown("### 📄 Formulários Úteis")
-    st.markdown('<div class="card">📝 [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>', unsafe_allow_html=True)
-    st.markdown('<div class="card">📑 [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)</div>', unsafe_allow_html=True)
+    st.markdown("""
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
+            <div class="card">
+                <h4>📝 Pedidos de Migração de Carteira</h4>
+            </div>
+        </a>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..." target="_blank">
+            <div class="card">
+                <h4>📑 Pedidos de Extração de CAM57</h4>
+            </div>
+        </a>
+    """, unsafe_allow_html=True)
 
 elif selected == "📚 Materiais":
     st.markdown("### 📚 Materiais e Documentos")
-    st.markdown('<div class="card">📂 *(Envie os materiais que quiser adicionar aqui)*</div>', unsafe_allow_html=True)
+    st.markdown("""
+        <div class="card">
+            <p>📂 *(Envie os links ou materiais que deseja adicionar aqui)*</p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # RODAPÉ
 st.markdown("---")
