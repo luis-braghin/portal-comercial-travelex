@@ -16,6 +16,26 @@ with open(contador_path, "r+") as f:
     f.seek(0)
     f.write(str(total_acessos))
 
+# DADOS GLOBAIS
+dashboards = [
+    ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+    ("📡 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
+    ("🩺 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+    ("📊 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+]
+formularios = [
+    ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+    ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+]
+materiais = [
+    ("📁 Treinamentos e Manuais", "#"),
+]
+eventos = [
+    ("📅 Reunião Comercial", "18/06/2025", "Apresentação de resultados semestrais."),
+    ("🧠 Workshop CRM", "25/06/2025", "Capacitação para uso da nova plataforma."),
+    ("🚀 Lançamento de Campanha", "01/07/2025", "Nova campanha de captação será iniciada."),
+]
+
 # ESTILO CUSTOMIZADO
 st.markdown("""
     <style>
@@ -32,6 +52,13 @@ st.markdown("""
         h1, h2, h3, h4 {
             color: #00205B;
             font-size: 20px;
+        }
+        .header {
+            background-color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
         a {
             text-decoration: none;
@@ -68,10 +95,26 @@ st.markdown("""
             font-size: 16px;
             margin-bottom: 1rem;
         }
+        .event-block {
+            background-color: #ffffff;
+            border-left: 5px solid #0072CE;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            margin-bottom: 1rem;
+        }
+        /* DARK MODE SIDEBAR */
+        section[data-testid="stSidebar"] {
+            background-color: #00205B !important;
+            color: white;
+        }
+        .css-1d391kg, .css-1v3fvcr {
+            color: white !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
-# MENU LATERAL
+# SIDEBAR
 with st.sidebar:
     selected = option_menu(
         "Seções",
@@ -81,26 +124,25 @@ with st.sidebar:
         default_index=0
     )
 
-# LOGO E TÍTULO
-st.markdown('<div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;">', unsafe_allow_html=True)
+# CABEÇALHO
+st.markdown('<div class="header">', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 9])
 with col1:
     st.image("logo_travelex.png", width=100)
 with col2:
     st.markdown("## Central de Planejamento Comercial")
     st.caption("Travelex Bank · Tudo o que você precisa em um só lugar.")
-st.markdown("</div>", unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# AVISO NO TOPO
+# AVISO
 st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
 # INÍCIO
 if selected == "🏠 Início":
-    # BARRA DE BUSCA
     st.markdown("### 🔎 Pesquisar")
     search = st.text_input("Digite para buscar em dashboards, formulários ou materiais:", "").lower()
 
-    # META DO MÊS
+    # META
     st.markdown("## 📈 Meta do Mês")
     st.markdown("""
         <div class="metric-block">
@@ -109,20 +151,15 @@ if selected == "🏠 Início":
         </div>
     """, unsafe_allow_html=True)
 
-    # DADOS
-    dashboards = [
-        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
-        ("📡 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
-        ("🩺 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
-        ("📊 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
-    ]
-    formularios = [
-        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
-        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
-    ]
-    materiais = [
-        ("📁 Treinamentos e Manuais", "#"),
-    ]
+    # EVENTOS
+    st.markdown("## 📅 Próximos Eventos")
+    for titulo, data, desc in eventos:
+        st.markdown(f"""
+            <div class="event-block">
+                <strong>{titulo}</strong> – <em>{data}</em><br>
+                <span>{desc}</span>
+            </div>
+        """, unsafe_allow_html=True)
 
     # DASHBOARDS
     st.markdown("## 📊 Dashboards Comerciais")
@@ -158,7 +195,7 @@ if selected == "🏠 Início":
                 </a>
             """, unsafe_allow_html=True)
 
-# OUTRAS SEÇÕES (mantidas simples)
+# OUTRAS SEÇÕES
 elif selected == "📊 Dashboards":
     st.markdown("### 📊 Dashboards Comerciais")
     for nome, link in dashboards:
