@@ -1,68 +1,93 @@
-
 import streamlit as st
+from streamlit_option_menu import option_menu
 
-st.set_page_config(
-    page_title="Central de Planejamento - Travelex",
-    layout="wide",
-    page_icon="📊"
-)
+# CONFIGURAÇÃO DA PÁGINA
+st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
 
-# Custom CSS para identidade visual da Travelex
+# ESTILO CUSTOMIZADO (cores Travelex, fundo suave, fontes)
 st.markdown("""
     <style>
         body {
-            background-color: #f5f7fa;
+            background-color: #F5F7FA;
+        }
+        .main {
+            background-color: #F5F7FA;
         }
         .block-container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 2rem 2rem 2rem 2rem;
         }
         h1, h2, h3 {
             color: #00205B;
         }
+        .card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
         a {
-            text-decoration: none;
             color: #0072CE;
             font-weight: 500;
+            text-decoration: none;
         }
         a:hover {
             color: #005bb5;
         }
-        .st-expander > summary {
-            font-size: 1.1rem;
-        }
     </style>
 """, unsafe_allow_html=True)
 
-# Logo e título
+# LOGO E TÍTULO
 col1, col2 = st.columns([1, 9])
 with col1:
     st.image("logo.png", width=80)
 with col2:
-    st.markdown("## Central de Planejamento Comercial")
-    st.markdown("#### Travelex Bank · Tudo o que você precisa em um só lugar.")
+    st.markdown("## Portal Comercial Travelex")
+    st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
 
-st.markdown("---")
+# MENU LATERAL DE NAVEGAÇÃO
+with st.sidebar:
+    selected = option_menu(
+        "Seções",
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais"],
+        icons=["house", "bar-chart", "file-earmark-text", "folder"],
+        menu_icon="cast",
+        default_index=0
+    )
 
-# Layout em duas colunas principais
-col_dash, col_form = st.columns(2)
+# CONTEÚDO DAS SEÇÕES
+if selected == "🏠 Início":
+    st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
+    st.markdown(
+        "Use o menu lateral para navegar entre dashboards, formulários e materiais. "
+        "Esse portal está em constante evolução para melhor servir o time comercial."
+    )
 
-with col_dash:
-    with st.expander("📊 Dashboards Comerciais", expanded=True):
-        st.markdown("- [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=bc82c15b-c9b4-4549-b54b-30bd002fa59b)")
-        st.markdown("- [Telemetria](https://app.powerbi.com/links/DN8VawnQyN?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=f27b74bf-26e7-4a81-8aa9-2c27c7e7c9ad)")
-        st.markdown("- [Raio X](https://app.powerbi.com/links/r_cCxY0hQF?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=72639833-4ddb-4fed-8449-067afe9d0927)")
-        st.markdown("- [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare)")
+elif selected == "📊 Dashboards":
+    st.markdown("### 📊 Dashboards Comerciais")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("- [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)")
+        st.markdown("- [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)")
+        st.markdown("- [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)")
+        st.markdown("- [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)")
+        st.markdown('</div>', unsafe_allow_html=True)
 
-with col_form:
-    with st.expander("📄 Formulários Úteis", expanded=True):
-        st.markdown("- [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVodaBv4SADNOrM5qGKC6CrhUODZPTUtHWU4xTTFDWTcwQkRIRlk0QVVNNS4u&origin=lprLink&route=shorturl)")
-        st.markdown("- [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u&origin=lprLink&route=shorturl)")
+elif selected == "📄 Formulários":
+    st.markdown("### 📄 Formulários Úteis")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("- [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVodaBv4SADNOrM5qGKC6CrhUODZPTUtHWU4xTTFDWTcwQkRIRlk0QVVNNS4u)")
+        st.markdown("- [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u)")
+        st.markdown('</div>', unsafe_allow_html=True)
 
+elif selected == "📚 Materiais":
+    st.markdown("### 📚 Materiais e Documentos")
+    with st.container():
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("*(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+# RODAPÉ
 st.markdown("---")
 st.caption("Desenvolvido pela área de Planejamento Comercial – Travelex Bank")
