@@ -1,125 +1,108 @@
 import streamlit as st
 import base64
 from PIL import Image
-import time
 
-st.set_page_config(layout="wide", page_title="Portal Comercial Travelex", page_icon="📊")
+st.set_page_config(page_title="Portal Comercial Travelex", layout="wide")
 
-# Função para estilo customizado com hover animado
-def local_css():
-    st.markdown("""
-        <style>
-            .section-title {
-                font-size: 26px;
-                font-weight: bold;
-                margin-top: 40px;
-                color: #00205B;
-                display: flex;
-                align-items: center;
-            }
-            .section-title img {
-                margin-right: 10px;
-            }
-            .resource-box {
-                padding: 15px 20px;
-                margin-bottom: 12px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-                transition: all 0.3s ease;
-                border-left: 5px solid #00205B;
-                display: block;
-                text-decoration: none;
-            }
-            .resource-box:hover {
-                transform: scale(1.015);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
-            .search-box input {
-                padding: 10px;
-                border-radius: 10px;
-                border: 1px solid #ccc;
-                width: 100%;
-            }
-            .header-container {
-                background-color: white;
-                padding: 20px 40px;
-                border-radius: 10px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                margin-bottom: 30px;
-                display: flex;
-                align-items: center;
-            }
-            .header-logo {
-                height: 42px;
-                margin-right: 20px;
-            }
-            .header-text {
-                display: flex;
-                flex-direction: column;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+# Função para carregar imagens como base64 para uso inline em HTML
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-local_css()
+# Logo
+logo_path = "logo_travelex.png"  # Certifique-se de que o arquivo está no mesmo diretório
+logo_base64 = get_base64_of_bin_file(logo_path)
 
-# Cabeçalho com logo
-col1, col2 = st.columns([1, 10])
-with col1:
-    st.image("https://i.imgur.com/H9Xj7nd.png", width=100)
-with col2:
-    st.markdown("""
-        <div class="header-container">
-            <div class="header-text">
-                <h2 style="margin: 0; color: #00205B;">Central de Planejamento Comercial</h2>
-                <span style="color: #6c757d;">Travelex Bank · Tudo o que você precisa em um só lugar.</span>
-            </div>
+# Sidebar
+with st.sidebar:
+    st.markdown(
+        f"""
+        <div style='text-align: center;'>
+            <img src='data:image/png;base64,{logo_base64}' width='150'>
         </div>
-    """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
 
-# 🔍 Barra de busca
-st.markdown("""
-### 🔍 Pesquisar
-<div style="display: flex; gap: 10px; align-items: center;">
-    <input type="text" placeholder="Buscar dashboards, formulários ou materiais" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;"/>
-    <button style="padding: 10px 15px; background-color: #fff; color: #00205B; border: 1px solid #00205B; border-radius: 8px;">
-        🔍 Buscar
-    </button>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("## Seções")
+    st.page_link("/", label="🏠 Início", icon="🏠")
+    st.page_link("/dashboards", label="📊 Dashboards")
+    st.page_link("/formularios", label="📄 Formulários")
+    st.page_link("/materiais", label="📚 Materiais")
+    st.page_link("/credito", label="🏢 Área de Crédito")
 
-st.markdown("<br>", unsafe_allow_html=True)
+# Cabeçalho com fundo e logo centralizada
+st.markdown(
+    f"""
+    <div style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
+        <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+        <div>
+            <h1 style='margin-bottom: 0px; color: #002B5B;'>Central de Planejamento Comercial</h1>
+            <p style='margin-top: 5px; color: #6c757d;'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-# Função para gerar seção
-def section(title, emoji, links):
-    st.markdown(f"""<div class='section-title'>{emoji} {title}</div>""", unsafe_allow_html=True)
+st.markdown("""<br>""", unsafe_allow_html=True)
+
+# Barra de busca
+col1, col2 = st.columns([9, 1])
+with col1:
+    query = st.text_input("🔎 Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
+with col2:
+    st.button("🔍 Buscar")
+
+# Exemplo de seções com cards clicáveis e separados
+secoes = {
+    "📊 Dashboards Comerciais": [
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("🧭 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
+        ("🔎 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
+    ],
+    "📝 Formulários": [
+        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
+    ],
+    "📚 Materiais": [
+        ("📁 Treinamentos e Manuais", "https://example.com/materials")
+    ],
+    "🏢 Área de Crédito": [
+        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
+        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
+        ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdash")
+    ]
+}
+
+for secao, links in secoes.items():
+    st.markdown("""<br>""", unsafe_allow_html=True)
+    st.markdown(f"### {secao}")
     col1, col2 = st.columns(2)
-    for i, (nome, url) in enumerate(links):
-        link_html = f"<a href='{url}' target='_blank' class='resource-box'>{nome}</a>"
-        if i % 2 == 0:
-            col1.markdown(link_html, unsafe_allow_html=True)
-        else:
-            col2.markdown(link_html, unsafe_allow_html=True)
-
-# Seções do portal
-section("Dashboards Comerciais", "📊", [
-    ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
-    ("📈 Telemetria", "https://app.powerbi.com/links/DN8vawnQyN"),
-    ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
-    ("📊 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
-])
-
-section("Formulários", "📝", [
-    ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
-    ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
-])
-
-section("Materiais", "📚", [
-    ("📁 Treinamentos e Manuais", "https://seulink.com/treinamentos")
-])
-
-section("Área de Crédito", "🏢", [
-    ("📝 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform1"),
-    ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform2"),
-    ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdashboard")
-])
+    metade = len(links) // 2 + len(links) % 2
+    with col1:
+        for nome, url in links[:metade]:
+            st.markdown(
+                f"""
+                <a href="{url}" target="_blank" style="text-decoration: none;">
+                    <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;">
+                        {nome}
+                    </div>
+                </a>
+                """,
+                unsafe_allow_html=True
+            )
+    with col2:
+        for nome, url in links[metade:]:
+            st.markdown(
+                f"""
+                <a href="{url}" target="_blank" style="text-decoration: none;">
+                    <div style="border: 1px solid #003366; padding: 12px 20px; border-radius: 10px; margin: 10px 0; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;">
+                        {nome}
+                    </div>
+                </a>
+                """,
+                unsafe_allow_html=True
+            )
