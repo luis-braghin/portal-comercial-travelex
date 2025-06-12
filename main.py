@@ -1,5 +1,8 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from streamlit_lottie import st_lottie
+import json
+import requests
 import os
 
 # CONFIGURAÇÃO DA PÁGINA
@@ -15,6 +18,16 @@ with open(contador_path, "r+") as f:
     total_acessos = int(f.read()) + 1
     f.seek(0)
     f.write(str(total_acessos))
+
+# FUNÇÃO PARA CARREGAR ANIMAÇÃO LOTTIE
+def load_lottie_url(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# URL da animação Lottie
+lottie_welcome = load_lottie_url("https://assets4.lottiefiles.com/packages/lf20_vf1gk5ha.json")
 
 # ESTILO CUSTOMIZADO
 st.markdown("""
@@ -37,6 +50,10 @@ st.markdown("""
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             margin-bottom: 1.5rem;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
         }
         .section-title {
             font-size: 1.5rem;
@@ -87,20 +104,37 @@ with st.sidebar:
 # CONTEÚDO DAS SEÇÕES
 if selected == "🏠 Início":
     st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
-    st.markdown(
-        "Use o menu lateral para navegar entre dashboards, formulários e materiais. "
-        "Esse portal está em constante evolução para melhor servir o time comercial."
-    )
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st_lottie(lottie_welcome, height=200, speed=1)
+    with col2:
+        st.markdown(
+            "Use o menu lateral para navegar entre dashboards, formulários e materiais. "
+            "Esse portal está em constante evolução para melhor servir o time comercial."
+        )
 
 elif selected == "📊 Dashboards":
     st.markdown("### 📊 Dashboards Comerciais")
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("🔹 [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)")
-        st.markdown("🔹 [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)")
-        st.markdown("🔹 [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)")
-        st.markdown("🔹 [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)")
-        st.markdown('</div>', unsafe_allow_html=True)
+    
+    dashboards = [
+        {"nome": "Gestão Comercial – Market Share", "link": "https://app.powerbi.com/links/VrFjeMY32s"},
+        {"nome": "Telemetria", "link": "https://app.powerbi.com/links/DN8VawnQyN"},
+        {"nome": "Raio X", "link": "https://app.powerbi.com/links/r_cCxY0hQF"},
+        {"nome": "Resultados vs Meta", "link": "https://app.powerbi.com/links/5tOpR8JJh4"},
+    ]
+
+    col1, col2 = st.columns(2)
+    cols = [col1, col2]
+
+    for i, dashboard in enumerate(dashboards):
+        with cols[i % 2]:
+            st.markdown(f"""
+                <a href="{dashboard['link']}" target="_blank" style="text-decoration: none;">
+                    <div class="card" style="margin: 1rem 0; transition: 0.3s ease; border: 1px solid #e0e0e0;">
+                        <h4 style="margin: 0;">{dashboard['nome']}</h4>
+                    </div>
+                </a>
+            """, unsafe_allow_html=True)
 
 elif selected == "📄 Formulários":
     st.markdown("### 📄 Formulários Úteis")
