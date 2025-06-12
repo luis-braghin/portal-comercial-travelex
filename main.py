@@ -1,123 +1,58 @@
+
 import streamlit as st
-from streamlit_option_menu import option_menu
-import os
+from PIL import Image
 
-# CONFIGURAÇÃO DA PÁGINA
-st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
+# ---- Configuração da página ----
+st.set_page_config(page_title="Portal Comercial Travelex", page_icon="📊", layout="wide")
 
-# CONTADOR DE ACESSO (salvo no .streamlit/contador.txt)
-contador_path = os.path.join(".streamlit", "contador.txt")
-if not os.path.exists(contador_path):
-    with open(contador_path, "w") as f:
-        f.write("0")
-
-with open(contador_path, "r+") as f:
-    total_acessos = int(f.read()) + 1
-    f.seek(0)
-    f.write(str(total_acessos))
-
-# ESTILO CUSTOMIZADO
-st.markdown("""
-    <style>
-        body {
-            background-color: #F5F7FA;
-        }
-        .main {
-            background-color: #F5F7FA;
-        }
-        .block-container {
-            padding: 2rem;
-        }
-        h1, h2, h3 {
-            color: #00205B;
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            margin-bottom: 1.5rem;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #00205B;
-        }
-        a {
-            color: #0072CE;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #005bb5;
-        }
-        .center-logo {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# LOGO E TÍTULO
-st.markdown('<div class="center-logo">', unsafe_allow_html=True)
-col1, col2 = st.columns([1, 9])
+# ---- Logo da Travelex ----
+col1, col2 = st.columns([0.1, 0.9])
 with col1:
-    st.image("logo_travelex.png", width=100)
+    logo = Image.open("logo_travelex.png")
+    st.image(logo, width=80)
 with col2:
-    st.markdown("## Portal Comercial Travelex")
+    st.title("Portal Comercial Travelex")
     st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
-st.markdown('</div>', unsafe_allow_html=True)
 
-# AVISO NO TOPO
-st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+# ---- Aviso ----
+st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!", icon="🔔")
 
-# MENU LATERAL
-with st.sidebar:
-    selected = option_menu(
-        "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais"],
-        icons=["house", "bar-chart", "file-earmark-text", "folder"],
-        menu_icon="cast",
-        default_index=0
-    )
+# ---- Painel de Acesso Rápido ----
+st.markdown("## 👋 Bem-vindo(a) ao Portal Comercial Travelex")
+st.write("Use os cartões abaixo para navegar entre dashboards, formulários e materiais.")
 
-# CONTEÚDO DAS SEÇÕES
-if selected == "🏠 Início":
-    st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
-    st.markdown(
-        "Use o menu lateral para navegar entre dashboards, formulários e materiais. "
-        "Esse portal está em constante evolução para melhor servir o time comercial."
-    )
+# ---- Layout em Cartões ----
+col1, col2 = st.columns(2)
 
-elif selected == "📊 Dashboards":
-    st.markdown("### 📊 Dashboards Comerciais")
+with col1:
     with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("🔹 [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)")
-        st.markdown("🔹 [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)")
-        st.markdown("🔹 [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)")
-        st.markdown("🔹 [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)")
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.subheader("📊 Dashboards Comerciais")
+        st.markdown("- [Gestão Comercial – Market Share](https://example.com)")
+        st.markdown("- [Telemetria](https://example.com)")
+        st.markdown("- [Raio X](https://example.com)")
+        st.markdown("- [Resultados vs Meta](https://example.com)")
 
-elif selected == "📄 Formulários":
-    st.markdown("### 📄 Formulários Úteis")
+with col2:
     with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("📝 [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)")
-        st.markdown("📝 [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...)")
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.subheader("📄 Formulários Úteis")
+        st.markdown("- [Pedidos de Migração de Carteira](https://example.com)")
+        st.markdown("- [Pedidos de Extração de CAM57](https://example.com)")
 
-elif selected == "📚 Materiais":
-    st.markdown("### 📚 Materiais e Documentos")
-    with st.container():
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("📂 *(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-# RODAPÉ
 st.markdown("---")
-st.caption("Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank")
-st.markdown(f"<sub>🔒 Acesso: somente uso interno | 🧾 Dados de uso sendo monitorados | 📊 Total de acessos: <b>{total_acessos}</b></sub>", unsafe_allow_html=True)
+
+# ---- Rodapé com contador de acessos ----
+if "contador" not in st.session_state:
+    st.session_state.contador = 0
+st.session_state.contador += 1
+
+st.markdown(
+    f"""
+    <div style='font-size: 12px; color: gray; text-align: left'>
+        Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank <br>
+        🔒 Acesso: somente uso interno |
+        📑 Dados de uso sendo monitorados |
+        📊 Total de acessos: <b>{st.session_state.contador}</b>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
