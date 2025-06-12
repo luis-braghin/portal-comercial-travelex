@@ -11,20 +11,20 @@ st.markdown("""
             background-color: #F5F7FA;
         }
 
-        .css-6qob1r.e1fqkh3o2 {  /* título principal */
-            color: #00205B;
-        }
-
         h1, h2, h3, h4 {
-            color: #00205B;
+            color: #00205B !important;
         }
 
-        .st-emotion-cache-1avcm0n.ezrtsby0 { /* barra lateral ativa */
+        .st-emotion-cache-6qob1r, .css-10trblm { /* títulos */
+            color: #00205B !important;
+        }
+
+        .st-emotion-cache-1avcm0n.ezrtsby0 {
             background-color: #E4002B !important;
         }
 
-        .css-1d391kg { /* botões do menu */
-            color: #00205B;
+        .st-emotion-cache-1v0mbdj, .st-emotion-cache-16txtl3 {
+            color: #00205B !important;
         }
 
         .card {
@@ -40,6 +40,12 @@ st.markdown("""
             align-items: center;
             gap: 20px;
             margin-bottom: 10px;
+        }
+
+        .center-logo img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
         }
 
         .footer {
@@ -69,13 +75,13 @@ st.markdown("""
 st.markdown('<div class="center-logo">', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 9])
 with col1:
-    st.image("logo_travelex.png", width=100)
+    st.image("logo_travelex.png")
 with col2:
     st.markdown("## Portal Comercial Travelex")
     st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# BARRA DE ALERTA
+# ALERTA DE ATUALIZAÇÃO
 st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
 # MENU LATERAL
@@ -88,36 +94,32 @@ with st.sidebar:
         default_index=0
     )
 
-# BARRA DE BUSCA GLOBAL
-search_term = st.text_input("🔎 Buscar algo no portal:", "", key="busca").lower()
+# BARRA DE BUSCA (aperfeiçoada)
+search_term = st.text_input("🔎 Buscar algo no portal:", "").lower()
 
-# FUNÇÃO DE BUSCA SIMPLES
-def exibir_resultado_busca():
-    results = []
-    if "migração" in search_term:
-        results.append("- [Pedidos de Migração de Carteira](https://forms.office.com/pages/responsepage.aspx?id=...)")
-    if "cam57" in search_term:
-        results.append("- [Pedidos de Extração de CAM57](https://forms.office.com/pages/responsepage.aspx?id=...)")
-    if "market" in search_term or "gestão" in search_term:
-        results.append("- [Gestão Comercial – Market Share](https://app.powerbi.com/links/VrFjeMY32s)")
-    if "telemetria" in search_term:
-        results.append("- [Telemetria](https://app.powerbi.com/links/DN8VawnQyN)")
-    if "raio" in search_term:
-        results.append("- [Raio X](https://app.powerbi.com/links/r_cCxY0hQF)")
-    if "meta" in search_term:
-        results.append("- [Resultados vs Meta](https://app.powerbi.com/links/5tOpR8JJh4)")
-    
-    if results:
-        st.markdown("### Resultados da busca:")
-        for item in results:
-            st.markdown(item)
-    elif search_term:
-        st.warning("Nenhum resultado encontrado.")
+# RESULTADOS DE BUSCA FLEXÍVEL
+def buscar_resultados(term):
+    banco = {
+        "Gestão Comercial – Market Share": "https://app.powerbi.com/links/VrFjeMY32s",
+        "Telemetria": "https://app.powerbi.com/links/DN8VawnQyN",
+        "Raio X": "https://app.powerbi.com/links/r_cCxY0hQF",
+        "Resultados vs Meta": "https://app.powerbi.com/links/5tOpR8JJh4",
+        "Pedidos de Migração de Carteira": "https://forms.office.com/pages/responsepage.aspx?id=...",
+        "Pedidos de Extração de CAM57": "https://forms.office.com/pages/responsepage.aspx?id=..."
+    }
+    resultados = [f"- [{k}]({v})" for k, v in banco.items() if term in k.lower()]
+    return resultados
 
 if search_term:
-    exibir_resultado_busca()
+    st.markdown("### 🔍 Resultados da Busca:")
+    resultados = buscar_resultados(search_term)
+    if resultados:
+        for item in resultados:
+            st.markdown(item)
+    else:
+        st.warning("Nenhum resultado encontrado.")
 
-# CONTEÚDO DAS SEÇÕES
+# CONTEÚDO PRINCIPAL (apenas se não estiver buscando)
 if not search_term:
     if selected == "🏠 Início":
         st.markdown("### 👋 Bem-vindo(a) ao Portal Comercial Travelex")
@@ -151,11 +153,11 @@ if not search_term:
             st.markdown("*(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
             st.markdown('</div>', unsafe_allow_html=True)
 
-# RODAPÉ COM INDICADOR DE USO
+# RODAPÉ
 st.markdown("---")
 st.markdown(
     '<div class="footer">Desenvolvido pela área de Planejamento Comercial '
     '(Gestão Felipe Von Pressentin) – Travelex Bank<br>'
-    '🔒 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados | 👁 Total de acessos: <strong>1234</strong></div>',
+    '🔒 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados | 📈 Total de acessos: <strong>1234</strong></div>',
     unsafe_allow_html=True
 )
