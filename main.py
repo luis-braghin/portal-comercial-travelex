@@ -3,7 +3,11 @@ from streamlit_option_menu import option_menu
 import os
 
 # CONFIGURAÇÃO DA PÁGINA
-st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
+st.set_page_config(
+    page_title="Portal Comercial Travelex",
+    layout="wide",
+    page_icon="logo_travelex.png"  # Coloque seu favicon na raiz
+)
 
 # CONTADOR DE ACESSO
 contador_path = os.path.join(".streamlit", "contador.txt")
@@ -60,24 +64,18 @@ st.markdown("""
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             margin-bottom: 2rem;
         }
-        a {
-            text-decoration: none;
-        }
-        a:hover {
-            opacity: 0.9;
-        }
         .card {
             background-color: white;
             border-radius: 12px;
             padding: 1rem;
             margin-bottom: 1rem;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            transition: all 0.2s ease-in-out;
             font-size: 16px;
         }
         .card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+            transform: scale(1.02);
         }
         .metric-block {
             background-color: #00205B;
@@ -85,15 +83,15 @@ st.markdown("""
             border-radius: 16px;
             color: white;
             text-align: center;
+            margin-top: 2rem;
             margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
-        .search-box input {
-            width: 100%;
-            padding: 0.6rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            margin-bottom: 1rem;
+        .metric-block img {
+            height: 50px;
         }
         .event-block {
             background-color: #ffffff;
@@ -103,13 +101,31 @@ st.markdown("""
             box-shadow: 0 1px 4px rgba(0,0,0,0.08);
             margin-bottom: 1rem;
         }
-        /* DARK MODE SIDEBAR */
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .search-container input {
+            flex: 1;
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .search-container button {
+            background-color: #00205B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+        }
+        /* Sidebar dark mode */
         section[data-testid="stSidebar"] {
             background-color: #00205B !important;
             color: white;
-        }
-        .css-1d391kg, .css-1v3fvcr {
-            color: white !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -140,19 +156,25 @@ st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 # INÍCIO
 if selected == "🏠 Início":
     st.markdown("### 🔎 Pesquisar")
-    search = st.text_input("Digite para buscar em dashboards, formulários ou materiais:", "").lower()
+    col_search = st.columns([6, 1])
+    search = col_search[0].text_input("", placeholder="Buscar dashboards, formulários ou materiais").lower()
+    col_search[1].button("🔍 Buscar")
 
-    # META
+    # META DO MÊS
     st.markdown("## 📈 Meta do Mês")
     st.markdown("""
         <div class="metric-block">
-            <h2 style="margin:0;">🎯 75%</h2>
-            <p style="margin:0;">Meta atingida até agora</p>
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/combo-chart.png"/>
+            <div>
+                <h2 style="margin:0;">🎯 75%</h2>
+                <p style="margin:0;">Meta atingida até agora</p>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
     # EVENTOS
     st.markdown("## 📅 Próximos Eventos")
+    st.markdown("<div style='margin-top:3rem'></div>", unsafe_allow_html=True)
     for titulo, data, desc in eventos:
         st.markdown(f"""
             <div class="event-block">
@@ -163,6 +185,7 @@ if selected == "🏠 Início":
 
     # DASHBOARDS
     st.markdown("## 📊 Dashboards Comerciais")
+    st.markdown("<div style='margin-top:3rem'></div>", unsafe_allow_html=True)
     dash_cols = st.columns(2)
     for i, (nome, link) in enumerate(dashboards):
         if search in nome.lower():
@@ -175,6 +198,7 @@ if selected == "🏠 Início":
 
     # FORMULÁRIOS
     st.markdown("## 📝 Formulários Úteis")
+    st.markdown("<div style='margin-top:3rem'></div>", unsafe_allow_html=True)
     form_cols = st.columns(2)
     for i, (nome, link) in enumerate(formularios):
         if search in nome.lower():
@@ -187,6 +211,7 @@ if selected == "🏠 Início":
 
     # MATERIAIS
     st.markdown("## 📚 Materiais")
+    st.markdown("<div style='margin-top:3rem'></div>", unsafe_allow_html=True)
     for nome, link in materiais:
         if search in nome.lower():
             st.markdown(f"""
