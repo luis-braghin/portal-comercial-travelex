@@ -3,6 +3,7 @@ import base64
 
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide")
 
+# Função para carregar a logo
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -11,6 +12,7 @@ def get_base64_of_bin_file(bin_file):
 logo_path = "logo_travelex.png"
 logo_base64 = get_base64_of_bin_file(logo_path)
 
+# Estilos customizados
 st.markdown(f"""
 <style>
     html {{
@@ -42,20 +44,6 @@ st.markdown(f"""
     .search-button-container {{
         margin-top: 26px;
     }}
-    .footer {{
-        margin-top: 40px;
-        font-size: 12px;
-        color: #6c757d;
-        text-align: center;
-    }}
-    .section-title {{
-        background-color: #002b5b;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-size: 20px;
-        font-weight: bold;
-    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -75,7 +63,7 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# Cabeçalho e Notificação
+# Cabeçalho
 st.markdown(f"""
 <div id="inicio" style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
     <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
@@ -84,36 +72,40 @@ st.markdown(f"""
         <p style='margin-top: 5px; color: #6c757d;'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
     </div>
 </div>
-<div style='margin-top: 20px; background-color: #e3f2fd; padding: 10px; border-radius: 8px;'>
+""", unsafe_allow_html=True)
+
+# Notificação
+st.markdown("""
+<div style="background-color: #e6f0fb; border-radius: 8px; padding: 10px 20px; margin-top: 20px;">
     🔔 Atualização: Adicionamos o novo relatório de Telemetria!
 </div>
 """, unsafe_allow_html=True)
 
-# Barra de busca
+# Barra de busca (abaixo da notificação)
 col1, col2 = st.columns([9, 1])
 with col1:
-    query = st.text_input("🔎 Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
+    query = st.text_input("Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
 with col2:
-    st.markdown(f"""
-    <div class="search-button-container">
+    st.markdown("""
+    <div style="padding-top: 30px;">
         <button style="background-color: white; border: 1px solid #002B5B; border-radius: 6px; padding: 6px 12px; cursor: pointer;">
             🔍 Buscar
         </button>
     </div>
     """, unsafe_allow_html=True)
 
-# Meta do Mês
+# Meta do mês
 st.markdown("""
-<h3>📉 Meta do Mês</h3>
-<div style='background-color: #001f5b; color: white; padding: 15px; border-radius: 10px; text-align: center; max-width: 300px;'>
-    <div style='font-size: 24px;'>🎯 75%</div>
-    <div style='margin-top: 5px; font-size: 14px;'>Meta atingida até agora</div>
+<h3 style='margin-top: 30px;'>📉 Meta do Mês</h3>
+<div style="background-color: #002B5B; padding: 20px; border-radius: 10px; text-align: center; color: white; font-size: 18px;">
+    🎯 Meta: 75%<br>
+    <span style="font-size: 14px;">Meta atingida até agora</span>
 </div>
 """, unsafe_allow_html=True)
 
-# Próximos Eventos
+# Próximos eventos
 st.markdown("""
-<h3>📅 Próximos Eventos</h3>
+<h3 style='margin-top: 30px;'>🗓️ Próximos Eventos</h3>
 <ul>
     <li>🔔 Reunião Trimestral - 20 de Junho</li>
     <li>🧠 Workshop Estratégico - 27 de Junho</li>
@@ -121,7 +113,7 @@ st.markdown("""
 </ul>
 """, unsafe_allow_html=True)
 
-# Seções e links
+# Seções
 secoes = {
     "📊 Dashboards Comerciais": [
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -146,8 +138,12 @@ secoes = {
 anchors = ["dashboards", "formularios", "materiais", "credito"]
 
 for i, (secao, links) in enumerate(secoes.items()):
-    st.markdown("""<br>""", unsafe_allow_html=True)
-    st.markdown(f"<div id='{anchors[i]}' class='section-title'>{secao}</div>", unsafe_allow_html=True)
+    st.markdown(f"""
+    <h3 id="{anchors[i]}" style="background-color: #002B5B; color: white; padding: 10px 15px; border-radius: 8px; margin-top: 40px;">
+        {secao}
+    </h3>
+    """, unsafe_allow_html=True)
+
     col1, col2 = st.columns(2)
     metade = len(links) // 2 + len(links) % 2
     for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
@@ -163,8 +159,9 @@ for i, (secao, links) in enumerate(secoes.items()):
 
 # Rodapé
 st.markdown("""
-<div class="footer">
+<br><br>
+<div style="text-align: center; font-size: 13px; color: #6c757d;">
     Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-    🔒 Acesso: somente uso interno | 📋 Dados de uso sendo monitorados | 📈 Total de acessos: <b>23</b>
+    🔒 Acesso: somente uso interno | 📋 Dados de uso sendo monitorados | 📊 Total de acessos: <b>23</b>
 </div>
 """, unsafe_allow_html=True)
