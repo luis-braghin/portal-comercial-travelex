@@ -100,6 +100,59 @@ st.markdown("""
 </ul>
 """, unsafe_allow_html=True)
 
+# Barra de busca
+col1, col2 = st.columns([9, 1])
+with col1:
+    query = st.text_input("🔎 Pesquisar", placeholder="Buscar dashboards, formulários ou materiais")
+with col2:
+    st.markdown(f"""
+    <div class="search-button-container">
+        <button style="background-color: white; border: 1px solid #002B5B; border-radius: 6px; padding: 6px 12px; cursor: pointer;">
+            🔍 Buscar
+        </button>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Seções e links
+secoes = {
+    "📊 Dashboards Comerciais": [
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("🧭 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
+        ("🔎 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4")
+    ],
+    "📄 Formulários": [
+        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4..."),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4...")
+    ],
+    "📚 Materiais": [
+        ("📁 Treinamentos e Manuais", "https://example.com/materials")
+    ],
+    "🏢 Área de Crédito": [
+        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
+        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
+        ("📊 New Dashboard - Crédito", "https://app.powerbi.com/links/newcreditdash")
+    ]
+}
+
+anchors = ["dashboards", "formularios", "materiais", "credito"]
+
+for i, (secao, links) in enumerate(secoes.items()):
+    st.markdown("""<br>""", unsafe_allow_html=True)
+    st.markdown(f"<h3 id='{anchors[i]}'>{secao}</h3>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    metade = len(links) // 2 + len(links) % 2
+    for col, chunk in zip([col1, col2], [links[:metade], links[metade:]]):
+        with col:
+            for nome, url in chunk:
+                st.markdown(f"""
+                <a href="{url}" target="_blank" style="text-decoration: none;">
+                    <div class="custom-card">
+                        <span style="display: block;">{nome}</span>
+                    </div>
+                </a>
+                """, unsafe_allow_html=True)
+
 # Rodapé
 st.markdown("""
 <div class="footer">
@@ -107,5 +160,3 @@ st.markdown("""
     🔒 Acesso: somente uso interno | 📋 Dados de uso sendo monitorados | 📈 Total de acessos: <b>23</b>
 </div>
 """, unsafe_allow_html=True)
-
-# (Restante das seções como Dashboards, Formulários, Materiais, etc, deve seguir o mesmo padrão anterior com o fix aplicado nas seções.)
