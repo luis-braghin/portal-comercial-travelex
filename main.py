@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 # CONFIGURAÇÃO DA PÁGINA
 st.set_page_config(page_title="Portal Comercial Travelex", layout="wide", page_icon="📊")
 
-# ESTILO CUSTOMIZADO (cores Travelex, fundo suave, fontes)
+# ESTILO CUSTOMIZADO
 st.markdown("""
     <style>
         body {
@@ -14,7 +14,7 @@ st.markdown("""
             background-color: #F5F7FA;
         }
         .block-container {
-            padding: 2rem 2rem 2rem 2rem;
+            padding: 2rem;
         }
         h1, h2, h3 {
             color: #00205B;
@@ -34,18 +34,26 @@ st.markdown("""
         a:hover {
             color: #005bb5;
         }
+        .center-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
     </style>
 """, unsafe_allow_html=True)
 
 # LOGO E TÍTULO
+st.markdown('<div class="center-logo">', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 9])
 with col1:
-    st.image("logo.png", width=80)
+    st.image("logo.png", width=100)
 with col2:
     st.markdown("## Portal Comercial Travelex")
     st.caption("Tudo o que você precisa, centralizado e fácil de acessar.")
+st.markdown('</div>', unsafe_allow_html=True)
 
-# MENU LATERAL DE NAVEGAÇÃO
+# MENU LATERAL
 with st.sidebar:
     selected = option_menu(
         "Seções",
@@ -88,6 +96,6 @@ elif selected == "📚 Materiais":
         st.markdown("*(Esta seção pode conter links para treinamentos, manuais, apresentações internas etc. Me envie o que quiser que eu coloco aqui!)*")
         st.markdown('</div>', unsafe_allow_html=True)
 
-# RODAPÉ
+# RODAPÉ ATUALIZADO
 st.markdown("---")
-st.caption("Desenvolvido pela área de Planejamento Comercial – Travelex Bank")
+st.caption("Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank")
