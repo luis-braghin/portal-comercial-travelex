@@ -51,8 +51,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # MENU LATERAL COM LOGO
+# LOGO na sidebar com imagem local
 with st.sidebar:
-    st.markdown('<div class="sidebar-logo"><img src="https://i.imgur.com/TycsZPT.png" width="160"></div>', unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div style='text-align: center; margin-bottom: 20px;'>
+            <img src='logo_travelex.png' width='160'>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     selected = option_menu(
         "Seções",
