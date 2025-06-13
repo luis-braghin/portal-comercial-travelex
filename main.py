@@ -169,7 +169,7 @@ if selected == "🏠 Início":
 # SEÇÕES
 else:
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
-    secao_nome = next((k for k in conteudos.keys() if selected in k), None)
+    secao_nome = next((k for k in conteudos.keys() if selected in k or k.endswith(selected)), None)
     if secao_nome:
         mostrar_bloco(secao_nome, conteudos[secao_nome])
     else:
