@@ -89,8 +89,8 @@ eventos = [
 ]
 
 # FUNÇÃO PARA EXIBIR SEÇÕES
-def mostrar_bloco(titulo, lista):
-    st.markdown(f"""<div style="margin-top: 30px;"><h3>{titulo}</h3></div>""", unsafe_allow_html=True)
+def mostrar_bloco(titulo, lista, margin_top=30):
+    st.markdown(f"""<div style="margin-top: {margin_top}px;"><h3>{titulo}</h3></div>""", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for i, (nome, link) in enumerate(lista):
         with (col1 if i % 2 == 0 else col2):
@@ -99,7 +99,6 @@ def mostrar_bloco(titulo, lista):
                     <div class="custom-card">{nome}</div>
                 </a>
             """, unsafe_allow_html=True)
-
 
 # INÍCIO
 if selected == "🏠 Início":
@@ -115,9 +114,9 @@ if selected == "🏠 Início":
     </div>
     """, unsafe_allow_html=True)
 
-        st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+    st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
-    # Espaçamento após o alerta
+    # Espaço após alerta
     st.markdown("<br>", unsafe_allow_html=True)
 
     # META
@@ -129,20 +128,18 @@ if selected == "🏠 Início":
         </div>
     """, unsafe_allow_html=True)
 
-
     # EVENTOS
     st.markdown("<div style='margin-top:30px;'><h3>🗓️ Próximos Eventos</h3></div>", unsafe_allow_html=True)
     for evento in eventos:
         st.markdown(f"- {evento}")
 
-    # Espaçamento extra antes dos blocos
-    st.markdown("<br>", unsafe_allow_html=True)
+    # Espaçamento menor antes dos dashboards
+    st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 
     mostrar_bloco("📊 Dashboards Comerciais", dashboards)
     mostrar_bloco("📄 Formulários", formularios)
     mostrar_bloco("📚 Materiais", materiais)
     mostrar_bloco("🏢 Área de Crédito", credito)
-
 
 # OUTRAS SEÇÕES
 def render_secao(titulo, dados):
