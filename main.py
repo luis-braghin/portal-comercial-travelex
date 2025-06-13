@@ -116,11 +116,66 @@ st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
 
 # CONTEÚDO POR SEÇÃO
 if selected == "🏠 Início":
-    # Busca
-    st.markdown("### 🔎 Pesquisar")
-    col1, col2 = st.columns([8, 1])
-    query = col1.text_input("", placeholder="Buscar dashboards, formulários ou materiais").lower()
-    col2.button("🔍 Buscar")
+# Se não estiver buscando, mostra todos os blocos normalmente
+if not query:
+    # Meta
+    st.markdown("### 📈 Meta do Mês")
+    st.markdown("""
+    <div class="metric-block">
+        🎯 X%<br>
+        <small>Meta atingida até agora</small>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Eventos
+    st.markdown("### 📅 Próximos Eventos")
+    for evento in eventos:
+        st.markdown(f"- {evento}")
+
+# Resultados filtrados por busca
+exibiu_resultado = False
+
+# Dashboards
+dash_filtered = [(n, l) for (n, l) in dashboards if query in n.lower()]
+if dash_filtered:
+    exibiu_resultado = True
+    st.markdown('<h2 class="section-title">📊 Dashboards Comerciais</h2>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(dash_filtered):
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+# Formulários
+form_filtered = [(n, l) for (n, l) in formularios if query in n.lower()]
+if form_filtered:
+    exibiu_resultado = True
+    st.markdown('<h2 class="section-title">📄 Formulários</h2>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(form_filtered):
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+# Materiais
+mat_filtered = [(n, l) for (n, l) in materiais if query in n.lower()]
+if mat_filtered:
+    exibiu_resultado = True
+    st.markdown('<h2 class="section-title">📚 Materiais</h2>', unsafe_allow_html=True)
+    for nome, link in mat_filtered:
+        st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+# Crédito
+cred_filtered = [(n, l) for (n, l) in credito if query in n.lower()]
+if cred_filtered:
+    exibiu_resultado = True
+    st.markdown('<h2 class="section-title">🏢 Área de Crédito</h2>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(cred_filtered):
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f'<a href="{link}" target="_blank"><div class="card">{nome}</div></a>', unsafe_allow_html=True)
+
+# Caso não encontre nenhum resultado
+if query and not exibiu_resultado:
+    st.warning("🔎 Nenhum resultado encontrado para sua busca.")
 
     # Meta
     st.markdown("### 📈 Meta do Mês")
