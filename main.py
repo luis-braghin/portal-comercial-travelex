@@ -115,7 +115,10 @@ if selected == "🏠 Início":
     </div>
     """, unsafe_allow_html=True)
 
-    st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+        st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+
+    # Espaçamento após o alerta
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # META
     st.markdown("### 📉 Meta do Mês")
@@ -125,6 +128,7 @@ if selected == "🏠 Início":
             <span style="font-size: 13px;">Meta atingida até agora</span>
         </div>
     """, unsafe_allow_html=True)
+
 
     # EVENTOS
     st.markdown("<div style='margin-top:30px;'><h3>🗓️ Próximos Eventos</h3></div>", unsafe_allow_html=True)
