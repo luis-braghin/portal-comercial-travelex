@@ -16,8 +16,12 @@ if "dark_mode" not in st.session_state:
 modo = st.toggle("🌗 Modo Escuro", value=st.session_state.dark_mode)
 st.session_state.dark_mode = modo
 
-# ENCODE DE IMAGEM
+# CORES BASEADAS NO TEMA
+bg_color = "#1e1e1e" if st.session_state.dark_mode else "#f8f9fa"
+text_color = "#e0e0e0" if st.session_state.dark_mode else "#000"
+card_bg = "#2b2b2b" if st.session_state.dark_mode else "#ffffff"
 
+# ENCODE DE IMAGEM
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -28,10 +32,10 @@ logo_base64 = get_base64("logo_travelex.png")
 st.markdown(f"""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    html, body, [class*="css"]  {{
+    html, body, [class*="css"], .stApp {{
         font-family: 'Inter', sans-serif;
-        background-color: {"#1e1e1e" if st.session_state.dark_mode else "#f8f9fa"};
-        color: {"#e0e0e0" if st.session_state.dark_mode else "#000"};
+        background-color: {bg_color};
+        color: {text_color};
     }}
 
     .main-container {{
@@ -44,7 +48,7 @@ st.markdown(f"""
         align-items: center;
         gap: 16px;
         border-left: 6px solid #00205B;
-        background: {"#2b2b2b" if st.session_state.dark_mode else "#ffffff"};
+        background: {card_bg};
         padding: 18px 22px;
         border-radius: 12px;
         margin: 12px 0;
@@ -153,7 +157,6 @@ eventos = [
 ]
 
 # FUNÇÃO PARA CARDS
-
 def mostrar_bloco(titulo, lista):
     st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
