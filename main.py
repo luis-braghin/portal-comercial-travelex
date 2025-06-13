@@ -1,54 +1,86 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import os
 import base64
 
-# CONFIGURAÇÕES
+# CONFIG
 st.set_page_config(
     page_title="Portal de Planejamento Comercial",
     layout="wide",
     page_icon="logo_travelex.png"
 )
 
-# FUNÇÃO PARA ENCODE DE IMAGEM
+# IMAGEM
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
 logo_base64 = get_base64("logo_travelex.png")
 
-# CSS PERSONALIZADO
-st.markdown(f"""
+# CSS MODERNO
+st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    .custom-card {{
-        border: 1px solid #00205B;
-        padding: 12px 20px;
-        border-radius: 10px;
-        margin: 10px 0;
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    html, body, [class*="css"]  {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .custom-card {
+        border: none;
+        padding: 18px 22px;
+        border-radius: 12px;
+        margin: 12px 0;
+        background: linear-gradient(135deg, #ffffff, #f3f7fd);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         cursor: pointer;
-    }}
-    .custom-card:hover {{
-        transform: scale(1.02);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }}
-    .metric-box {{
-        background-color: #E8EEF7;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .metric-box {
+        background: linear-gradient(90deg, #E8EEF7, #f4f7fc);
         color: #00205B;
         text-align: center;
-        padding: 14px;
-        font-size: 18px;
-        border-radius: 10px;
-    }}
-    .header {{
-        background-color: white;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        margin-bottom: 30px;
+    }
+
+    .section-highlight {
+        background: linear-gradient(to right, #f6f9ff, #e4ecf9);
+        border-radius: 12px;
+        padding: 20px 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        margin-bottom: 30px;
+    }
+
+    .header {
+        background: linear-gradient(to right, #ffffff, #f3f3f3);
         padding: 30px 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }}
+        border-radius: 12px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .main-container {
+        max-width: 1400px;
+        margin: auto;
+    }
+
+    .nav-link {
+        transition: 0.3s;
+    }
+
+    .nav-link:hover {
+        color: #00205B !important;
+        font-weight: 600;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -63,7 +95,7 @@ with st.sidebar:
         default_index=0
     )
 
-# DADOS
+# CONTEÚDO
 dashboards = [
     ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
     ("📡 Telemetria", "https://app.powerbi.com/links/DN8VawnQyN"),
@@ -74,9 +106,7 @@ formularios = [
     ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
     ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
 ]
-materiais = [
-    ("📁 Treinamentos e Manuais", "https://example.com/materials")
-]
+materiais = [("📁 Treinamentos e Manuais", "https://example.com/materials")]
 credito = [
     ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
     ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
@@ -88,9 +118,8 @@ eventos = [
     ("📊 Atualização Power BI - 01 de Julho")
 ]
 
-# FUNÇÃO PARA EXIBIR SEÇÕES
 def mostrar_bloco(titulo, lista, margin_top=30):
-    st.markdown(f"""<div style="margin-top: {margin_top}px;"><h3>{titulo}</h3></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style="margin-top: {margin_top}px;"><h3 style="color:#00205B;">{titulo}</h3></div>""", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for i, (nome, link) in enumerate(lista):
         with (col1 if i % 2 == 0 else col2):
@@ -102,6 +131,8 @@ def mostrar_bloco(titulo, lista, margin_top=30):
 
 # INÍCIO
 if selected == "🏠 Início":
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+
     st.markdown(f"""
     <div class='header'>
         <div style="display: flex; align-items: center;">
@@ -115,35 +146,32 @@ if selected == "🏠 Início":
     """, unsafe_allow_html=True)
 
     st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
-
-    # Espaço após alerta
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # META
-    st.markdown("### 📉 Meta do Mês")
+    st.markdown("### 📉 Meta do Mês", unsafe_allow_html=True)
     st.markdown("""
         <div class="metric-box">
             🎯 <strong>X%</strong><br>
-            <span style="font-size: 13px;">Meta atingida até agora</span>
+            <span style="font-size: 14px;">Meta atingida até agora</span>
         </div>
     """, unsafe_allow_html=True)
 
     # EVENTOS
-    st.markdown("<div style='margin-top:30px;'><h3>🗓️ Próximos Eventos</h3></div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-highlight'><h4 style='margin-top:0;'>🗓️ Próximos Eventos</h4>", unsafe_allow_html=True)
     for evento in eventos:
         st.markdown(f"- {evento}")
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    # Espaçamento menor antes dos dashboards
-    st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
-
-    mostrar_bloco("📊 Dashboards Comerciais", dashboards)
+    mostrar_bloco("📊 Dashboards Comerciais", dashboards, margin_top=10)
     mostrar_bloco("📄 Formulários", formularios)
     mostrar_bloco("📚 Materiais", materiais)
     mostrar_bloco("🏢 Área de Crédito", credito)
 
+    st.markdown("</div>", unsafe_allow_html=True)  # Fecha main-container
+
 # OUTRAS SEÇÕES
 def render_secao(titulo, dados):
-    st.markdown(f"### {titulo}")
+    st.markdown(f"<div class='main-container'><h3>{titulo}</h3>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for i, (nome, link) in enumerate(dados):
         with (col1 if i % 2 == 0 else col2):
@@ -152,6 +180,7 @@ def render_secao(titulo, dados):
                     <div class="custom-card">{nome}</div>
                 </a>
             """, unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 if selected == "📊 Dashboards":
     render_secao("📊 Dashboards Comerciais", dashboards)
