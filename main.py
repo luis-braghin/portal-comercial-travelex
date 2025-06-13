@@ -90,7 +90,7 @@ eventos = [
 
 # FUNÇÃO PARA EXIBIR SEÇÕES
 def mostrar_bloco(titulo, lista):
-    st.markdown(f"### {titulo}")
+    st.markdown(f"""<div style="margin-top: 30px;"><h3>{titulo}</h3></div>""", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for i, (nome, link) in enumerate(lista):
         with (col1 if i % 2 == 0 else col2):
@@ -99,6 +99,7 @@ def mostrar_bloco(titulo, lista):
                     <div class="custom-card">{nome}</div>
                 </a>
             """, unsafe_allow_html=True)
+
 
 # INÍCIO
 if selected == "🏠 Início":
@@ -126,15 +127,18 @@ if selected == "🏠 Início":
     """, unsafe_allow_html=True)
 
     # EVENTOS
-    st.markdown("### 🗓️ Próximos Eventos")
+    st.markdown("<div style='margin-top:30px;'><h3>🗓️ Próximos Eventos</h3></div>", unsafe_allow_html=True)
     for evento in eventos:
         st.markdown(f"- {evento}")
 
-    # CONTEÚDO PRINCIPAL
+    # Espaçamento extra antes dos blocos
+    st.markdown("<br>", unsafe_allow_html=True)
+
     mostrar_bloco("📊 Dashboards Comerciais", dashboards)
     mostrar_bloco("📄 Formulários", formularios)
     mostrar_bloco("📚 Materiais", materiais)
     mostrar_bloco("🏢 Área de Crédito", credito)
+
 
 # OUTRAS SEÇÕES
 def render_secao(titulo, dados):
