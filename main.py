@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import os
 import base64
+import unicodedata
 
 # CONFIGURAÇÕES
 st.set_page_config(
@@ -88,7 +89,34 @@ eventos = [
     ("📊 Atualização Power BI - 01 de Julho")
 ]
 
-# HEADER
+# FUNÇÃO PARA NORMALIZAR TEXTO (remover acentos e lowercase)
+def normalizar(texto):
+    if not texto:
+        return ""
+    texto = texto.lower()
+    texto = unicodedata.normalize('NFD', texto).encode('ascii', 'ignore').decode("utf-8")
+    return texto
+
+# FUNÇÃO DE EXIBIÇÃO DE BLOCOS COM FILTRO
+def mostrar_bloco(titulo, lista, filtro):
+    st.markdown(f"### {titulo}")
+    col1, col2 = st.columns(2)
+    encontrou = False
+
+    for i, (nome, link) in enumerate(lista):
+        if filtro in normalizar(nome) or filtro == "":
+            encontrou = True
+            with (col1 if i % 2 == 0 else col2):
+                st.markdown(f"""
+                    <a href="{link}" target="_blank" style="text-decoration: none;">
+                        <div class="custom-card">{nome}</div>
+                    </a>
+                """, unsafe_allow_html=True)
+
+    if not encontrou:
+        st.markdown("<p style='color: #888;'>Nenhum item encontrado nesta seção.</p>", unsafe_allow_html=True)
+
+# INÍCIO
 if selected == "🏠 Início":
     st.markdown(f"""
     <div class='header'>
@@ -108,7 +136,8 @@ if selected == "🏠 Início":
     st.markdown("### 🔍 Pesquisar")
     col1, col2 = st.columns([8, 1])
     with col1:
-        search = st.text_input("", placeholder="Buscar dashboards, formulários ou materiais").lower()
+        busca = st.text_input("", placeholder="Buscar dashboards, formulários ou materiais")
+        busca_normalizada = normalizar(busca)
     with col2:
         st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
         st.button("🔍 Buscar")
@@ -127,25 +156,13 @@ if selected == "🏠 Início":
     for evento in eventos:
         st.markdown(f"- {evento}")
 
-    # SEÇÕES COM FILTRO
-    def mostrar_bloco(titulo, lista):
-        st.markdown(f"### {titulo}")
-        col1, col2 = st.columns(2)
-        for i, (nome, link) in enumerate(lista):
-            if search in nome.lower():
-                with (col1 if i % 2 == 0 else col2):
-                    st.markdown(f"""
-                        <a href="{link}" target="_blank" style="text-decoration: none;">
-                            <div class="custom-card">{nome}</div>
-                        </a>
-                    """, unsafe_allow_html=True)
+    # BLOCO DE CONTEÚDOS COM FILTRO
+    mostrar_bloco("📊 Dashboards Comerciais", dashboards, busca_normalizada)
+    mostrar_bloco("📄 Formulários", formularios, busca_normalizada)
+    mostrar_bloco("📚 Materiais", materiais, busca_normalizada)
+    mostrar_bloco("🏢 Área de Crédito", credito, busca_normalizada)
 
-    mostrar_bloco("📊 Dashboards Comerciais", dashboards)
-    mostrar_bloco("📄 Formulários", formularios)
-    mostrar_bloco("📚 Materiais", materiais)
-    mostrar_bloco("🏢 Área de Crédito", credito)
-
-# OUTRAS SEÇÕES
+# OUTRAS SEÇÕES (sem campo de busca)
 def render_secao(titulo, dados):
     st.markdown(f"### {titulo}")
     col1, col2 = st.columns(2)
