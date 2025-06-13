@@ -98,13 +98,13 @@ eventos = [
     ("📊 Atualização Power BI - 01 de Julho")
 ]
 
-# CABEÇALHO
+# CABEÇALHO AJUSTADO
 st.markdown(f"""
 <div style='background-color: #ffffff; padding: 30px 20px; border-radius: 10px;
-box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
+box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center; margin-bottom: 20px;'>
     <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
     <div>
-        <h1 style='margin-bottom: 0px; color: #002B5B;'>Central de Planejamento Comercial</h1>
+        <h1 style='margin-bottom: 0px; color: #002B5B;'>Portal de Planejamento Comercial</h1>
         <p style='margin-top: 5px; color: #6c757d;'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
     </div>
 </div>
@@ -112,6 +112,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,0.05); display: flex; align-items: center;'>
 
 # NOTIFICAÇÃO
 st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+
 
 # CONTEÚDO POR SEÇÃO
 if selected == "🏠 Início":
