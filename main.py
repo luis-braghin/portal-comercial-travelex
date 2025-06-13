@@ -9,6 +9,13 @@ st.set_page_config(
     page_icon="logo_travelex.png"
 )
 
+# TEMA ESCURO
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = False
+
+modo = st.toggle("🌗 Modo Escuro", value=st.session_state.dark_mode)
+st.session_state.dark_mode = modo
+
 # ENCODE DE IMAGEM
 
 def get_base64(file_path):
@@ -18,55 +25,61 @@ def get_base64(file_path):
 logo_base64 = get_base64("logo_travelex.png")
 
 # CSS MODERNO VISUAL
-st.markdown("""
+st.markdown(f"""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    html, body, [class*="css"]  {
+    html, body, [class*="css"]  {{
         font-family: 'Inter', sans-serif;
-    }
+        background-color: {"#1e1e1e" if st.session_state.dark_mode else "#f8f9fa"};
+        color: {"#e0e0e0" if st.session_state.dark_mode else "#000"};
+    }}
 
-    .main-container {
+    .main-container {{
         max-width: 1400px;
         margin: auto;
-    }
+    }}
 
-    .custom-card {
+    .custom-card {{
+        display: flex;
+        align-items: center;
+        gap: 16px;
         border-left: 6px solid #00205B;
-        background: #ffffff;
+        background: {"#2b2b2b" if st.session_state.dark_mode else "#ffffff"};
         padding: 18px 22px;
         border-radius: 12px;
         margin: 12px 0;
         box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
+        color: inherit;
+    }}
 
-    .custom-card:hover {
+    .custom-card:hover {{
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
+    }}
 
-    .highlight-box {
+    .highlight-box {{
         background: linear-gradient(90deg, #e8f0fe, #f1f5fc);
         border-radius: 12px;
         padding: 25px;
         box-shadow: 0 4px 14px rgba(0,0,0,0.05);
         margin-bottom: 35px;
-    }
+    }}
 
-    .section-title {
+    .section-title {{
         font-size: 26px;
         font-weight: 700;
         color: #00205B;
         margin-top: 40px;
         margin-bottom: 10px;
-    }
+    }}
 
-    .info-text {
+    .info-text {{
         font-size: 16px;
         color: #4a4a4a;
-    }
+    }}
 
-    .metric-box {
+    .metric-box {{
         background: linear-gradient(to right, #f6f9ff, #e8eefc);
         padding: 30px;
         border-radius: 12px;
@@ -75,7 +88,29 @@ st.markdown("""
         font-size: 24px;
         font-weight: 700;
         box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
+    }}
+
+    .floating-menu {{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+    }}
+    .floating-menu a {{
+        display: block;
+        margin: 6px 0;
+        padding: 10px 16px;
+        background: #00205B;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 600;
+        transition: background 0.2s;
+    }}
+    .floating-menu a:hover {{
+        background: #001437;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -169,13 +204,21 @@ if selected == "🏠 Início":
 # SEÇÕES
 else:
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
-    secao_nome = next((k for k in conteudos.keys() if any(p in k for p in selected.split())), None)
+    secao_nome = next((k for k in conteudos.keys() if selected in k or k.endswith(selected)), None)
     if secao_nome:
         mostrar_bloco(secao_nome, conteudos[secao_nome])
     else:
         st.warning("Nenhum conteúdo encontrado para esta seção.")
     st.markdown("</div>", unsafe_allow_html=True)
 
+# MENU FLUTUANTE
+st.markdown("""
+<div class="floating-menu">
+    <a href="#top">🔝 Topo</a>
+    <a href="mailto:sugestoes@travelex.com">💬 Enviar sugestão</a>
+    <a href="https://intranet.travelex.com/manual" target="_blank">📄 Documentação</a>
+</div>
+""", unsafe_allow_html=True)
 
 # RODAPÉ
 st.markdown("""<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
