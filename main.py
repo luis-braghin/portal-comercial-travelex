@@ -72,6 +72,12 @@ st.markdown("""
         font-weight: 700;
         box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
+    .search-input input {
+        background-color: #f1f5fc;
+        border-radius: 8px;
+        padding: 0.6rem;
+        border: 1px solid #c7d3ec;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -86,11 +92,7 @@ with st.sidebar:
     )
 
 conteudos = {
-    "📊 Dashboards Comerciais": [...],  # (mantenha os dados atuais aqui)
-    "📄 Formulários": [...],
-    "📚 Materiais": [...],
-    "🏢 Área de Crédito": [...],
-    "🔗 Links Úteis": [...]
+    # ... mantenha os seus blocos existentes completos aqui ...
 }
 
 def mostrar_bloco(titulo, lista):
@@ -104,8 +106,6 @@ def mostrar_bloco(titulo, lista):
                 </a>
             """, unsafe_allow_html=True)
 
-# FUNÇÃO DE BUSCA
-
 def buscar_conteudos(termo):
     resultados = {}
     termo = termo.lower()
@@ -115,9 +115,17 @@ def buscar_conteudos(termo):
             resultados[secao] = filtrados
     return resultados
 
-# INÍCIO
 if selected == "🏠 Início":
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+
+    # BARRA DE PESQUISA NO TOPO
+    with st.container():
+        termo = st.text_input(
+            "",
+            placeholder="🔍 Buscar relatórios, formulários ou materiais...",
+            key="search",
+            label_visibility="collapsed",
+        )
 
     st.markdown(f"""
     <div class='highlight-box'>
@@ -144,10 +152,6 @@ if selected == "🏠 Início":
     st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
     for evento in eventos:
         st.markdown(f"- {evento}")
-
-    # BARRA DE PESQUISA
-    st.markdown("<div class='section-title'>🔍 Buscar no Portal</div>", unsafe_allow_html=True)
-    termo = st.text_input("Digite um termo para buscar por relatórios, formulários ou materiais:", placeholder="Ex: Raio X, ESG, Produtos...")
 
     if termo:
         resultados = buscar_conteudos(termo)
