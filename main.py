@@ -90,13 +90,14 @@ with st.sidebar:
         default_index=0
     )
 
-# CONTEÚDO
 conteudos = {
     "📊 Dashboards Comerciais": [
         ("📌 Gestião Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
         ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+        ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
+        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&experience=power-bi")
     ],
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
@@ -109,13 +110,12 @@ conteudos = {
         ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
         ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
         ("📊 Dashboard Crédito", "https://app.powerbi.com/links/newcreditdash")
+    ],
+    "🔗 Links Úteis": [
+        ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
+        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp")
     ]
 }
-eventos = [
-    "🔔 Reunião Trimestral - 20 de Junho",
-    "🧠 Workshop Estratégico - 27 de Junho",
-    "📊 Atualização Power BI - 01 de Julho"
-]
 
 # FUNÇÃO PARA CARDS
 
@@ -146,7 +146,7 @@ if selected == "🏠 Início":
     </div>
     """, unsafe_allow_html=True)
 
-    st.info("🔔 Atualização: Adicionamos o novo relatório de Telemetria!")
+    st.info("🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!")
 
     st.markdown("<div class='section-title'>📉 Meta do Mês</div>", unsafe_allow_html=True)
     st.markdown("""
