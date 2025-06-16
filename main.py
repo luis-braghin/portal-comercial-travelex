@@ -15,10 +15,10 @@ eventos = [
     "📊 Atualização Power BI - 01 de Julho"
 ]
 
-# Destaque comercial do mês
+# Destaque comercial da semana
 destaque_comercial = {
-    "nome": "Comercial X",
-    "motivo": "(Em desenvolvimento)"
+    "nome": "Equipe Norte",
+    "motivo": "Maior participação em treinamentos de Junho"
 }
 # ============================================= #
 
@@ -133,7 +133,9 @@ conteudos = {
     ],
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
-        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp")
+        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf?isSPOFile=1&OR=Teams-HL&CT=1706105239041&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzExMzAyNjIwMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
+        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ]
 }
 
@@ -167,7 +169,7 @@ if selected == "🏠 Início":
 
     st.info(mensagem_atualizacao)
 
-    st.markdown("<div class='section-title'>🏆 Comercial Destaque</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
     st.markdown(f"""
         <div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
