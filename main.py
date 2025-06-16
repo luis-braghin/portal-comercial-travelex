@@ -13,7 +13,7 @@ eventos = [
 
 destaque_comercial = {
     "nome": "Comercial Gabrielle Figueira",
-    "motivo": "🚀 Top Receitas 🚀"
+    "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
 
