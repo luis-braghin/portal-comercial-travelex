@@ -6,7 +6,7 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 eventos = [
-    "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho"
+    "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
     "🖙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
 ]
@@ -26,7 +26,7 @@ def get_base64(file_path):
 logo_base64 = get_base64("logo_travelex.png")
 
 # CSS VISUAL
-st.markdown("""
+t.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
     html, body, [class*="css"]  {
