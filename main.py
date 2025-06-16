@@ -72,12 +72,6 @@ st.markdown("""
         font-weight: 700;
         box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
-    .search-input input {
-        background-color: #f1f5fc;
-        border-radius: 8px;
-        padding: 0.6rem;
-        border: 1px solid #c7d3ec;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -119,18 +113,14 @@ if selected == "🏠 Início":
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
     # BARRA DE PESQUISA NO TOPO
-   # BARRA DE PESQUISA NO TOPO VISÍVEL E ELEGANTE
-st.markdown(
-    "<div style='margin-top: -10px; margin-bottom: 15px;'>"
-    "<input type='text' id='search-box' placeholder='🔍 Buscar relatórios, formulários ou materiais...' "
-    "style='width: 100%; padding: 12px; font-size: 16px; border: 1px solid #cfd8e3; border-radius: 10px; background-color: #f5f8ff;'>"
-    "</div>",
-    unsafe_allow_html=True,
-)
-
-# captura de entrada via componente padrão
-termo = st.text_input("", "", key="search_input", label_visibility="collapsed")
-
+    st.markdown(
+        "<div style='margin-top: -5px; margin-bottom: 20px;'>"
+        "<input type='text' id='search-box' placeholder='🔍 Buscar relatórios, formulários ou materiais...' "
+        "style='width: 100%; padding: 12px; font-size: 16px; border: 1px solid #cfd8e3; border-radius: 10px; background-color: #f5f8ff;'>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+    termo = st.text_input("", "", key="search_input", label_visibility="collapsed")
 
     st.markdown(f"""
     <div class='highlight-box'>
