@@ -8,7 +8,7 @@ mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plat
 
 eventos = [
     "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
-    "🛙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
+    "🖙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
 ]
 
@@ -137,15 +137,12 @@ def buscar_conteudos(termo):
 if selected == "🏠 Início":
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
-    # BARRA DE PESQUISA NO TOPO
-    st.markdown(
-        "<div style='margin-top: -5px; margin-bottom: 20px;'>"
-        "<input type='text' id='search-box' placeholder='🔍 Buscar relatórios, formulários ou materiais...' "
-        "style='width: 100%; padding: 12px; font-size: 16px; border: 1px solid #cfd8e3; border-radius: 10px; background-color: #f5f8ff;'>"
-        "</div>",
-        unsafe_allow_html=True,
+    # CAMPO DE BUSCA FUNCIONAL
+    termo = st.text_input(
+        "🔎 Buscar relatórios, formulários ou materiais...",
+        placeholder="Ex: CAM57, ESG, Market Share",
+        key="busca_ativa"
     )
-    termo = st.text_input("", "", key="search_input", label_visibility="collapsed")
 
     st.markdown(f"""
     <div class='highlight-box'>
