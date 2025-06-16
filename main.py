@@ -3,33 +3,23 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-# Altere essas variáveis para modificar notificações e conteúdos rapidamente
 
-# Mensagem de notificação
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
-# Lista de eventos futuros
 eventos = [
     "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
-    "🛍️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
+    "🛙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
 ]
 
-# Destaque comercial da semana
 destaque_comercial = {
     "nome": "Comercial _______",
     "motivo": "Em desenvolvimento"
 }
 # ============================================= #
 
-# CONFIG
-st.set_page_config(
-    page_title="Portal de Planejamento Comercial",
-    layout="wide",
-    page_icon="logo_travelex.png"
-)
+st.set_page_config(page_title="Portal de Planejamento Comercial", layout="wide", page_icon="logo_travelex.png")
 
-# ENCODE DE IMAGEM
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -43,12 +33,7 @@ st.markdown("""
     html, body, [class*="css"]  {
         font-family: 'Inter', sans-serif;
     }
-
-    .main-container {
-        max-width: 1400px;
-        margin: auto;
-    }
-
+    .main-container { max-width: 1400px; margin: auto; }
     .custom-card {
         border-left: 6px solid #00205B;
         background: #ffffff;
@@ -58,12 +43,10 @@ st.markdown("""
         box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
-
     .custom-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
-
     .highlight-box {
         background: linear-gradient(90deg, #e8f0fe, #f1f5fc);
         border-radius: 12px;
@@ -71,7 +54,6 @@ st.markdown("""
         box-shadow: 0 4px 14px rgba(0,0,0,0.05);
         margin-bottom: 35px;
     }
-
     .section-title {
         font-size: 26px;
         font-weight: 700;
@@ -79,12 +61,7 @@ st.markdown("""
         margin-top: 40px;
         margin-bottom: 10px;
     }
-
-    .info-text {
-        font-size: 16px;
-        color: #4a4a4a;
-    }
-
+    .info-text { font-size: 16px; color: #4a4a4a; }
     .metric-box {
         background: linear-gradient(to right, #f6f9ff, #e8eefc);
         padding: 30px;
@@ -98,7 +75,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# SIDEBAR
 with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
@@ -109,37 +85,14 @@ with st.sidebar:
         default_index=0
     )
 
-# CONTEÚDO
 conteudos = {
-    "📊 Dashboards Comerciais": [
-        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
-        ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
-        ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
-        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
-        ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
-        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&experience=power-bi")
-    ],
-    "📄 Formulários": [
-        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
-        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
-    ],
-    "📚 Materiais": [
-        ("📁 Treinamentos e Manuais", "https://example.com/materials")
-    ],
-    "🏢 Área de Crédito": [
-        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
-        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
-        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/newcreditdash")
-    ],
-    "🔗 Links Úteis": [
-        ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
-        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
-        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf?isSPOFile=1&OR=Teams-HL&CT=1706105239041&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzExMzAyNjIwMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
-        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
-    ]
+    "📊 Dashboards Comerciais": [...],  # (mantenha os dados atuais aqui)
+    "📄 Formulários": [...],
+    "📚 Materiais": [...],
+    "🏢 Área de Crédito": [...],
+    "🔗 Links Úteis": [...]
 }
 
-# FUNÇÃO PARA CARDS
 def mostrar_bloco(titulo, lista):
     st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
@@ -150,6 +103,17 @@ def mostrar_bloco(titulo, lista):
                     <div class="custom-card">{nome}</div>
                 </a>
             """, unsafe_allow_html=True)
+
+# FUNÇÃO DE BUSCA
+
+def buscar_conteudos(termo):
+    resultados = {}
+    termo = termo.lower()
+    for secao, itens in conteudos.items():
+        filtrados = [(nome, link) for nome, link in itens if termo in nome.lower()]
+        if filtrados:
+            resultados[secao] = filtrados
+    return resultados
 
 # INÍCIO
 if selected == "🏠 Início":
@@ -178,16 +142,26 @@ if selected == "🏠 Início":
     """, unsafe_allow_html=True)
 
     st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
-    with st.container():
-        for evento in eventos:
-            st.markdown(f"- {evento}")
+    for evento in eventos:
+        st.markdown(f"- {evento}")
 
-    for secao, blocos in conteudos.items():
-        mostrar_bloco(secao, blocos)
+    # BARRA DE PESQUISA
+    st.markdown("<div class='section-title'>🔍 Buscar no Portal</div>", unsafe_allow_html=True)
+    termo = st.text_input("Digite um termo para buscar por relatórios, formulários ou materiais:", placeholder="Ex: Raio X, ESG, Produtos...")
+
+    if termo:
+        resultados = buscar_conteudos(termo)
+        if resultados:
+            for secao, itens in resultados.items():
+                mostrar_bloco(secao, itens)
+        else:
+            st.warning("Nenhum resultado encontrado para a busca.")
+    else:
+        for secao, blocos in conteudos.items():
+            mostrar_bloco(secao, blocos)
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-# SEÇÕES
 else:
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
     secao_nome = next((k for k in conteudos.keys() if any(p in k for p in selected.split())), None)
@@ -197,8 +171,7 @@ else:
         st.warning("Nenhum conteúdo encontrado para esta seção.")
     st.markdown("</div>", unsafe_allow_html=True)
 
-# RODAPÉ
 st.markdown("""<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
     Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-    🔒 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
+    🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
 </div>""", unsafe_allow_html=True)
