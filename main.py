@@ -142,17 +142,19 @@ if selected == "🏠 Início":
         key="busca_ativa"
     )
 
-    st.markdown(f"""<div class='highlight-box'>
-        <div style="display: flex; align-items: center;">
-            <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
-            <div>
-                <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
-                <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+        if not termo:
+        st.markdown(f"""<div class='highlight-box'>
+            <div style="display: flex; align-items: center;">
+                <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+                <div>
+                    <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
+                    <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+                </div>
             </div>
-        </div>
-    </div>""", unsafe_allow_html=True)
+        </div>""", unsafe_allow_html=True)
 
-    st.info(mensagem_atualizacao)
+        st.info(mensagem_atualizacao)
+
 
     if termo:
         st.markdown("<div id='resultados'></div>", unsafe_allow_html=True)
