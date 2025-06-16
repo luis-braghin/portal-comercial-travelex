@@ -94,28 +94,28 @@ conteudos = {
         ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0")
     ],
     "📄 Formulários": [
-        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
-        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
+        ("📄 Migração de Carteira", "https://forms.office.com/r/ASPZ4ZAVEm?origin=lprLink"),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u&origin=lprLink&route=shorturl")
     ],
     "📚 Materiais/Treinamento": [
-       
+        ("📁 Treinamentos e Manuais", "https://example.com/materials"),
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🆕 Área de Onboarding/Cadastro": [
-        ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx&action=default&mobileredirect=true&CID=FA1D3F12-203C-4633-9AC7-5C54B6E738C1&wdLOR=c402CA434-1BDF-49B5-B26C-5A8CA7FE6F30&wdOrigin=TEAMS-MAGLEV.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1750103002619&web=1"),
-        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx&correlation=85c7a8a1%2D700a%2D9000%2D12b6%2D4e268f206b01&Type=list&name=ea713781%2Da8a1%2D4610%2D8d75%2D3edc3d2ff84a"),
+        ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
+        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
         ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
     "🏢 Área de Crédito": [
-        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
-        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
-        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/newcreditdash")
+        ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
+        ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
+        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
     ],
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
-        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/...")
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf")
     ]
 }
 
