@@ -78,7 +78,7 @@ with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais", "🏢 Crédito", "🔗 Links Úteis"],
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais e Treinamento", "🏢 Crédito", "🔗 Links Úteis"],
         icons=["house", "bar-chart", "file-earmark-text", "book", "building", "link"],
         menu_icon="cast",
         default_index=0
@@ -97,8 +97,8 @@ conteudos = {
         ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
         ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
     ],
-    "📚 Materiais": [
-        ("📁 Treinamentos e Manuais", "https://example.com/materials")
+    "📚 Materiais e Treinamento": [
+        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
