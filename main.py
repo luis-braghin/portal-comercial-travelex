@@ -17,8 +17,8 @@ eventos = [
 
 # Destaque comercial da semana
 destaque_comercial = {
-    "nome": "Equipe Norte",
-    "motivo": "Maior participação em treinamentos de Junho"
+    "nome": "Comercial _______",
+    "motivo": "Em desenvolvimento"
 }
 # ============================================= #
 
