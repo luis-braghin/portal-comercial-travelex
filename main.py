@@ -3,7 +3,6 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 eventos = [
@@ -109,7 +108,7 @@ conteudos = {
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
-        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf?isSPOFile=1&OR=Teams-HL&CT=1706105239041&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzExMzAyNjIwMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/..."),
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ]
 }
@@ -137,15 +136,13 @@ def buscar_conteudos(termo):
 if selected == "🏠 Início":
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
-    # CAMPO DE BUSCA FUNCIONAL
     termo = st.text_input(
         "🔎 Buscar relatórios, formulários ou materiais...",
         placeholder="Ex: CAM57, ESG, Market Share",
         key="busca_ativa"
     )
 
-    st.markdown(f"""
-    <div class='highlight-box'>
+    st.markdown(f"""<div class='highlight-box'>
         <div style="display: flex; align-items: center;">
             <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
             <div>
@@ -153,22 +150,9 @@ if selected == "🏠 Início":
                 <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
             </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
     st.info(mensagem_atualizacao)
-
-    st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
-    st.markdown(f"""
-        <div class="metric-box">
-            🌟 <strong>{destaque_comercial['nome']}</strong><br>
-            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
-        </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
-    for evento in eventos:
-        st.markdown(f"- {evento}")
 
     if termo:
         resultados = buscar_conteudos(termo)
@@ -178,24 +162,19 @@ if selected == "🏠 Início":
                 for nome, link in itens:
                     st.markdown(f"""
                         <a href="{link}" target="_blank" style="text-decoration: none;">
-                            <div class="custom-card">{nome} <small style='color:#888;font-size:13px;display:block'>{secao}</small></div>
+                            <div class="custom-card">{nome} 
+                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                            </div>
                         </a>
                     """, unsafe_allow_html=True)
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
-
     else:
-            st.warning("Nenhum resultado encontrado para a busca.")
-
-    else:
-        # Só mostra o restante se não estiver buscando
         st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
-        st.markdown(f"""
-            <div class="metric-box">
-                🌟 <strong>{destaque_comercial['nome']}</strong><br>
-                <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box">
+            🌟 <strong>{destaque_comercial['nome']}</strong><br>
+            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+        </div>""", unsafe_allow_html=True)
 
         st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
         for evento in eventos:
@@ -215,7 +194,8 @@ else:
         st.warning("Nenhum conteúdo encontrado para esta seção.")
     st.markdown("</div>", unsafe_allow_html=True)
 
-st.markdown("""<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
-    Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-    🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
+st.markdown("""
+<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
+Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
+🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
 </div>""", unsafe_allow_html=True)
