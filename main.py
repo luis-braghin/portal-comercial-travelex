@@ -112,7 +112,7 @@ with st.sidebar:
 # CONTEÚDO
 conteudos = {
     "📊 Dashboards Comerciais": [
-        ("📌 Gestião Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
         ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
