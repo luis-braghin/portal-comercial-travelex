@@ -10,7 +10,6 @@ st.set_page_config(
 )
 
 # ENCODE DE IMAGEM
-
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -84,12 +83,13 @@ with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais", "🏢 Crédito"],
-        icons=["house", "bar-chart", "file-earmark-text", "book", "building"],
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais", "🏢 Crédito", "🔗 Links Úteis"],
+        icons=["house", "bar-chart", "file-earmark-text", "book", "building", "link"],
         menu_icon="cast",
         default_index=0
     )
 
+# CONTEÚDO
 conteudos = {
     "📊 Dashboards Comerciais": [
         ("📌 Gestião Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -117,8 +117,13 @@ conteudos = {
     ]
 }
 
-# FUNÇÃO PARA CARDS
+eventos = [
+    "🔔 Reunião Trimestral - 20 de Junho",
+    "🧠 Workshop Estratégico - 27 de Junho",
+    "📊 Atualização Power BI - 01 de Julho"
+]
 
+# FUNÇÃO PARA CARDS
 def mostrar_bloco(titulo, lista):
     st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
