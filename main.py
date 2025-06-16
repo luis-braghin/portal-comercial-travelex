@@ -78,8 +78,8 @@ with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento", "🏢 Área de Crédito", "🔗 Links Úteis"],
-        icons=["house", "bar-chart", "file-earmark-text", "book", "building", "link"],
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento", "🆕 Área de Onboarding/Cadastro", "🏢 Área de Crédito", "🔗 Links Úteis"],
+        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "building", "link"],
         menu_icon="cast",
         default_index=0
     )
@@ -100,6 +100,12 @@ conteudos = {
     "📚 Materiais/Treinamento": [
         ("📁 Treinamentos e Manuais", "https://example.com/materials"),
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
+    ],
+    "🆕 Área de Onboarding/Cadastro": [
+        ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx&action=default&mobileredirect=true&CID=FA1D3F12-203C-4633-9AC7-5C54B6E738C1&wdLOR=c402CA434-1BDF-49B5-B26C-5A8CA7FE6F30&wdOrigin=TEAMS-MAGLEV.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1750103002619&web=1"),
+        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx&correlation=85c7a8a1%2D700a%2D9000%2D12b6%2D4e268f206b01&Type=list&name=ea713781%2Da8a1%2D4610%2D8d75%2D3edc3d2ff84a"),
+        ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
+        ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
