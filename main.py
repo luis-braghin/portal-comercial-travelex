@@ -172,12 +172,27 @@ if selected == "🏠 Início":
 
     if termo:
         resultados = buscar_conteudos(termo)
+        st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
         if resultados:
             for secao, itens in resultados.items():
                 mostrar_bloco(secao, itens)
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
+
     else:
+        # Só mostra o restante se não estiver buscando
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+        st.markdown(f"""
+            <div class="metric-box">
+                🌟 <strong>{destaque_comercial['nome']}</strong><br>
+                <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+            </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
+        for evento in eventos:
+            st.markdown(f"- {evento}")
+
         for secao, blocos in conteudos.items():
             mostrar_bloco(secao, blocos)
 
