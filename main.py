@@ -3,17 +3,23 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-# Altere essas variáveis para modificar notificações e eventos sem mexer no restante do código
+# Altere essas variáveis para modificar notificações e conteúdos rapidamente
 
-# Mensagem de notificação (exibida no topo da página inicial)
+# Mensagem de notificação
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 # Lista de eventos futuros
 eventos = [
-    "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
-    "🛍️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
-    "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
+    "🔔 Reunião Trimestral - 20 de Junho",
+    "🧠 Workshop Estratégico - 27 de Junho",
+    "📊 Atualização Power BI - 01 de Julho"
 ]
+
+# Destaque comercial do mês
+destaque_comercial = {
+    "nome": "Comercial X",
+    "motivo": "(Em desenvolvimento)"
+}
 # ============================================= #
 
 # CONFIG
@@ -161,11 +167,11 @@ if selected == "🏠 Início":
 
     st.info(mensagem_atualizacao)
 
-    st.markdown("<div class='section-title'>📉 Meta do Mês</div>", unsafe_allow_html=True)
-    st.markdown("""
+    st.markdown("<div class='section-title'>🏆 Comercial Destaque</div>", unsafe_allow_html=True)
+    st.markdown(f"""
         <div class="metric-box">
-            🎯 <strong>X%</strong><br>
-            <span style="font-size: 14px; font-weight: normal">Meta atingida até agora</span>
+            🌟 <strong>{destaque_comercial['nome']}</strong><br>
+            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
         </div>
     """, unsafe_allow_html=True)
 
