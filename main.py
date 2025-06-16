@@ -142,7 +142,8 @@ if selected == "🏠 Início":
         key="busca_ativa"
     )
 
-        if not termo:
+    # TÍTULO E AVISO SÓ SE NÃO TIVER BUSCA
+    if not termo:
         st.markdown(f"""<div class='highlight-box'>
             <div style="display: flex; align-items: center;">
                 <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
@@ -154,7 +155,6 @@ if selected == "🏠 Início":
         </div>""", unsafe_allow_html=True)
 
         st.info(mensagem_atualizacao)
-
 
     if termo:
         st.markdown("<div id='resultados'></div>", unsafe_allow_html=True)
