@@ -175,8 +175,16 @@ if selected == "🏠 Início":
         st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
         if resultados:
             for secao, itens in resultados.items():
-                mostrar_bloco(secao, itens)
+                for nome, link in itens:
+                    st.markdown(f"""
+                        <a href="{link}" target="_blank" style="text-decoration: none;">
+                            <div class="custom-card">{nome} <small style='color:#888;font-size:13px;display:block'>{secao}</small></div>
+                        </a>
+                    """, unsafe_allow_html=True)
         else:
+            st.warning("Nenhum resultado encontrado para a busca.")
+
+    else:
             st.warning("Nenhum resultado encontrado para a busca.")
 
     else:
