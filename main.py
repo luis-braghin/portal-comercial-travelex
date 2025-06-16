@@ -2,6 +2,20 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import base64
 
+# ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
+# Altere essas variáveis para modificar notificações e eventos sem mexer no restante do código
+
+# Mensagem de notificação (exibida no topo da página inicial)
+mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
+
+# Lista de eventos futuros
+eventos = [
+    "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
+    "🛍️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
+    "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
+]
+# ============================================= #
+
 # CONFIG
 st.set_page_config(
     page_title="Portal de Planejamento Comercial",
@@ -117,12 +131,6 @@ conteudos = {
     ]
 }
 
-eventos = [
-    "🔔 Reunião Trimestral - 20 de Junho",
-    "🧠 Workshop Estratégico - 27 de Junho",
-    "📊 Atualização Power BI - 01 de Julho"
-]
-
 # FUNÇÃO PARA CARDS
 def mostrar_bloco(titulo, lista):
     st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
@@ -151,7 +159,7 @@ if selected == "🏠 Início":
     </div>
     """, unsafe_allow_html=True)
 
-    st.info("🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!")
+    st.info(mensagem_atualizacao)
 
     st.markdown("<div class='section-title'>📉 Meta do Mês</div>", unsafe_allow_html=True)
     st.markdown("""
