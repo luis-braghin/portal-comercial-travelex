@@ -78,7 +78,7 @@ with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais e Treinamento", "🏢 Crédito", "🔗 Links Úteis"],
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento", "🏢 Crédito", "🔗 Links Úteis"],
         icons=["house", "bar-chart", "file-earmark-text", "book", "building", "link"],
         menu_icon="cast",
         default_index=0
@@ -97,7 +97,8 @@ conteudos = {
         ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
         ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
     ],
-    "📚 Materiais e Treinamento": [
+    "📚 Materiais/Treinamento": [
+        ("📁 Treinamentos e Manuais", "https://example.com/materials"),
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🏢 Área de Crédito": [
@@ -108,8 +109,7 @@ conteudos = {
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
-        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/..."),
-        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/...")
     ]
 }
 
@@ -142,7 +142,6 @@ if selected == "🏠 Início":
         key="busca_ativa"
     )
 
-    # TÍTULO E AVISO SÓ SE NÃO TIVER BUSCA
     if not termo:
         st.markdown(f"""<div class='highlight-box'>
             <div style="display: flex; align-items: center;">
@@ -197,7 +196,7 @@ if selected == "🏠 Início":
 
 else:
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
-    secao_nome = next((k for k in conteudos.keys() if any(p in k for p in selected.split())), None)
+    secao_nome = next((k for k in conteudos.keys() if k == selected), None)
     if secao_nome:
         mostrar_bloco(secao_nome, conteudos[secao_nome])
     else:
