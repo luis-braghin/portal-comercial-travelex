@@ -86,7 +86,32 @@ with st.sidebar:
     )
 
 conteudos = {
-    # ... mantenha os seus blocos existentes completos aqui ...
+    "📊 Dashboards Comerciais": [
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
+        ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+        ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
+        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&experience=power-bi")
+    ],
+    "📄 Formulários": [
+        ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=2")
+    ],
+    "📚 Materiais": [
+        ("📁 Treinamentos e Manuais", "https://example.com/materials")
+    ],
+    "🏢 Área de Crédito": [
+        ("🧾 Proposta de Crédito", "https://forms.office.com/pages/responsepage.aspx?id=creditform"),
+        ("🌱 Formulário ESG", "https://forms.office.com/pages/responsepage.aspx?id=esgform"),
+        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/newcreditdash")
+    ],
+    "🔗 Links Úteis": [
+        ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
+        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf?isSPOFile=1&OR=Teams-HL&CT=1706105239041&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzExMzAyNjIwMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
+        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
+    ]
 }
 
 def mostrar_bloco(titulo, lista):
