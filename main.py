@@ -98,7 +98,7 @@ conteudos = {
         ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u&origin=lprLink&route=shorturl")
     ],
     "📚 Materiais/Treinamento": [
-        ("📁 Treinamentos e Manuais", "https://example.com/materials"),
+        
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🆕 Área de Onboarding/Cadastro": [
