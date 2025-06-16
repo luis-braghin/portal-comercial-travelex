@@ -10,10 +10,9 @@ mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plat
 
 # Lista de eventos futuros
 eventos = [
-    "🔔 Reunião Trimestral - 20 de Junho",
-    "🧠 Workshop Estratégico - 27 de Junho",
-    "📊 Atualização Power BI - 01 de Julho"
-]
+    "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
+    "🛍️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
+    "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
 
 # Destaque comercial da semana
 destaque_comercial = {
