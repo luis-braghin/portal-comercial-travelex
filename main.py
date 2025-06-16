@@ -25,7 +25,7 @@ def get_base64(file_path):
 
 logo_base64 = get_base64("logo_travelex.png")
 
-# CSS MODERNO VISUAL
+# CSS VISUAL
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -91,7 +91,7 @@ conteudos = {
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
         ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
         ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
-        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&experience=power-bi")
+        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0")
     ],
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/pages/responsepage.aspx?id=1"),
@@ -155,6 +155,14 @@ if selected == "🏠 Início":
     st.info(mensagem_atualizacao)
 
     if termo:
+        st.markdown("<div id='resultados'></div>", unsafe_allow_html=True)
+        st.markdown("""
+            <script>
+                const anchor = document.getElementById("resultados");
+                if (anchor) { anchor.scrollIntoView({ behavior: "smooth", block: "start" }); }
+            </script>
+        """, unsafe_allow_html=True)
+
         resultados = buscar_conteudos(termo)
         st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
         if resultados:
@@ -162,7 +170,7 @@ if selected == "🏠 Início":
                 for nome, link in itens:
                     st.markdown(f"""
                         <a href="{link}" target="_blank" style="text-decoration: none;">
-                            <div class="custom-card">{nome} 
+                            <div class="custom-card">{nome}
                                 <small style='color:#888;font-size:13px;display:block'>{secao}</small>
                             </div>
                         </a>
