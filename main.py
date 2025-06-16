@@ -12,8 +12,8 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Comercial _______",
-    "motivo": "Em desenvolvimento"
+    "nome": "Comercial Gabrielle Figueira - Regional Lilian Cafarella",
+    "motivo": "🚀 Receitas 🚀"
 }
 # ============================================= #
 
