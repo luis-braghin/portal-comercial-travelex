@@ -26,7 +26,7 @@ def get_base64(file_path):
 logo_base64 = get_base64("logo_travelex.png")
 
 # CSS VISUAL
-t.markdown("""
+st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
     html, body, [class*="css"]  {
