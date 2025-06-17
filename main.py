@@ -227,7 +227,7 @@ if selected == "🏠 Início":
                     st.markdown("<div class='section-title subtitulo-kyc'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
                     mostrar_bloco("", pf_docs)
                 if pj_docs:
-                    st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
+                    st.markdown("<div class='section-title subtitulo-kyc'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
                     mostrar_bloco("", pj_docs)
             else:
                 mostrar_bloco(secao, conteudos[secao])
