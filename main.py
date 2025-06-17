@@ -221,7 +221,7 @@ if selected == "🏠 Início":
                 pf_docs = [(nome, link) for nome, link in conteudos[secao] if "PF –" in nome]
                 pj_docs = [(nome, link) for nome, link in conteudos[secao] if "PJ –" in nome]
 
-                st.markdown(f"<div class='section-title'>📁 {secao}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div class='section-title'>{secao.replace('📁 ', '')}</div>", unsafe_allow_html=True)
                 if pf_docs:
                     st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
                     mostrar_bloco("", pf_docs)
