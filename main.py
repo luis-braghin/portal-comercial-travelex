@@ -1,30 +1,30 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import base64
-
+ 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
-
+ 
 eventos = [
     "💥 Super-Quarta Decisão Taxa de Juros (Fed + Copom) – 17 e 18 de Junho",
     "🖙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho"
 ]
-
+ 
 destaque_comercial = {
     "nome": "Comercial Gabrielle Figueira",
     "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
-
+ 
 st.set_page_config(page_title="Portal de Planejamento Comercial", layout="wide", page_icon="logo_travelex.png")
-
+ 
 def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
-
+ 
 logo_base64 = get_base64("logo_travelex.png")
-
+ 
 # CSS VISUAL
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -73,17 +73,17 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+ 
 with st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
-        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento", "🆕 Área de Onboarding/Cadastro", "🏢 Área de Crédito", "🧾 KYC e Documentos de Abertura", "🔗 Links Úteis"],
-        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "building", "file-text", "link"],
+        ["🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento", "🆕 Área de Onboarding/Cadastro", "🏢 Área de Crédito", "🔗 Links Úteis"],
+        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "building", "link"],
         menu_icon="cast",
         default_index=0
     )
-
+ 
 conteudos = {
     "📊 Dashboards": [
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -98,6 +98,7 @@ conteudos = {
         ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u&origin=lprLink&route=shorturl")
     ],
     "📚 Materiais/Treinamento": [
+        
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🆕 Área de Onboarding/Cadastro": [
@@ -111,31 +112,103 @@ conteudos = {
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
         ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
     ],
-    "🧾 KYC e Documentos de Abertura": [
-        ("👤 PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
-        ("👤 PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
-        ("👤 PF – Conta Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/r/personal/lebraghin_travelexbank_com_br/Documents/Imagens%20TVX/Abertura_Conta_Corrente_PF.docx?d=w1f7e95d9bb3441b2bc90f83d7148ae81&csf=1&web=1&e=qEmbeU"),
-        ("👤 PF – Conta Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
-        ("👤 PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
-        ("🏢 PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
-        ("🏢 PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
-        ("🏢 PJ – Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
-        ("🏢 PJ – Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
-        ("🏢 PJ – Abertura de Conta", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
-        ("🏢 PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
-    ],
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
         ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf")
     ]
 }
-
-
-
-
-
-
+ 
+def mostrar_bloco(titulo, lista):
+    st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(lista):
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f"""
+                <a href="{link}" target="_blank" style="text-decoration: none;">
+                    <div class="custom-card">{nome}</div>
+                </a>
+            """, unsafe_allow_html=True)
+ 
+def buscar_conteudos(termo):
+    resultados = {}
+    termo = termo.lower()
+    for secao, itens in conteudos.items():
+        filtrados = [(nome, link) for nome, link in itens if termo in nome.lower()]
+        if filtrados:
+            resultados[secao] = filtrados
+    return resultados
+ 
+if selected == "🏠 Início":
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+ 
+    termo = st.text_input(
+        "🔎 Buscar relatórios, formulários ou materiais...",
+        placeholder="Ex: CAM57, ESG, Market Share",
+        key="busca_ativa"
+    )
+ 
+    if not termo:
+        st.markdown(f"""<div class='highlight-box'>
+            <div style="display: flex; align-items: center;">
+                <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+                <div>
+                    <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
+                    <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+                </div>
+            </div>
+        </div>""", unsafe_allow_html=True)
+ 
+        st.info(mensagem_atualizacao)
+ 
+    if termo:
+        st.markdown("<div id='resultados'></div>", unsafe_allow_html=True)
+        st.markdown("""
+            <script>
+                const anchor = document.getElementById("resultados");
+                if (anchor) { anchor.scrollIntoView({ behavior: "smooth", block: "start" }); }
+            </script>
+        """, unsafe_allow_html=True)
+ 
+        resultados = buscar_conteudos(termo)
+        st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
+        if resultados:
+            for secao, itens in resultados.items():
+                for nome, link in itens:
+                    st.markdown(f"""
+                        <a href="{link}" target="_blank" style="text-decoration: none;">
+                            <div class="custom-card">{nome}
+                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                            </div>
+                        </a>
+                    """, unsafe_allow_html=True)
+        else:
+            st.warning("Nenhum resultado encontrado para a busca.")
+    else:
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box">
+            🌟 <strong>{destaque_comercial['nome']}</strong><br>
+            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+        </div>""", unsafe_allow_html=True)
+ 
+        st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
+        for evento in eventos:
+            st.markdown(f"- {evento}")
+ 
+        for secao, blocos in conteudos.items():
+            mostrar_bloco(secao, blocos)
+ 
+    st.markdown("</div>", unsafe_allow_html=True)
+ 
+else:
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+    secao_nome = next((k for k in conteudos.keys() if k == selected), None)
+    if secao_nome:
+        mostrar_bloco(secao_nome, conteudos[secao_nome])
+    else:
+        st.warning("Nenhum conteúdo encontrado para esta seção.")
+    st.markdown("</div>", unsafe_allow_html=True)
+ 
 st.markdown("""
 <br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
 Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
