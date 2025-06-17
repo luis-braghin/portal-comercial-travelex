@@ -165,21 +165,41 @@ st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 if selected == "🏠 Início":
     st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
-    # ... tudo da tela inicial ...
+    termo = st.text_input(
+        "🔎 Buscar relatórios, formulários ou materiais...",
+        placeholder="Ex: CAM57, ESG, Market Share",
+        key="busca_ativa"
+    )
 
-    for secao, blocos in conteudos.items():
-        mostrar_bloco(secao, blocos)
+    if not termo:
+        st.markdown(f"""<div class='highlight-box'>
+            <div style="display: flex; align-items: center;">
+                <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+                <div>
+                    <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
+                    <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+                </div>
+            </div>
+        </div>""", unsafe_allow_html=True)
 
-    # ✅ Rodapé deve vir aqui
+        st.info(mensagem_atualizacao)
+
+    if termo:
+        # ... lógica de busca ...
+        pass
+    else:
+        # ... comercial destaque e eventos ...
+        for secao, blocos in conteudos.items():
+            mostrar_bloco(secao, blocos)
+
+    # ✅ Rodapé ao final da página inicial
     st.markdown("""
     <br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
     Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
     🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
     </div>""", unsafe_allow_html=True)
 
-    # (opcional: espaçamento no final)
     st.markdown("<div style='height:40px;'></div>", unsafe_allow_html=True)
-
     st.markdown("</div>", unsafe_allow_html=True)
 
 
