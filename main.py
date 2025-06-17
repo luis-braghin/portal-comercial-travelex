@@ -90,20 +90,97 @@ with st.sidebar:
 
 conteudos = {
     "📁 KYC e Documentos de Abertura": [
-        ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
-        ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
-        ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/r/personal/lebraghin_travelexbank_com_br/Documents/Imagens%20TVX/Abertura_Conta_Corrente_PF.docx?d=w1f7e95d9bb3441b2bc90f83d7148ae81&csf=1&web=1&e=qEmbeU"),
-        ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
-        ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
-        ("PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
-        ("PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
-        ("PJ – Ficha Cadastral Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
-        ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
-        ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
-        ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
+        ("PF – KYC", "https://link-kyc-pf"),
+        ("PF – Ficha Cadastral", "https://link-ficha-pf"),
+        ("PF – Abertura Conta-Corrente Residente", "https://link-conta-residente"),
+        ("PF – Abertura Conta-Corrente Não-Residente", "https://link-conta-nao-residente"),
+        ("PF – Solicitação Acesso IB", "https://link-acesso-ib-pf"),
+        ("PJ – KYC", "https://link-kyc-pj"),
+        ("PJ – Ficha Cadastral", "https://link-ficha-pj"),
+        ("PJ – Ficha Cadastral Anexo I", "https://link-anexo-i"),
+        ("PJ – Ficha Cadastral Anexo II", "https://link-anexo-ii"),
+        ("PJ – Abertura de Conta-Corrente", "https://link-conta-pj"),
+        ("PJ – Solicitação Acesso IB", "https://link-acesso-ib-pj")
     ],
     "Outros Conteúdos": [
         ("Exemplo 1", "#"),
         ("Exemplo 2", "#")
     ]
 }
+
+def mostrar_bloco(titulo, lista):
+    if titulo:
+        st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for i, (nome, link) in enumerate(lista):
+        with (col1 if i % 2 == 0 else col2):
+            st.markdown(f"""
+                <a href="{link}" target="_blank" style="text-decoration: none;">
+                    <div class="custom-card">{nome}</div>
+                </a>
+            """, unsafe_allow_html=True)
+
+if selected == "🏠 Início":
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+
+    st.markdown(f"""<div class='highlight-box'>
+        <div style="display: flex; align-items: center;">
+            <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+            <div>
+                <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
+                <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+            </div>
+        </div>
+    </div>""", unsafe_allow_html=True)
+
+    st.info(mensagem_atualizacao)
+
+    st.markdown("<div class='section-title'>📆 Próximos Eventos</div>", unsafe_allow_html=True)
+    for evento in eventos:
+        st.markdown(f"- {evento}")
+
+    st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+    st.markdown(f"""<div class="metric-box">
+        🌟 <strong>{destaque_comercial['nome']}</strong><br>
+        <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+    </div>""", unsafe_allow_html=True)
+
+    for secao, blocos in conteudos.items():
+        if secao == "📁 KYC e Documentos de Abertura":
+            pf_docs = [(nome, link) for nome, link in blocos if "PF –" in nome]
+            pj_docs = [(nome, link) for nome, link in blocos if "PJ –" in nome]
+
+            st.markdown(f"<div class='section-title'>📁 {secao}</div>", unsafe_allow_html=True)
+            if pf_docs:
+                st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
+                mostrar_bloco("", pf_docs)
+            if pj_docs:
+                st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
+                mostrar_bloco("", pj_docs)
+        else:
+            mostrar_bloco(secao, blocos)
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+elif selected == "📁 KYC e Documentos de Abertura":
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+    pf_docs = [(nome, link) for nome, link in conteudos[selected] if "PF –" in nome]
+    pj_docs = [(nome, link) for nome, link in conteudos[selected] if "PJ –" in nome]
+
+    st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
+    mostrar_bloco("", pf_docs)
+
+    st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
+    mostrar_bloco("", pj_docs)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+else:
+    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+    mostrar_bloco(selected, conteudos.get(selected, []))
+    st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("""
+<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
+Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
+🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
+</div>""", unsafe_allow_html=True)
