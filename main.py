@@ -111,18 +111,22 @@ conteudos = {
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
     "📁 KYC e Documentos de Abertura": [
-        ("PF – KYC", "https://link-kyc-pf"),
-        ("PF – Ficha Cadastral", "https://link-ficha-pf"),
-        ("PF – Abertura Conta-Corrente Residente", "https://link-conta-residente"),
-        ("PF – Abertura Conta-Corrente Não-Residente", "https://link-conta-nao-residente"),
-        ("PF – Solicitação Acesso IB", "https://link-acesso-ib-pf"),
-        ("PJ – KYC", "https://link-kyc-pj"),
-        ("PJ – Ficha Cadastral", "https://link-ficha-pj"),
-        ("PJ – Ficha Cadastral Anexo I", "https://link-anexo-i"),
-        ("PJ – Ficha Cadastral Anexo II", "https://link-anexo-ii"),
-        ("PJ – Abertura de Conta-Corrente", "https://link-conta-pj"),
-        ("PJ – Solicitação Acesso IB", "https://link-acesso-ib-pj")
-    ],
+    # Documentos Pessoa Física (PF)
+    ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
+    ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
+    ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/r/personal/lebraghin_travelexbank_com_br/Documents/Imagens%20TVX/Abertura_Conta_Corrente_PF.docx?d=w1f7e95d9bb3441b2bc90f83d7148ae81&csf=1&web=1&e=qEmbeU"),
+    ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
+    ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
+
+    # Documentos Pessoa Jurídica (PJ)
+    ("PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
+    ("PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
+    ("PJ – Ficha Cadastral Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
+    ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
+    ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
+    ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
+],
+
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
