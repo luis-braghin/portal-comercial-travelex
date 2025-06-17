@@ -163,8 +163,6 @@ def buscar_conteudos(termo):
 st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
 if selected == "🏠 Início":
-    st.markdown("<div class='main-container'>", unsafe_allow_html=True)
-
     termo = st.text_input(
         "🔎 Buscar relatórios, formulários ou materiais...",
         placeholder="Ex: CAM57, ESG, Market Share",
@@ -181,27 +179,6 @@ if selected == "🏠 Início":
                 </div>
             </div>
         </div>""", unsafe_allow_html=True)
-
-        st.info(mensagem_atualizacao)
-
-    if termo:
-        # ... lógica de busca ...
-        pass
-    else:
-        # ... comercial destaque e eventos ...
-        for secao, blocos in conteudos.items():
-            mostrar_bloco(secao, blocos)
-
-    # ✅ Rodapé ao final da página inicial
-    st.markdown("""
-    <br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
-    Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-    🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
-    </div>""", unsafe_allow_html=True)
-
-    st.markdown("<div style='height:40px;'></div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
 
         st.info(mensagem_atualizacao)
 
