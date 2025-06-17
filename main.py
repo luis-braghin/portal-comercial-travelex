@@ -79,8 +79,8 @@ with st.sidebar:
     selected = option_menu(
         "Seções",
         [
-            "🏠 Início", "📈 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
-            "🌟 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
+            "🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
+            "🆕 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
             "🏢 Área de Crédito", "🔗 Links Úteis"
         ],
         icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "link"],
@@ -89,6 +89,27 @@ with st.sidebar:
     )
 
 conteudos = {
+    "📊 Dashboards": [
+        ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
+        ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
+        ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
+        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+        ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
+        ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0")
+    ],
+    "📄 Formulários": [
+        ("📄 Migração de Carteira", "https://forms.office.com/r/ASPZ4ZAVEm?origin=lprLink"),
+        ("📄 Extração de CAM57", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVhiVOkKoYqdBqDjlbS0O0SNUQTZMVUVEVk42U1JaRjlLNEFXWVFNWEZGNS4u&origin=lprLink&route=shorturl")
+    ],
+    "📚 Materiais/Treinamento": [
+        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
+    ],
+    "🆕 Área de Onboarding/Cadastro": [
+        ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
+        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
+        ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
+        ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
+    ],
     "📁 KYC e Documentos de Abertura": [
         ("PF – KYC", "https://link-kyc-pf"),
         ("PF – Ficha Cadastral", "https://link-ficha-pf"),
@@ -102,12 +123,16 @@ conteudos = {
         ("PJ – Abertura de Conta-Corrente", "https://link-conta-pj"),
         ("PJ – Solicitação Acesso IB", "https://link-acesso-ib-pj")
     ],
-    "📈 Dashboards": [("Dashboard de Vendas", "#")],
-    "📄 Formulários": [("Formulário de Feedback", "#")],
-    "📚 Materiais/Treinamento": [("Material de Onboarding", "#")],
-    "🌟 Área de Onboarding/Cadastro": [("Checklist Inicial", "#")],
-    "🏢 Área de Crédito": [("Política de Crédito", "#")],
-    "🔗 Links Úteis": [("Intranet", "#")]
+    "🏢 Área de Crédito": [
+        ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
+        ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
+        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
+    ],
+    "🔗 Links Úteis": [
+        ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
+        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf")
+    ]
 }
 
 def mostrar_bloco(titulo, lista):
@@ -122,45 +147,85 @@ def mostrar_bloco(titulo, lista):
                 </a>
             """, unsafe_allow_html=True)
 
+def buscar_conteudos(termo):
+    resultados = {}
+    termo = termo.lower()
+    for secao, itens in conteudos.items():
+        filtrados = [(nome, link) for nome, link in itens if termo in nome.lower()]
+        if filtrados:
+            resultados[secao] = filtrados
+    return resultados
+
 st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
 if selected == "🏠 Início":
-    st.markdown(f"""<div class='highlight-box'>
-        <div style="display: flex; align-items: center;">
-            <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
-            <div>
-                <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
-                <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+    termo = st.text_input(
+        "🔎 Buscar relatórios, formulários ou materiais...",
+        placeholder="Ex: CAM57, ESG, Market Share",
+        key="busca_ativa"
+    )
+
+    if not termo:
+        st.markdown(f"""<div class='highlight-box'>
+            <div style="display: flex; align-items: center;">
+                <img src='data:image/png;base64,{logo_base64}' width='60' style='margin-right: 20px;'>
+                <div>
+                    <h1 style='margin: 0; color: #00205B;'>Portal de Planejamento Comercial</h1>
+                    <p class='info-text'>Travelex Bank · Tudo o que você precisa em um só lugar.</p>
+                </div>
             </div>
-        </div>
-    </div>""", unsafe_allow_html=True)
+        </div>""", unsafe_allow_html=True)
 
-    st.info(mensagem_atualizacao)
+        st.info(mensagem_atualizacao)
 
-    st.markdown("<div class='section-title'>📆 Próximos Eventos</div>", unsafe_allow_html=True)
-    for evento in eventos:
-        st.markdown(f"- {evento}")
+    if termo:
+        st.markdown("<div id='resultados'></div>", unsafe_allow_html=True)
+        st.markdown("""
+            <script>
+                const anchor = document.getElementById("resultados");
+                if (anchor) { anchor.scrollIntoView({ behavior: "smooth", block: "start" }); }
+            </script>
+        """, unsafe_allow_html=True)
 
-    st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
-    st.markdown(f"""<div class="metric-box">
-        🌟 <strong>{destaque_comercial['nome']}</strong><br>
-        <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
-    </div>""", unsafe_allow_html=True)
-
-    for secao, blocos in conteudos.items():
-        if secao == "📁 KYC e Documentos de Abertura":
-            pf_docs = [(nome, link) for nome, link in blocos if "PF –" in nome]
-            pj_docs = [(nome, link) for nome, link in blocos if "PJ –" in nome]
-
-            st.markdown(f"<div class='section-title'>📁 {secao}</div>", unsafe_allow_html=True)
-            if pf_docs:
-                st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
-                mostrar_bloco("", pf_docs)
-            if pj_docs:
-                st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
-                mostrar_bloco("", pj_docs)
+        resultados = buscar_conteudos(termo)
+        st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
+        if resultados:
+            for secao, itens in resultados.items():
+                for nome, link in itens:
+                    st.markdown(f"""
+                        <a href="{link}" target="_blank" style="text-decoration: none;">
+                            <div class="custom-card">{nome}
+                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                            </div>
+                        </a>
+                    """, unsafe_allow_html=True)
         else:
-            mostrar_bloco(secao, blocos)
+            st.warning("Nenhum resultado encontrado para a busca.")
+    else:
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box">
+            🌟 <strong>{destaque_comercial['nome']}</strong><br>
+            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+        </div>""", unsafe_allow_html=True)
+
+        st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
+        for evento in eventos:
+            st.markdown(f"- {evento}")
+
+        for secao in conteudos:
+            if secao == "📁 KYC e Documentos de Abertura":
+                pf_docs = [(nome, link) for nome, link in conteudos[secao] if "PF –" in nome]
+                pj_docs = [(nome, link) for nome, link in conteudos[secao] if "PJ –" in nome]
+
+                st.markdown(f"<div class='section-title'>📁 {secao}</div>", unsafe_allow_html=True)
+                if pf_docs:
+                    st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
+                    mostrar_bloco("", pf_docs)
+                if pj_docs:
+                    st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
+                    mostrar_bloco("", pj_docs)
+            else:
+                mostrar_bloco(secao, conteudos[secao])
 
 elif selected == "📁 KYC e Documentos de Abertura":
     pf_docs = [(nome, link) for nome, link in conteudos["📁 KYC e Documentos de Abertura"] if "PF –" in nome]
@@ -173,7 +238,11 @@ elif selected == "📁 KYC e Documentos de Abertura":
     mostrar_bloco("", pj_docs)
 
 else:
-    mostrar_bloco(selected, conteudos.get(selected, []))
+    secao_nome = next((k for k in conteudos.keys() if k == selected), None)
+    if secao_nome:
+        mostrar_bloco(secao_nome, conteudos[secao_nome])
+    else:
+        st.warning("Nenhum conteúdo encontrado para esta seção.")
 
 st.markdown("</div>", unsafe_allow_html=True)
 
