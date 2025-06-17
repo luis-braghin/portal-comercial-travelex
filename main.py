@@ -223,7 +223,7 @@ if selected == "🏠 Início":
 
                 st.markdown(f"<div class='section-title'>{secao.replace('📁 ', '')}</div>", unsafe_allow_html=True)
                 if pf_docs:
-                    st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
+                    st.markdown("<div class='section-title subtitulo-kyc'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
                     mostrar_bloco("", pf_docs)
                 if pj_docs:
                     st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
@@ -235,10 +235,10 @@ elif selected == "📁 KYC e Documentos de Abertura":
     pf_docs = [(nome, link) for nome, link in conteudos["📁 KYC e Documentos de Abertura"] if "PF –" in nome]
     pj_docs = [(nome, link) for nome, link in conteudos["📁 KYC e Documentos de Abertura"] if "PJ –" in nome]
 
-    st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title subtitulo-kyc'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
     mostrar_bloco("", pf_docs)
 
-    st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title subtitulo-kyc'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
     mostrar_bloco("", pj_docs)
 
 else:
@@ -251,7 +251,57 @@ else:
 st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("""
-<br><hr><div style='text-align:center; font-size:13px; color:#6c757d;'>
-Desenvolvido pela área de Planejamento Comercial (Gestão Felipe Von Pressentin) – Travelex Bank<br>
-🔐 Acesso: somente uso interno | 📊 Dados de uso sendo monitorados
-</div>""", unsafe_allow_html=True)
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    html, body, [class*="css"]  {
+        font-family: 'Inter', sans-serif;
+    }
+    .main-container { max-width: 1400px; margin: auto; }
+    .custom-card {
+        border-left: 6px solid #00205B;
+        background: #ffffff;
+        padding: 18px 22px;
+        border-radius: 12px;
+        margin: 12px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .custom-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .highlight-box {
+        background: linear-gradient(90deg, #e8f0fe, #f1f5fc);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        margin-bottom: 35px;
+    }
+    .section-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #00205B;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    .subtitulo-kyc {
+        font-size: 22px !important;
+        font-weight: 600;
+        color: #00205B;
+        margin-top: 10px !important;
+        margin-bottom: 10px;
+    }
+    .info-text { font-size: 16px; color: #4a4a4a; }
+    .metric-box {
+        background: linear-gradient(to right, #f6f9ff, #e8eefc);
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        color: #00205B;
+        font-size: 24px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+</style>
+""", unsafe_allow_html=True)
+
