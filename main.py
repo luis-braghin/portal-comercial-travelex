@@ -215,19 +215,7 @@ if selected == "🏠 Início":
             st.markdown(f"- {evento}")
 
         for secao, blocos in conteudos.items():
-    if secao == "📁 KYC e Documentos de Abertura":
-        pf_docs = [(nome, link) for nome, link in blocos if "PF –" in nome]
-        pj_docs = [(nome, link) for nome, link in blocos if "PJ –" in nome]
-
-        st.markdown(f"<div class='section-title'>📁 {secao}</div>", unsafe_allow_html=True)
-        if pf_docs:
-            st.markdown("<div class='section-title'>👤 Documentos Pessoa Física (PF)</div>", unsafe_allow_html=True)
-            mostrar_bloco("", pf_docs)
-        if pj_docs:
-            st.markdown("<div class='section-title'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
-            mostrar_bloco("", pj_docs)
-    else:
-        mostrar_bloco(secao, blocos)
+            mostrar_bloco(secao, blocos)
 
     st.markdown("</div>", unsafe_allow_html=True)
 
