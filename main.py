@@ -114,7 +114,7 @@ conteudos = {
     # Documentos Pessoa Física (PF)
     ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
     ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
-    ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/r/personal/lebraghin_travelexbank_com_br/Documents/Imagens%20TVX/Abertura_Conta_Corrente_PF.docx?d=w1f7e95d9bb3441b2bc90f83d7148ae81&csf=1&web=1&e=qEmbeU"),
+    ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EdmVfh80u7JBvJD4PXFIroEBU9DURBDX5a1eaFvBmDQsPg?e=G6wy6z"),
     ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
     ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
 
