@@ -136,7 +136,8 @@ conteudos = {
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
-        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf")
+        ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf"),
+        ("⚖️ Minutário Jurídico", "https://confidence1.sharepoint.com/sites/Connect/SitePages/Minut%C3%A1rio-Jur%C3%ADdico.aspx?CT=1751310750721&OR=OWA-NT-Mail&CID=5d1d7d46-a08e-6727-f9fe-4da31b69ce86&web=1")
     ]
 }
 
