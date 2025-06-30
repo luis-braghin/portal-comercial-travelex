@@ -107,7 +107,11 @@ conteudos = {
     ],
     "🆕 Área de Onboarding/Cadastro": [
         ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
-        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
+        ("📥 Painel Onboarding B2B - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
+        ("🏦 Link para Onboarding - Banco", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUQUcyMVgxWFVYVUxSWE1NNEVZNEYyRlJBMi4u"),
+        ("💼Link para Onboarding - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUNkpQTTVGVE9JWktDV1dTV0gzSlg3Uk5SQS4u"),
+        ("🏦 Painel de Acompanhamento de Onboarding - Banco", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro/AllItems.aspx"),
+        ("💼 Painel de Acompanhamento de Onboarding - Corretora", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro%20%20Corretora/AllItems.aspx?env=WebViewList&OR=Teams-HL&CT=1675864797062&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzAxMDEwMDkxMyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
         ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
