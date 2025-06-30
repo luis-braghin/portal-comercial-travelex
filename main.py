@@ -6,13 +6,14 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 eventos = [
-    "🖙️ Divulgação do BCB Focus (Expectativas do mercado para câmbio e inflação) - 23 de Junho",
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho", 
-    "💥 17ª Cúpula BRICS – Rio de Janeiro: 6–7 de julho"
+    "💥 17ª Cúpula BRICS – Rio de Janeiro: 6–7 de julho",
+    "⚠️ Fim da suspensão de tarifas dos EUA ('Liberation Day') – 8 de julho"
+
 ]
 
 destaque_comercial = {
-    "nome": "Cássia Sakai Gomes",
+    "nome": "Allan Gonzaga de Oliveira",
     "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
