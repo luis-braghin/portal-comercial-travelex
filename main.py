@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!
+mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 eventos = [
     "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho", 
