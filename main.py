@@ -82,7 +82,7 @@ with st.sidebar:
         [
             "🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
             "🆕 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
-            "🏢 Área de Crédito", "🔗 Links Úteis"
+            "🏢 Área de Crédito","🏦 Sistemas do Banco", "🔗 Links Úteis"
         ],
         icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "link"],
         menu_icon="cast",
