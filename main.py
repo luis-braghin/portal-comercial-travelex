@@ -3,17 +3,17 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM! Além disso, pedimos para que respondam o Formulário de Feedback Comercial!"
+mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM será a Ploomes! Previsão: 15 de julho"
 
 eventos = [
-    "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho", 
     "💥 17ª Cúpula BRICS – Rio de Janeiro: 6–7 de julho",
-    "⚠️ Fim da suspensão de tarifas dos EUA ('Liberation Day') – 8 de julho"
+    "⚠️ Fim da suspensão de tarifas dos EUA ('Liberation Day') – 8 de julho",
+    "🧠 Data prevista para implementação da Ploomes (CRM) - 15 de julho" 
 
 ]
 
 destaque_comercial = {
-    "nome": "Allan Gonzaga de Oliveira",
+    "nome": "Cássia Sakai Gomes",
     "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
