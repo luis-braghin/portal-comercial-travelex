@@ -3,17 +3,18 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM será a Ploomes! Previsão: 15 de julho"
+mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM será a Ploomes! Previsão: 22 de julho"
 
 eventos = [
-    "💥 17ª Cúpula BRICS – Rio de Janeiro: 6–7 de julho",
-    "⚠️ Fim da suspensão de tarifas dos EUA ('Liberation Day') – 8 de julho",
-    "🧠 Data prevista para implementação da Ploomes (CRM) - 15 de julho" 
 
+    "🧠 Data prevista para implementação da Ploomes (CRM) - 15 de julho" ,
+    "📢 Divulgação da Ata do Copom – 23 de julho",
+    "📈 Prévia da Inflação IPCA-15 – 24 de julho",
+    "💸 Reunião do FOMC (Fed) – 30–31 de julho"
 ]
 
 destaque_comercial = {
-    "nome": "Cássia Sakai Gomes",
+    "nome": "Gregorio Rheingantz",
     "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
