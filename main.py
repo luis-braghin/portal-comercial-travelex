@@ -15,7 +15,7 @@ eventos = [
 
 destaque_comercial = {
     "nome": "Gregorio Rheingantz",
-    "motivo": "🚀 Top Receitas da Semana"
+    "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
 
