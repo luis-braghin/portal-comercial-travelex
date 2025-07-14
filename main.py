@@ -7,7 +7,7 @@ mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM será a Ploo
 
 eventos = [
 
-    "🧠 Data prevista para implementação da Ploomes (CRM) - 15 de julho" ,
+    "🧠 Data prevista para implementação da Ploomes (CRM) - 22 de julho" ,
     "📢 Divulgação da Ata do Copom – 23 de julho",
     "📈 Prévia da Inflação IPCA-15 – 24 de julho",
     "💸 Reunião do FOMC (Fed) – 30–31 de julho"
