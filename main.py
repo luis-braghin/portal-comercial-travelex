@@ -14,7 +14,7 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Gregorio Rheingantz",
+    "nome": "Leandro Reis Sousa",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
