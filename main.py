@@ -92,7 +92,7 @@ with st.sidebar:
 
 conteudos = {
     "📊 Dashboards": [
-        ("🧠 Dashboard Unificado (Versão Beta"), "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
+        ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
