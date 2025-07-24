@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Acesse na seção CRM"
+mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
 eventos = [
 
