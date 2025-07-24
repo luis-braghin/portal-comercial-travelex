@@ -3,12 +3,11 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM será a Ploomes! Previsão: 22 de julho"
+mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Acesse na seção CRM"
 
 eventos = [
 
-    "🧠 Data prevista para implementação da Ploomes (CRM) - 22 de julho" ,
-    "📢 Divulgação da Ata do Copom – 23 de julho",
+    "🧠 Lançamento oficial da Ploomes (CRM) - 24 de julho" ,
     "📈 Prévia da Inflação IPCA-15 – 24 de julho",
     "💸 Reunião do FOMC (Fed) – 30–31 de julho"
 ]
