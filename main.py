@@ -81,11 +81,19 @@ with st.sidebar:
     selected = option_menu(
         "Seções",
         [
-            "🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
-            "🆕 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
-            "🏢 Área de Crédito","🏦 Sistemas do Banco", "🔗 Links Úteis"
+            "🏠 Início",
+            "🧬 CRM",
+            "📊 Dashboards",
+            "📄 Formulários",
+            "📚 Materiais/Treinamento",
+            "🆕 Área de Onboarding/Cadastro",
+            "📁 KYC e Documentos de Abertura",
+            "🏢 Área de Crédito",
+            "📣 Marketing",
+            "🏦 Sistemas do Banco",
+            "🔗 Links Úteis"
         ],
-        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "link"],
+        icons=["house", "dna", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "megaphone", "link"],
         menu_icon="cast",
         default_index=0
     )
