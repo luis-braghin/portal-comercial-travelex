@@ -137,8 +137,6 @@ conteudos = {
     ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
     ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
 ],
-
-conteudos = {
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
