@@ -138,19 +138,25 @@ conteudos = {
     ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
 ],
 
-      "🏢 Área de Crédito": [
+conteudos = {
+    "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
         ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
     ],
- 
-     "🏦 Sistemas do Banco": [
+
+    "📣 Marketing": [
+        ("📌 Huntag", "https://travelexbank.huntag.app/login?returnurl=%2F")
+    ],
+
+    "🏦 Sistemas do Banco": [
         ("🔄 Change", "http://change.travelexbank.com.br/cambio/DefaultC.aspx"),
         ("🛡️ SOCC ", "http://socc.bancoconfidence.com.br/confidence/expired.html?lastAccess=1750860447419"),
         ("🧮 MATERA", "https://backoffice.mp.prd.travelexbank.com.br:8443/matera/"),
         ("🌟 Qulture Rocks", "https://app.qulture.rocks/users/sign_in"),
         ("✍️ Click Sign", "https://app.clicksign.com/?session_expired=true")
     ],
+
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
