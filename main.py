@@ -13,7 +13,7 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Leandro Reis Sousa",
+    "nome": "Gregorio Rheingantz",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
@@ -90,6 +90,9 @@ with st.sidebar:
     )
 
 conteudos = {
+    "🧬 CRM": [
+        ("🔗 Acessar CRM", "https://app10.ploomes.com/")
+    ],
     "📊 Dashboards": [
         ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
@@ -102,6 +105,7 @@ conteudos = {
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
         ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
+
     ],
     "📚 Materiais/Treinamento": [
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
