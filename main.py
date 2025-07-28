@@ -93,7 +93,7 @@ with st.sidebar:
             "🏦 Sistemas do Banco",
             "🔗 Links Úteis"
         ],
-        icons=["house", "dna", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "megaphone", "link"],
+        icons=["house", "person-lines-fill", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "megaphone", "link"],
         menu_icon="cast",
         default_index=0
     )
