@@ -6,10 +6,11 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
 eventos = [
-
-    "🧠 Lançamento oficial da Ploomes (CRM) - 24 de julho" ,
-    "📈 Prévia da Inflação IPCA-15 – 24 de julho",
-    "💸 Reunião do FOMC (Fed) – 30–31 de julho"
+    "💸 Reunião do FOMC (Fed) – 30–31 de julho",
+    "📌 Relatórios EUA (Emprego e PCE) – 31/jul e 1/ago",
+    "⚠️ Tarifas Trump sobre o Brasil entram em vigor – 1 de agosto",
+    "🏛️ Eleições gerais na Bolívia – 17 de agosto",
+    "🌏 Cúpula SCO em Tianjin (China) – 31 ago a 1 set"
 ]
 
 destaque_comercial = {
