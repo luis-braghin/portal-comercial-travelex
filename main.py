@@ -100,7 +100,7 @@ with st.sidebar:
 
 conteudos = {
     "🧬 CRM": [
-        ("🧩 Site da Ploomes", "https://app10.ploomes.com/")
+        ("🧩 Site da Ploomes (CRM)", "https://app10.ploomes.com/")
     ],
     "📊 Dashboards": [
         ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
