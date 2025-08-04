@@ -6,15 +6,15 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
 eventos = [
-    "💸 Reunião do FOMC (Fed) – 30–31 de julho",
-    "📌 Relatórios EUA (Emprego e PCE) – 31/jul e 1/ago",
-    "⚠️ Tarifas Trump sobre o Brasil entram em vigor – 1 de agosto",
-    "🏛️ Eleições gerais na Bolívia – 17 de agosto",
-    "🌏 Cúpula SCO em Tianjin (China) – 31 ago a 1 set"
+    "🇧🇷 **Brasil** – IPC‑Fipe, CAGED, Produção e Vendas de Autos – 1ºs/ago",
+    "🇺🇸 **EUA** – Trade Balance & ISM Services – 5/ago",
+    "🇧🇴 **Bolívia** – Eleições gerais – 17/ago",
+    "🇺🇸 **EUA** – PIB Q2 (2ª Estimate) – 28/ago",
+    "🇨🇳 **China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
 ]
 
 destaque_comercial = {
-    "nome": "Gregorio Rheingantz",
+    "nome": "Éder Leão",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
@@ -238,7 +238,7 @@ if selected == "🏠 Início":
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
         st.markdown(f"""<div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
             <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
