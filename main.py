@@ -6,11 +6,11 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
 eventos = [
-    "🇧🇷 **Brasil** – IPC‑Fipe, CAGED, Produção e Vendas de Autos – 1ºs/ago",
-    "🇺🇸 **EUA** – Trade Balance & ISM Services – 5/ago",
-    "🇧🇴 **Bolívia** – Eleições gerais – 17/ago",
-    "🇺🇸 **EUA** – PIB Q2 (2ª Estimate) – 28/ago",
-    "🇨🇳 **China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
+    "**Brasil** – IPC‑Fipe, CAGED, Produção e Vendas de Autos – 1ºs/ago",
+    "**EUA** – Trade Balance & ISM Services – 5/ago",
+    "**Bolívia** – Eleições gerais – 17/ago",
+    "**EUA** – PIB Q2 (2ª Estimate) – 28/ago",
+    "**China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
 ]
 
 destaque_comercial = {
