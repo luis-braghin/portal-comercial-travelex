@@ -101,7 +101,7 @@ with st.sidebar:
 conteudos = {
     "🧬 CRM": [
         ("🧩 Site da Ploomes (CRM)", "https://app10.ploomes.com/"),
-        (" Tutorial Ploomes pt.1 (CRM)", "https://confidence1-my.sharepoint.com/:v:/g/personal/distribuircomercial_travelexbank_com_br/EdC51t32k4FOkGEzVfZ7h5UBeHseoRXjrFvJPaA-hOoFrQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nDa7cf")
+        ("📖 Tutorial Ploomes pt.1 (CRM)", "https://confidence1-my.sharepoint.com/:v:/g/personal/distribuircomercial_travelexbank_com_br/EdC51t32k4FOkGEzVfZ7h5UBeHseoRXjrFvJPaA-hOoFrQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nDa7cf")
         
     ],
     "📊 Dashboards": [
