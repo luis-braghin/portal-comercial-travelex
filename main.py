@@ -3,21 +3,18 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
+mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
 
 eventos = [
-    ("https://flagcdn.com/w40/br.png", "Brasil – IPC-Fipe, CAGED, Produção e Vendas de Autos – 1ºs/ago"),
-    ("https://flagcdn.com/w40/us.png", "EUA – Trade Balance & ISM Services – 5/ago"),
-    ("https://flagcdn.com/w40/bo.png", "Bolívia – Eleições gerais – 17/ago"),
-    ("https://flagcdn.com/w40/us.png", "EUA – PIB Q2 (2ª Estimate) – 28/ago"),
-    ("https://flagcdn.com/w40/cn.png", "China – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set")
+    "🧠 Decisão Plataforma CRM para o Banco - 31 de Junho", 
+    "💥 17ª Cúpula BRICS – Rio de Janeiro: 6–7 de julho",
+    "⚠️ Fim da suspensão de tarifas dos EUA ('Liberation Day') – 8 de julho"
+
 ]
 
-
-
 destaque_comercial = {
-    "nome": "Éder Leão",
-    "motivo": "🚀 Top Receitas"
+    "nome": "Allan Gonzaga de Oliveira",
+    "motivo": "🚀 Top Receitas da Semana"
 }
 # ============================================= #
 
@@ -83,29 +80,17 @@ with st.sidebar:
     selected = option_menu(
         "Seções",
         [
-            "🏠 Início",
-            "🧬 CRM",
-            "📊 Dashboards",
-            "📄 Formulários",
-            "📚 Materiais/Treinamento",
-            "🆕 Área de Onboarding/Cadastro",
-            "📁 KYC e Documentos de Abertura",
-            "🏢 Área de Crédito",
-            "📣 Marketing",
-            "🏦 Sistemas do Banco",
-            "🔗 Links Úteis"
+            "🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
+            "🆕 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
+            "🏢 Área de Crédito", "🔗 Links Úteis"
         ],
-        icons=["house", "person-lines-fill", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "megaphone", "link"],
+        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "link"],
         menu_icon="cast",
         default_index=0
     )
 
 conteudos = {
-    "🧬 CRM": [
-        ("🧩 Site da Ploomes (CRM)", "https://app10.ploomes.com/")
-    ],
     "📊 Dashboards": [
-        ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
@@ -116,18 +101,13 @@ conteudos = {
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
         ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
-
     ],
     "📚 Materiais/Treinamento": [
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🆕 Área de Onboarding/Cadastro": [
         ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
-        ("📥 Painel Onboarding B2B - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
-        ("🏦 Link para Onboarding - Banco", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUQUcyMVgxWFVYVUxSWE1NNEVZNEYyRlJBMi4u"),
-        ("💼Link para Onboarding - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUNkpQTTVGVE9JWktDV1dTV0gzSlg3Uk5SQS4u"),
-        ("🏦 Painel de Acompanhamento de Onboarding - Banco", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro/AllItems.aspx"),
-        ("💼 Painel de Acompanhamento de Onboarding - Corretora", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro%20%20Corretora/AllItems.aspx?env=WebViewList&OR=Teams-HL&CT=1675864797062&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzAxMDEwMDkxMyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
+        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
         ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
@@ -147,24 +127,12 @@ conteudos = {
     ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
     ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
 ],
+
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
         ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
     ],
-
-    "📣 Marketing": [
-        ("📌 Huntag", "https://travelexbank.huntag.app/login?returnurl=%2F")
-    ],
-
-    "🏦 Sistemas do Banco": [
-        ("🔄 Change", "http://change.travelexbank.com.br/cambio/DefaultC.aspx"),
-        ("🛡️ SOCC ", "http://socc.bancoconfidence.com.br/confidence/expired.html?lastAccess=1750860447419"),
-        ("🧮 MATERA", "https://backoffice.mp.prd.travelexbank.com.br:8443/matera/"),
-        ("🌟 Qulture Rocks", "https://app.qulture.rocks/users/sign_in"),
-        ("✍️ Click Sign", "https://app.clicksign.com/?session_expired=true")
-    ],
-
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
@@ -225,38 +193,30 @@ if selected == "🏠 Início":
             </script>
         """, unsafe_allow_html=True)
 
-resultados = buscar_conteudos(termo)
+        resultados = buscar_conteudos(termo)
+        st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
+        if resultados:
+            for secao, itens in resultados.items():
+                for nome, link in itens:
+                    st.markdown(f"""
+                        <a href="{link}" target="_blank" style="text-decoration: none;">
+                            <div class="custom-card">{nome}
+                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                            </div>
+                        </a>
+                    """, unsafe_allow_html=True)
+        else:
+            st.warning("Nenhum resultado encontrado para a busca.")
+    else:
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box">
+            🌟 <strong>{destaque_comercial['nome']}</strong><br>
+            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+        </div>""", unsafe_allow_html=True)
 
-st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
-
-if resultados:
-    for secao, itens in resultados.items():
-        for nome, link in itens:
-            st.markdown(f"""
-                <a href="{link}" target="_blank" style="text-decoration: none;">
-                    <div class="custom-card">{nome}
-                        <small style='color:#888;font-size:13px;display:block'>{secao}</small>
-                    </div>
-                </a>
-            """, unsafe_allow_html=True)
-else:
-    st.warning("Nenhum resultado encontrado para a busca.")
-else:
-    st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C)</div>", unsafe_allow_html=True)
-    st.markdown(f"""<div class="metric-box">
-        🌟 <strong>{destaque_comercial['nome']}</strong><br>
-        <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
-    </div>""", unsafe_allow_html=True)
-
-# Próximos eventos com bandeiras
-st.markdown("<div class='section-title'>🗓️ <strong>Próximos Eventos</strong></div>", unsafe_allow_html=True)
-
-for bandeira_url, texto in eventos:
-    st.markdown(
-        f"<img src='{bandeira_url}' width='20' style='margin-right:8px;vertical-align:middle;'> {texto}",
-        unsafe_allow_html=True
-    )
-
+        st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
+        for evento in eventos:
+            st.markdown(f"- {evento}")
 
         for secao in conteudos:
             if secao == "📁 KYC e Documentos de Abertura":
@@ -347,4 +307,3 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
