@@ -3,19 +3,19 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Estamos prestes a lançar nossa plataforma de CRM!"
+mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
 eventos = [
-    "🇧🇷 **Brasil** – IPC‑Fipe, CAGED, Produção e Vendas de Autos – 1ºs/ago",
-    "🇺🇸 **EUA** – Trade Balance & ISM Services – 5/ago",
-    "🇧🇴 **Bolívia** – Eleições gerais – 17/ago",
-    "🇺🇸 **EUA** – PIB Q2 (2ª Estimate) – 28/ago",
-    "🇨🇳 **China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
+    "💸 Reunião do FOMC (Fed) – 30–31 de julho",
+    "📌 Relatórios EUA (Emprego e PCE) – 31/jul e 1/ago",
+    "⚠️ Tarifas Trump sobre o Brasil entram em vigor – 1 de agosto",
+    "🏛️ Eleições gerais na Bolívia – 17 de agosto",
+    "🌏 Cúpula SCO em Tianjin (China) – 31 ago a 1 set"
 ]
 
 destaque_comercial = {
-    "nome": "Éder Leão",
-    "motivo": "🚀 Top Receitas da Semana"
+    "nome": "Gregorio Rheingantz",
+    "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
 
@@ -81,17 +81,29 @@ with st.sidebar:
     selected = option_menu(
         "Seções",
         [
-            "🏠 Início", "📊 Dashboards", "📄 Formulários", "📚 Materiais/Treinamento",
-            "🆕 Área de Onboarding/Cadastro", "📁 KYC e Documentos de Abertura",
-            "🏢 Área de Crédito", "🔗 Links Úteis"
+            "🏠 Início",
+            "🧬 CRM",
+            "📊 Dashboards",
+            "📄 Formulários",
+            "📚 Materiais/Treinamento",
+            "🆕 Área de Onboarding/Cadastro",
+            "📁 KYC e Documentos de Abertura",
+            "🏢 Área de Crédito",
+            "📣 Marketing",
+            "🏦 Sistemas do Banco",
+            "🔗 Links Úteis"
         ],
-        icons=["house", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "link"],
+        icons=["house", "person-lines-fill", "bar-chart", "file-earmark-text", "book", "person-plus", "folder", "building", "megaphone", "link"],
         menu_icon="cast",
         default_index=0
     )
 
 conteudos = {
+    "🧬 CRM": [
+        ("🧩 Site da Ploomes (CRM)", "https://app10.ploomes.com/")
+    ],
     "📊 Dashboards": [
+        ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
@@ -102,13 +114,18 @@ conteudos = {
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
         ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
+
     ],
     "📚 Materiais/Treinamento": [
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
     ],
     "🆕 Área de Onboarding/Cadastro": [
         ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
-        ("📥 Painel Onboarding - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
+        ("📥 Painel Onboarding B2B - Cadastro", "https://confidence1.sharepoint.com/sites/PainelOnboarding/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fconfidence1%2Esharepoint%2Ecom%2Fsites%2FPainelOnboarding%2FLists%2FCadastro%2FAllItems%2Easpx"),
+        ("🏦 Link para Onboarding - Banco", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUQUcyMVgxWFVYVUxSWE1NNEVZNEYyRlJBMi4u"),
+        ("💼Link para Onboarding - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUNkpQTTVGVE9JWktDV1dTV0gzSlg3Uk5SQS4u"),
+        ("🏦 Painel de Acompanhamento de Onboarding - Banco", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro/AllItems.aspx"),
+        ("💼 Painel de Acompanhamento de Onboarding - Corretora", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro%20%20Corretora/AllItems.aspx?env=WebViewList&OR=Teams-HL&CT=1675864797062&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzAxMDEwMDkxMyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
         ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
@@ -128,12 +145,24 @@ conteudos = {
     ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
     ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6")
 ],
-
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
         ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
     ],
+
+    "📣 Marketing": [
+        ("📌 Huntag", "https://travelexbank.huntag.app/login?returnurl=%2F")
+    ],
+
+    "🏦 Sistemas do Banco": [
+        ("🔄 Change", "http://change.travelexbank.com.br/cambio/DefaultC.aspx"),
+        ("🛡️ SOCC ", "http://socc.bancoconfidence.com.br/confidence/expired.html?lastAccess=1750860447419"),
+        ("🧮 MATERA", "https://backoffice.mp.prd.travelexbank.com.br:8443/matera/"),
+        ("🌟 Qulture Rocks", "https://app.qulture.rocks/users/sign_in"),
+        ("✍️ Click Sign", "https://app.clicksign.com/?session_expired=true")
+    ],
+
     "🔗 Links Úteis": [
         ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
         ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
@@ -209,7 +238,7 @@ if selected == "🏠 Início":
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque da Semana</div>", unsafe_allow_html=True)
         st.markdown(f"""<div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
             <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
