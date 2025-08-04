@@ -225,30 +225,38 @@ if selected == "🏠 Início":
             </script>
         """, unsafe_allow_html=True)
 
-        resultados = buscar_conteudos(termo)
-        st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
-        if resultados:
-            for secao, itens in resultados.items():
-                for nome, link in itens:
-                    st.markdown(f"""
-                        <a href="{link}" target="_blank" style="text-decoration: none;">
-                            <div class="custom-card">{nome}
-                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
-                            </div>
-                        </a>
-                    """, unsafe_allow_html=True)
-        else:
-            st.warning("Nenhum resultado encontrado para a busca.")
-    else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
-        st.markdown(f"""<div class="metric-box">
-            🌟 <strong>{destaque_comercial['nome']}</strong><br>
-            <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
-        </div>""", unsafe_allow_html=True)
+resultados = buscar_conteudos(termo)
 
-        st.markdown("<div class='section-title'>🗓️ Próximos Eventos</div>", unsafe_allow_html=True)
-        for evento in eventos:
-            st.markdown(f"- {evento}")
+st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
+
+if resultados:
+    for secao, itens in resultados.items():
+        for nome, link in itens:
+            st.markdown(f"""
+                <a href="{link}" target="_blank" style="text-decoration: none;">
+                    <div class="custom-card">{nome}
+                        <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                    </div>
+                </a>
+            """, unsafe_allow_html=True)
+else:
+    st.warning("Nenhum resultado encontrado para a busca.")
+else:
+    st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C)</div>", unsafe_allow_html=True)
+    st.markdown(f"""<div class="metric-box">
+        🌟 <strong>{destaque_comercial['nome']}</strong><br>
+        <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
+    </div>""", unsafe_allow_html=True)
+
+# Próximos eventos com bandeiras
+st.markdown("<div class='section-title'>🗓️ <strong>Próximos Eventos</strong></div>", unsafe_allow_html=True)
+
+for bandeira_url, texto in eventos:
+    st.markdown(
+        f"<img src='{bandeira_url}' width='20' style='margin-right:8px;vertical-align:middle;'> {texto}",
+        unsafe_allow_html=True
+    )
+
 
         for secao in conteudos:
             if secao == "📁 KYC e Documentos de Abertura":
