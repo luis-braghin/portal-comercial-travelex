@@ -26,7 +26,8 @@ def autenticar_usuario():
         if senha == PALAVRA_CHAVE_CORRETA:
             st.session_state[COOKIE_NOME] = COOKIE_VALOR
             st.query_params[COOKIE_NOME] = COOKIE_VALOR
-            st.success("Acesso liberado! Recarregue a página.")
+            st.success("Acesso liberado!")
+            st.rerun()
         else:
             st.error("Palavra-chave incorreta. Tente novamente.")
 
