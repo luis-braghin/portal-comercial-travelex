@@ -2,6 +2,40 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import base64
 
+# ========= AUTENTICAÇÃO POR PALAVRA-CHAVE ========= #
+# Palavra-chave única
+PALAVRA_CHAVE_CORRETA = "travelex2025"
+
+# Nome e valor do "cookie" simulado
+COOKIE_NOME = "acesso_autorizado"
+COOKIE_VALOR = "ok"
+COOKIE_EXPIRACAO = 120  # dias (só informativo aqui, já que o Streamlit não permite cookies reais facilmente)
+
+# Verifica se o usuário já autenticou
+def acesso_ja_autorizado():
+    if COOKIE_NOME in st.session_state:
+        return st.session_state[COOKIE_NOME] == COOKIE_VALOR
+    else:
+        return st.experimental_get_query_params().get(COOKIE_NOME, [None])[0] == COOKIE_VALOR
+
+# Tela de autenticação simples
+def autenticar_usuario():
+    st.warning("🔒 Este portal requer uma palavra-chave para acesso.")
+    senha = st.text_input("Digite a palavra-chave de acesso:", type="password")
+    if st.button("Entrar"):
+        if senha == PALAVRA_CHAVE_CORRETA:
+            st.session_state[COOKIE_NOME] = COOKIE_VALOR
+            st.experimental_set_query_params(**{COOKIE_NOME: COOKIE_VALOR})
+            st.success("Acesso liberado! Recarregue a página.")
+        else:
+            st.error("Palavra-chave incorreta. Tente novamente.")
+
+# Protege o conteúdo
+if not acesso_ja_autorizado():
+    autenticar_usuario()
+    st.stop()
+# =================================================== #
+
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
 mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
 
