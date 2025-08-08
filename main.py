@@ -1,41 +1,31 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import base64
+from cookie_manager import CookieManager
+from datetime import datetime, timedelta
 
-# ========= AUTENTICAÇÃO POR PALAVRA-CHAVE ========= #
-# Palavra-chave única
+# ========= AUTENTICAÇÃO COM COOKIE PERSISTENTE ========= #
 PALAVRA_CHAVE_CORRETA = "travelex2025"
-
-# Nome e valor do "cookie" simulado
 COOKIE_NOME = "acesso_autorizado"
 COOKIE_VALOR = "ok"
-COOKIE_EXPIRACAO = 120  # dias (só informativo)
+COOKIE_EXPIRACAO = 120  # dias
 
-# Verifica se o usuário já autenticou
-def acesso_ja_autorizado():
-    if COOKIE_NOME in st.session_state:
-        return st.session_state[COOKIE_NOME] == COOKIE_VALOR
-    else:
-        return st.query_params.get(COOKIE_NOME, [None])[0] == COOKIE_VALOR
+cookie_manager = CookieManager()
+cookies = cookie_manager.get_all()
 
-# Tela de autenticação simples
-def autenticar_usuario():
+if cookies.get(COOKIE_NOME) != COOKIE_VALOR:
     st.warning("🔒 Este portal requer uma palavra-chave para acesso.")
     senha = st.text_input("Digite a palavra-chave de acesso:", type="password")
     if st.button("Entrar"):
         if senha == PALAVRA_CHAVE_CORRETA:
-            st.session_state[COOKIE_NOME] = COOKIE_VALOR
-            st.query_params[COOKIE_NOME] = COOKIE_VALOR
+            expire_date = (datetime.now() + timedelta(days=COOKIE_EXPIRACAO)).strftime("%Y-%m-%dT%H:%M:%S")
+            cookie_manager.set(COOKIE_NOME, COOKIE_VALOR, expires=expire_date)
             st.success("Acesso liberado!")
             st.rerun()
         else:
             st.error("Palavra-chave incorreta. Tente novamente.")
-
-# Protege o conteúdo
-if not acesso_ja_autorizado():
-    autenticar_usuario()
     st.stop()
-# =================================================== #
+# ======================================================= #
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
 mensagem_atualizacao = "🔔 Atualização: Nossa plataforma de CRM está oficialmente no ar. Foi criada uma seção no site chamada CRM com os links correspondentes!"
@@ -47,6 +37,7 @@ eventos = [
     "**EUA** – PIB Q2 (2ª Estimate) – 28/ago",
     "**China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
 ]
+
 
 destaque_comercial = {
     "nome": "Éder Leão",
