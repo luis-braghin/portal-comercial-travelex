@@ -9,14 +9,14 @@ PALAVRA_CHAVE_CORRETA = "travelex2025"
 # Nome e valor do "cookie" simulado
 COOKIE_NOME = "acesso_autorizado"
 COOKIE_VALOR = "ok"
-COOKIE_EXPIRACAO = 120  # dias (só informativo aqui, já que o Streamlit não permite cookies reais facilmente)
+COOKIE_EXPIRACAO = 120  # dias (só informativo)
 
 # Verifica se o usuário já autenticou
 def acesso_ja_autorizado():
     if COOKIE_NOME in st.session_state:
         return st.session_state[COOKIE_NOME] == COOKIE_VALOR
     else:
-        return st.experimental_get_query_params().get(COOKIE_NOME, [None])[0] == COOKIE_VALOR
+        return st.query_params.get(COOKIE_NOME, [None])[0] == COOKIE_VALOR
 
 # Tela de autenticação simples
 def autenticar_usuario():
@@ -25,7 +25,7 @@ def autenticar_usuario():
     if st.button("Entrar"):
         if senha == PALAVRA_CHAVE_CORRETA:
             st.session_state[COOKIE_NOME] = COOKIE_VALOR
-            st.experimental_set_query_params(**{COOKIE_NOME: COOKIE_VALOR})
+            st.query_params[COOKIE_NOME] = COOKIE_VALOR
             st.success("Acesso liberado! Recarregue a página.")
         else:
             st.error("Palavra-chave incorreta. Tente novamente.")
