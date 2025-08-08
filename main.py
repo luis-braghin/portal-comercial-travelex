@@ -4,6 +4,8 @@ import base64
 from cookie_manager import CookieManager
 from datetime import datetime, timedelta
 
+# Forçando rebuild para instalar dependências
+
 # ========= AUTENTICAÇÃO COM COOKIE PERSISTENTE ========= #
 PALAVRA_CHAVE_CORRETA = "travelex2025"
 COOKIE_NOME = "acesso_autorizado"
