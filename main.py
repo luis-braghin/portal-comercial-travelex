@@ -14,7 +14,7 @@ eventos = [
     "**ONU** – 80ª Assembleia Geral – começa 9/set em Nova York"
 ]
 
-destaque_comercial = {
+estaque_comercial = {
     "nome": "Valquiria Souza",
     "motivo": "🚀 Top Receitas"
 }
