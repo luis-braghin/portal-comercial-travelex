@@ -6,13 +6,16 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Atuem na lista quente de prospecção no Funil TVX!!!"
 
 eventos = [
-    "**Bolívia** – Eleições gerais – 17/ago",
     "**EUA** – PIB Q2 (2ª Estimate) – 28/ago",
-    "**China** – Cúpula da Organização de Cooperação de Xangai (SCO) – 31/ago a 1/set"
+    "**China** – Cúpula da SCO – 31/ago a 1/set",
+    "**EUA** – PCE (Inflação preferida do Fed) – início/setembro",
+    "**EUA** – Reunião do FOMC + corte de juros provável – 16–17/set",
+    "**EUA** – Resultados da Nvidia – final de agosto",
+    "**ONU** – 80ª Assembleia Geral – começa 9/set em Nova York"
 ]
 
 destaque_comercial = {
-    "nome": "Caio Ribeiro",
+    "nome": "Valquiria Souza",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
@@ -239,7 +242,7 @@ if selected == "🏠 Início":
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2B) </div>", unsafe_allow_html=True)
         st.markdown(f"""<div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
             <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
