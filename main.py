@@ -14,7 +14,7 @@ eventos = [
     "**ONU** – 80ª Assembleia Geral – começa 9/set em Nova York"
 ]
 
-estaque_comercial = {
+destaque_comercial = {
     "nome": "Valquiria Souza",
     "motivo": "🚀 Top Receitas"
 }
@@ -77,7 +77,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-with st.sidebar:
+ith st.sidebar:
     st.image(f"data:image/png;base64,{logo_base64}", width=180)
     selected = option_menu(
         "Seções",
