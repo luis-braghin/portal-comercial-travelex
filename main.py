@@ -6,16 +6,15 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Atuem na lista quente de prospecção no Funil TVX!!!"
 
 eventos = [
-    "**EUA** – PIB Q2 (2ª Estimate) – 28/ago",
-    "**China** – Cúpula da SCO – 31/ago a 1/set",
-    "**EUA** – PCE (Inflação preferida do Fed) – início/setembro",
-    "**EUA** – Reunião do FOMC + corte de juros provável – 16–17/set",
-    "**EUA** – Resultados da Nvidia – final de agosto",
-    "**ONU** – 80ª Assembleia Geral – começa 9/set em Nova York"
+    "EUA – CPI (inflação ao consumidor) – meados de setembro",
+    "EUA – Reunião do FOMC (decisão de juros) – 17–18/set",
+    "Brasil – IPCA (inflação) – meados de setembro",
+    "Brasil – Copom: decisão da Selic (+25 bps esperados) – 17–18/set",
+    "Brasil – Minuta do Copom – ~24/set"
 ]
 
 destaque_comercial = {
-    "nome": "Valquiria Souza",
+    "nome": "Allan Gonzaga",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
