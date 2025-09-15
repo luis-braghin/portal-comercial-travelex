@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Atuem na lista quente de prospecção no Funil TVX!!!"
+mensagem_atualizacao = "🔔 Atualização: Prazo até o dia 30/09 para finalização da lista de prospecção na Ploomes!!!"
 
 eventos = [
     "EUA – CPI (inflação ao consumidor) – meados de setembro",
