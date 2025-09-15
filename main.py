@@ -14,7 +14,7 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Renata Segretti",
+    "nome": "Helisama Stadi",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
