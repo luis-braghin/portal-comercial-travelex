@@ -6,15 +6,15 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Prazo até o dia 30/09 para finalização da lista de prospecção na Ploomes!!!"
 
 eventos = [
-    "EUA – CPI (inflação ao consumidor) – meados de setembro",
-    "EUA – Reunião do FOMC (decisão de juros) – 17–18/set",
-    "Brasil – IPCA (inflação) – meados de setembro",
-    "Brasil – Copom: decisão da Selic (+25 bps esperados) – 17–18/set",
-    "Brasil – Minuta do Copom – ~24/set"
+    "🇧🇷 Brasil – Eleições municipais (1º turno) – 6/out",
+    "🇺🇸 EUA – CPI de setembro – início de outubro",
+    "🇧🇷 Brasil – Bloomberg New Economy / B20 (SP) – 22–23/out",
+    "🇺🇸 EUA – Reunião do FOMC – 28–29/out",
+    "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – 5–6/nov"
 ]
 
 destaque_comercial = {
-    "nome": "Helisama Stadi",
+    "nome": "Juliana Cesar",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
