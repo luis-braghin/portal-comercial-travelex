@@ -116,7 +116,8 @@ conteudos = {
 
     "📄 Formulários": [
         ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
-        ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
+        ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77"),
+        ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E")
 
     ],
     "📚 Materiais/Treinamento": [
