@@ -14,7 +14,7 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Juliana Cesar",
+    "nome": "Gregorio Rheingantz",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
@@ -242,7 +242,7 @@ if selected == "🏠 Início":
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana FX) </div>", unsafe_allow_html=True)
         st.markdown(f"""<div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
             <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
