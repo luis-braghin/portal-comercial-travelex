@@ -6,12 +6,12 @@ import base64
 mensagem_atualizacao = "🔔 Atualização: Prazo até o dia 30/09 para finalização da lista de prospecção na Ploomes!!!"
 
 eventos = [
-    "🇧🇷 Brasil – Eleições municipais (1º turno) – 6/out",
-    "🇺🇸 EUA – CPI de setembro – início de outubro",
     "🇧🇷 Brasil – Bloomberg New Economy / B20 (SP) – 22–23/out",
+    "🇺🇸 EUA – CPI de setembro – início de outubro",
     "🇺🇸 EUA – Reunião do FOMC – 28–29/out",
     "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – 5–6/nov"
 ]
+
 
 destaque_comercial = {
     "nome": "Edson Sobrinho",
