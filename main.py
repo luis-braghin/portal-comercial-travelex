@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: Prazo até o dia 30/09 para finalização da lista de prospecção na Ploomes!!!"
+mensagem_atualizacao = "🔔 Atualização: A nova lista de leads referente ao mês de Outubro chegou na Ploomes!!!"
 
 eventos = [
     "🇧🇷 Brasil – Bloomberg New Economy / B20 (SP) – 22–23/out",
