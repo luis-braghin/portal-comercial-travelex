@@ -116,6 +116,7 @@ conteudos = {
     ],
 
     "📄 Formulários": [
+    ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/"),
     ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
     ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW"),
     ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E"),
