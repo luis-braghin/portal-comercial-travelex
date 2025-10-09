@@ -124,7 +124,8 @@ conteudos = {
 ],
 
     "📚 Materiais/Treinamento": [
-        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23")
+        ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23"),
+        ("📌 Fluxo de isenção de Tarifas", "https://confidence1-my.sharepoint.com/:v:/g/personal/distribuircomercial_travelexbank_com_br/Eem8EpSae-9AlGYavH26a-MBjMPO4vdJ13062YaSFCCS7w?e=tbg0te&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D")
     ],
     "🆕 Área de Onboarding/Cadastro": [
         ("📋 Matriz de Cadastro - GCAD-NOR47-A1", "https://confidence1.sharepoint.com/:x:/r/Compliance/normativas/_layouts/15/doc2.aspx?sourcedoc=%7B10092125-7128-49CC-9D1A-D0EBF63C41E5%7D&file=GCAD-NOR47-A1%20-%20Matriz%20de%20Cadastro.xlsx"),
