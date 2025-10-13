@@ -14,7 +14,7 @@ eventos = [
 
 
 destaque_comercial = {
-    "nome": "Edson Sobrinho",
+    "nome": "Tadeu Facchini",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
