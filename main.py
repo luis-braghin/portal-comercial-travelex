@@ -152,7 +152,7 @@ conteudos = {
     ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
     ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
     ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6"),
-    ("PJ - Solicitação para acesso boletador - Parceiros", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVm8BpSowefBPqWPH-QF6aCxUNTRDR0NJWUVCSFBBTkc3M0U0NkMyMEVTOS4u&route=shorturl")
+    ("PJ - Solicitação para Acesso Boletador - Parceiros", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVm8BpSowefBPqWPH-QF6aCxUNTRDR0NJWUVCSFBBTkc3M0U0NkMyMEVTOS4u&route=shorturl")
 ],
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
