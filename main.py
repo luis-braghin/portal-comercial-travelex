@@ -116,26 +116,12 @@ conteudos = {
     ],
 
      "📄 Formulários": [
-        ("⭐ Dossiê de Planejamento", 
-         "https://luis-braghin.github.io/dossie_planejamento/", 
-         None),  # Sem lista de acompanhamento
-        
-        ("📄 Migração de Carteira", 
-         "https://forms.office.com/r/W1y1KXzJ5q",
-         "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FNtfu99LrY5AoVj4dU2-XNkBEKe8db21Ws7qDWOdF3ANmw?e=Arka7V"),  # Adicione a URL do Lists aqui
-        
-        ("📄 Solicitação de CAM57", 
-         "https://forms.office.com/r/KZhZEFYVSW",
-         "URL_DA_LISTA_CAM57"),  # Adicione a URL do Lists aqui
-        
-        ("📄 Desconto/Isenção de Tarifa", 
-         "https://forms.office.com/r/UMUg6gUg4E",
-         None),  # Sem lista
-        
-        ("📄 Feedback Comercial", 
-         "https://forms.office.com/r/7Ct99i1s77",
-         None)  # Sem lista
-    ],
+    ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/"),
+    ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
+    ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW"),
+    ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E"),
+    ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
+],
 
     "📚 Materiais/Treinamento": [
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23"),
