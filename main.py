@@ -12,6 +12,7 @@ eventos = [
     "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – 5–6/nov"
 ]
 
+
 destaque_comercial = {
     "nome": "Tadeu Facchini",
     "motivo": "🚀 Top Receitas"
@@ -47,67 +48,6 @@ st.markdown("""
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
-    
-    /* CSS PARA CARDS DE FORMULÁRIOS */
-    .form-card {
-        border-left: 6px solid #00205B;
-        background: #ffffff;
-        padding: 20px 24px;
-        border-radius: 12px;
-        margin: 12px 0;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-        transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-    .form-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-    .form-card-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-    .form-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #00205B;
-        flex: 1;
-    }
-    .form-buttons {
-        display: flex;
-        gap: 10px;
-        flex-shrink: 0;
-    }
-    .btn-form {
-        padding: 10px 20px;
-        background: #00205B;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-    }
-    .btn-form:hover {
-        background: #001a4d;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0,32,91,0.2);
-    }
-    .btn-tracking {
-        background: #4CAF50;
-    }
-    .btn-tracking:hover {
-        background: #45a049;
-        box-shadow: 0 4px 12px rgba(76,175,80,0.2);
-    }
-    
     .highlight-box {
         background: linear-gradient(90deg, #e8f0fe, #f1f5fc);
         border-radius: 12px;
@@ -120,13 +60,6 @@ st.markdown("""
         font-weight: 700;
         color: #00205B;
         margin-top: 40px;
-        margin-bottom: 10px;
-    }
-    .subtitulo-kyc {
-        font-size: 22px !important;
-        font-weight: 600;
-        color: #00205B;
-        margin-top: 10px !important;
         margin-bottom: 10px;
     }
     .info-text { font-size: 16px; color: #4a4a4a; }
@@ -182,13 +115,13 @@ conteudos = {
         ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0")
     ],
 
-    "📄 Formulários": [
-        ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/", None),
-        ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FNtfu99LrY5AoVj4dU2-XNkBoVibLDAkr5xziltzwE2sTw?e=btrvXj"),
-        ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW", "URL_DO_LIST_CAM57"),
-        ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", "URL_DO_LIST_DESCONTOS"),
-        ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77", "URL_DO_LIST_FEEDBACKS")
-    ],
+     "📄 Formulários": [
+    ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/"),
+    ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q"),
+    ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW"),
+    ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E"),
+    ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77")
+],
 
     "📚 Materiais/Treinamento": [
         ("📌 Lâmina de Produtos", "https://linktr.ee/travelexbank23"),
@@ -205,22 +138,22 @@ conteudos = {
         ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
     ],
     "📁 KYC e Documentos de Abertura": [
-        # Documentos Pessoa Física (PF)
-        ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
-        ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
-        ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EdmVfh80u7JBvJD4PXFIroEBU9DURBDX5a1eaFvBmDQsPg?e=G6wy6z"),
-        ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
-        ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
+    # Documentos Pessoa Física (PF)
+    ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
+    ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
+    ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EdmVfh80u7JBvJD4PXFIroEBU9DURBDX5a1eaFvBmDQsPg?e=G6wy6z"),
+    ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
+    ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
 
-        # Documentos Pessoa Jurídica (PJ)
-        ("PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
-        ("PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
-        ("PJ – Ficha Cadastral Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
-        ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
-        ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
-        ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6"),
-        ("PJ - Solicitação para Acesso Boletador - Parceiros", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVm8BpSowefBPqWPH-QF6aCxUNTRDR0NJWUVCSFBBTkc3M0U0NkMyMEVTOS4u&route=shorturl")
-    ],
+    # Documentos Pessoa Jurídica (PJ)
+    ("PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
+    ("PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
+    ("PJ – Ficha Cadastral Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
+    ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
+    ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
+    ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6"),
+    ("PJ - Solicitação para Acesso Boletador - Parceiros", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVm8BpSowefBPqWPH-QF6aCxUNTRDR0NJWUVCSFBBTkc3M0U0NkMyMEVTOS4u&route=shorturl")
+],
     "🏢 Área de Crédito": [
         ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
         ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
@@ -259,46 +192,11 @@ def mostrar_bloco(titulo, lista):
                 </a>
             """, unsafe_allow_html=True)
 
-def mostrar_formularios(titulo, lista):
-    """Função específica para mostrar formulários com botões de preenchimento e acompanhamento"""
-    if titulo:
-        st.markdown(f"<div class='section-title'>{titulo}</div>", unsafe_allow_html=True)
-    
-    for nome, link_form, link_list in lista:
-        # Criar o botão de acompanhamento apenas se existir o link
-        btn_acompanhar = ""
-        if link_list:
-            btn_acompanhar = f"""
-                <a href="{link_list}" target="_blank" class="btn-form btn-tracking">
-                    📊 Acompanhar Status
-                </a>
-            """
-        
-        st.markdown(f"""
-            <div class="form-card">
-                <div class="form-card-content">
-                    <div class="form-title">{nome}</div>
-                    <div class="form-buttons">
-                        <a href="{link_form}" target="_blank" class="btn-form">
-                            📝 Preencher Formulário
-                        </a>
-                        {btn_acompanhar}
-                    </div>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-
 def buscar_conteudos(termo):
     resultados = {}
     termo = termo.lower()
     for secao, itens in conteudos.items():
-        if secao == "📄 Formulários":
-            # Formulários têm 3 elementos (nome, link_form, link_list)
-            filtrados = [(nome, link, link_list) for nome, link, link_list in itens if termo in nome.lower()]
-        else:
-            # Outras seções têm 2 elementos (nome, link)
-            filtrados = [(nome, link) for nome, link in itens if termo in nome.lower()]
-        
+        filtrados = [(nome, link) for nome, link in itens if termo in nome.lower()]
         if filtrados:
             resultados[secao] = filtrados
     return resultados
@@ -338,17 +236,14 @@ if selected == "🏠 Início":
         st.markdown(f"<div class='section-title'>🔎 Resultados para: <em>{termo}</em></div>", unsafe_allow_html=True)
         if resultados:
             for secao, itens in resultados.items():
-                if secao == "📄 Formulários":
-                    mostrar_formularios("", itens)
-                else:
-                    for nome, link in itens:
-                        st.markdown(f"""
-                            <a href="{link}" target="_blank" style="text-decoration: none;">
-                                <div class="custom-card">{nome}
-                                    <small style='color:#888;font-size:13px;display:block'>{secao}</small>
-                                </div>
-                            </a>
-                        """, unsafe_allow_html=True)
+                for nome, link in itens:
+                    st.markdown(f"""
+                        <a href="{link}" target="_blank" style="text-decoration: none;">
+                            <div class="custom-card">{nome}
+                                <small style='color:#888;font-size:13px;display:block'>{secao}</small>
+                            </div>
+                        </a>
+                    """, unsafe_allow_html=True)
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
@@ -375,8 +270,6 @@ if selected == "🏠 Início":
                 if pj_docs:
                     st.markdown("<div class='section-title subtitulo-kyc'>🏢 Documentos Pessoa Jurídica (PJ)</div>", unsafe_allow_html=True)
                     mostrar_bloco("", pj_docs)
-            elif secao == "📄 Formulários":
-                mostrar_formularios(secao, conteudos[secao])
             else:
                 mostrar_bloco(secao, conteudos[secao])
 
@@ -393,12 +286,63 @@ elif selected == "📁 KYC e Documentos de Abertura":
 else:
     secao_nome = next((k for k in conteudos.keys() if k == selected), None)
     if secao_nome:
-        # Usar função específica para formulários
-        if secao_nome == "📄 Formulários":
-            mostrar_formularios(secao_nome, conteudos[secao_nome])
-        else:
-            mostrar_bloco(secao_nome, conteudos[secao_nome])
+        mostrar_bloco(secao_nome, conteudos[secao_nome])
     else:
         st.warning("Nenhum conteúdo encontrado para esta seção.")
 
 st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    html, body, [class*="css"]  {
+        font-family: 'Inter', sans-serif;
+    }
+    .main-container { max-width: 1400px; margin: auto; }
+    .custom-card {
+        border-left: 6px solid #00205B;
+        background: #ffffff;
+        padding: 18px 22px;
+        border-radius: 12px;
+        margin: 12px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .custom-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .highlight-box {
+        background: linear-gradient(90deg, #e8f0fe, #f1f5fc);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        margin-bottom: 35px;
+    }
+    .section-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #00205B;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    .subtitulo-kyc {
+        font-size: 22px !important;
+        font-weight: 600;
+        color: #00205B;
+        margin-top: 10px !important;
+        margin-bottom: 10px;
+    }
+    .info-text { font-size: 16px; color: #4a4a4a; }
+    .metric-box {
+        background: linear-gradient(to right, #f6f9ff, #e8eefc);
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        color: #00205B;
+        font-size: 24px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+</style>
+""", unsafe_allow_html=True)
