@@ -139,7 +139,7 @@ conteudos = {
     ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/", None),
     ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FNtfu99LrY5AoVj4dU2-XNkBEKe8db21Ws7qDWOdF3ANmw?e=peSA3C"),
     ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FMyX4ZlrIDFMjjE4vDf-S2IBucyUJaW94Uh_aZQN8hHmxg?e=fptRVA"),
-    ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", None),
+    ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FBDTTxephIFFgD_jqSvyqh4BrgyIDOmFXHK_sCsKq39gKA?e=DmFahV"),
     ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77", None)
 ],
 
