@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import base64
 
 # ========= CONFIGURAÇÕES DE CONTEÚDO ========= #
-mensagem_atualizacao = "🔔 Atualização: A nova lista de leads referente ao mês de Outubro chegou na Ploomes!!!"
+mensagem_atualizacao = "🔔 Atualização: Lançamento nova ferramenta: Dossiê de Planejamento!!!"
 
 eventos = [
     "🇧🇷 Brasil – Bloomberg New Economy / B20 (SP) – 22–23/out",
