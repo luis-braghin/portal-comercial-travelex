@@ -136,7 +136,7 @@ conteudos = {
     ],
 
     "📄 Formulários": [
-    ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/", None),
+    ("⭐ Dossiê de Planejamento", "https://luis-braghin.github.io/dossie_planejamento/", "https://confidence1-my.sharepoint.com/:v:/g/personal/distribuircomercial_travelexbank_com_br/EZ4zCr-4ZotMsqTvM2hO3-IBFaD_4-XRg7WGc7NHdhD8Bw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=QLnj5f"),
     ("📄 Migração de Carteira", "https://forms.office.com/r/W1y1KXzJ5q", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FNtfu99LrY5AoVj4dU2-XNkBEKe8db21Ws7qDWOdF3ANmw?e=aacYpV"),
     ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FMyX4ZlrIDFMjjE4vDf-S2IBucyUJaW94Uh_aZQN8hHmxg?e=sA3nK8"),
     ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FBDTTxephIFFgD_jqSvyqh4BrgyIDOmFXHK_sCsKq39gKA?e=LSYLWE"),
@@ -153,48 +153,37 @@ conteudos = {
         ("🏦 Link para Onboarding - Banco", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUQUcyMVgxWFVYVUxSWE1NNEVZNEYyRlJBMi4u"),
         ("💼Link para Onboarding - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUNkpQTTVGVE9JWktDV1dTV0gzSlg3Uk5SQS4u"),
         ("🏦 Painel de Acompanhamento de Onboarding - Banco", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro/AllItems.aspx"),
-        ("💼 Painel de Acompanhamento de Onboarding - Corretora", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Cadastro%20%20Corretora/AllItems.aspx?env=WebViewList&OR=Teams-HL&CT=1675864797062&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzAxMDEwMDkxMyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"),
-        ("📘 Normativas Compliance", "https://confidence1.sharepoint.com/Compliance/normativas/Paginas/default.aspx"),
-        ("✅ Aprovações JIRA", "https://jiratvx.atlassian.net/servicedesk/customer/user/login?destination=user%2Fapprovals%3Fpage%3D1")
+        ("💼 Painel de Acompanhamento de Onboarding - Corretora", "https://confidence1.sharepoint.com/sites/PainelOnboarding/Lists/Corretora/AllItems.aspx?viewpath=%2Fsites%2FPainelOnboarding%2FLists%2FCorretora%2FAllItems.aspx"),
+        ("📂 Cadastro de Clientes – Status & Pendências", "https://confidence1.sharepoint.com/:l:/r/sites/CadastroB2B/_layouts/15/DashboardRedirectPage.aspx?id=%2Fsites%2FCadastroB2B%2FDocumentos%20Compartilhados%2FGeneral%2FLista%20de%20status%20de%20abertura&web=1")
     ],
     "📁 KYC e Documentos de Abertura": [
-        # Documentos Pessoa Física (PF)
-        ("PF – KYC", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EUa4o6w-MjxCjic2tr3sIooBjhRiYMXldjbfFjaMiW3F_w?e=QMWJPK"),
-        ("PF – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EcV0bAVC7XZKijziB5RPUoEBYgNy33jPZ6XT8ZsYOHxwpA?e=jo4u3b"),
-        ("PF – Abertura Conta-Corrente Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/EdmVfh80u7JBvJD4PXFIroEBU9DURBDX5a1eaFvBmDQsPg?e=G6wy6z"),
-        ("PF – Abertura Conta-Corrente Não-Residente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/ERHddXZmnmlCoREHjD-H-2ABhASxKpIh9HvUGppa3ttN8Q?e=MEFMa6"),
-        ("PF – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EbXp2JoQqLRPq3mrEiXJVtYBndV5Sm96Jzw7zP_PcSxktw?e=K9s5Uf"),
-
-        # Documentos Pessoa Jurídica (PJ)
-        ("PJ – KYC", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Ef9ganuI9vBBssiO51SJEqIBLWjwgEn1PSurkViQsOjxtQ?e=PNilNx"),
-        ("PJ – Ficha Cadastral", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EZqeDZjyZrdKrfbHFHgm9HsBAs5IctAPv4vK4BNkvc-fLw?e=Mgdt3U"),
-        ("PJ – Ficha Cadastral Anexo I", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EVNcXLzx5GJFmgj_h182CvkBQZEam3C-cqn8W48igTxqSA?e=0lfhyG"),
-        ("PJ – Ficha Cadastral Anexo II", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/Eb4elygC4rpJl3U2dei-yEsBYBEErg3J4GpbgX4hWdCHMA?e=wJRI1T"),
-        ("PJ – Abertura de Conta-Corrente", "https://confidence1-my.sharepoint.com/:w:/g/personal/lebraghin_travelexbank_com_br/Eb9seXTCcGJBlikpGoTSC8cBXQxIWP7_MVnbTl9fL1DzRQ?e=oNDx4r"),
-        ("PJ – Solicitação Acesso IB", "https://confidence1-my.sharepoint.com/:b:/g/personal/lebraghin_travelexbank_com_br/EUtWaDiB-4JMtN_O2UjytLkBfl04Uo7ihl7ILlVEL0y6KQ?e=cPjgs6"),
-        ("PJ - Solicitação para Acesso Boletador - Parceiros", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVm8BpSowefBPqWPH-QF6aCxUNTRDR0NJWUVCSFBBTkc3M0U0NkMyMEVTOS4u&route=shorturl")
+        ("📄 PF – Modelo de Declaração de Recursos", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F51%20-%20Declara%C3%A7%C3%A3o%20de%20Recursos.docx"),
+        ("📄 PF – Declaração Conta Recursos Próprios", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F14%20-%20Declara%C3%A7%C3%A3o%20Conta%20Recursos%20Pr%C3%B3prios.docx"),
+        ("📄 PJ – Modelo de Atestado de Capacidade Financeira", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F59%20-%20Atestado%20de%20Capacidade%20Financeira.docx"),
+        ("📄 PJ – Modelo de Declaração de Desembolso de Recursos Próprios", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F10%20-%20Desembolso%20de%20Recursos%20Pr%C3%B3prios.docx"),
+        ("📄 PJ – Modelo de Declaração de Recursos PJ", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F52%20-%20Declara%C3%A7%C3%A3o%20de%20Recursos%20PJ.docx"),
+        ("📄 PJ – Matriz de Atribuição e Alçada", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F11%20-%20Matriz%20de%20Atribui%C3%A7%C3%A3o%20e%20Al%C3%A7ada.xlsx"),
+        ("📄 PJ – Declaração de Natureza de Transação", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GCAD-NOR47-F53%20-%20Declara%C3%A7%C3%A3o%20de%20Natureza%20de%20Transa%C3%A7%C3%A3o.docx")
     ],
     "🏢 Área de Crédito": [
-        ("🧾 Proposta de Crédito", "https://forms.office.com/r/u4WjFNHZaL"),
-        ("🌱 Formulário ESG", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVnOftT6ZTJtKkIs9SprWJzlUNlNLUjI3MTIyTVZURVI1MFpXN0U5MDk3Sy4u"),
-        ("📊 Dashboard Crédito", "https://app.powerbi.com/links/L2YIaQlY_D?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=df37e966-fe9a-4757-bdf5-7cb92485c20c")
+        ("💰 Lista de Aprovação de Produtos", "https://confidence1.sharepoint.com/:x:/s/Comercial-Crdito-Jurdico/EaCLs-DqSSxNlH-20r_62zYB3YLAbZLRrLnSbEgAJSFJIw?e=VHJyW9"),
+        ("📌 Alçada das ORFs e Comitês", "https://confidence1.sharepoint.com/:x:/s/Comercial-Crdito-Jurdico/EeSZv6cKbDpGk5OqApq0_a0BmDH0YCzqm1OEVG_2bxCdgg?e=5P9bbE"),
+        ("📊 Estrutura de Comitê", "https://confidence1.sharepoint.com/:f:/r/sites/Comercial-Crdito-Jurdico/Documentos%20Compartilhados/Estrutura%20de%20Comit%C3%AA?csf=1&web=1&e=fADDdn"),
+        ("📝 Template de Parecer de Crédito PJ", "https://confidence1.sharepoint.com/sites/Comercial-Crdito-Jurdico/Documentos%20Compartilhados/An%C3%A1lise%20de%20Cr%C3%A9dito/Parecer%20Cr%C3%A9dito%20-%20V52%20-%20APROVADO%20(20-09-2024).xlsx"),
+        ("📝 Template de Parecer de Crédito PF", "https://confidence1.sharepoint.com/sites/Comercial-Crdito-Jurdico/Documentos%20Compartilhados/An%C3%A1lise%20de%20Cr%C3%A9dito/Parecer%20Cr%C3%A9dito%20PF%20-%20Vers%C3%A3o%2003%20(17-08-2023).xlsx")
     ],
-
     "📣 Marketing": [
-        ("📌 Huntag", "https://travelexbank.huntag.app/login?returnurl=%2F")
+        ("🏢 Apresentações Institucionais", "https://confidence1.sharepoint.com/:f:/r/sites/MarcaComunicacao/Documentos%20Compartilhados/General/Apresenta%C3%A7%C3%B5es%20Institucionais%20-%20Modelo%20Atual?csf=1&web=1&e=vgr5UO"),
+        ("🎨 Materiais de Marketing", "https://confidence1.sharepoint.com/:f:/r/sites/MarcaComunicacao/Documentos%20Compartilhados/General/Materiais%20de%20Marketing?csf=1&web=1&e=2Xg9g6")
     ],
-
     "🏦 Sistemas do Banco": [
-        ("🔄 Change", "http://change.travelexbank.com.br/cambio/DefaultC.aspx"),
-        ("🛡️ SOCC ", "http://socc.bancoconfidence.com.br/confidence/expired.html?lastAccess=1750860447419"),
-        ("🧮 MATERA", "https://backoffice.mp.prd.travelexbank.com.br:8443/matera/"),
-        ("🌟 Qulture Rocks", "https://app.qulture.rocks/users/sign_in"),
-        ("✍️ Click Sign", "https://app.clicksign.com/?session_expired=true")
+        ("💳 TAC", "https://www.sisgef.net.br/sisfundacao.php?cd_org=3&cd_cliente=3&cd_banco=366&ds_banco=TRAVELEX%20BANCO%20DE%20CAMBIO"),
+        ("🖥️ GEF", "https://www.sisgef.net.br/menuadmin.php")
     ],
-
     "🔗 Links Úteis": [
-        ("🌐 Radar (Habilitação COMEX)", "https://servicos.receita.fazenda.gov.br/servicos/radar/consultasituacaocpfcnpj.asp"),
-        ("📄 Comprovante PJ", "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"),
+        ("⚠️ BFF – Formulário Abuso de Mercado", "https://forms.office.com/pages/responsepage.aspx?id=_G_t2sm4d0eK42lIfQ7vVlYe_Zie5XdOjKJ73Ib1fSRUNEVWMkRYRVIySzFBQlY3VjkyMjdYUVZQRC4u"),
+        ("📞 Ramal Corporativo", "https://outlook.office365.com/owa/calendar/RamalCorporativo@travelexbank.onmicrosoft.com/bookings/"),
+        ("📞 Gestão de Pagamentos", "https://outlook.office365.com/owa/calendar/GestodePagamentos@travelexbank.onmicrosoft.com/bookings/"),
         ("📄 Países Restritos e Monitorados", "https://confidence1.sharepoint.com/Compliance/normativas/DocumentosNormativas/GGIR-MPP89-A1%20-%20Pa%C3%ADses%20Restritos%20e%20Monitorados.pdf"),
         ("⚖️ Minutário Jurídico", "https://confidence1.sharepoint.com/sites/Connect/SitePages/Minut%C3%A1rio-Jur%C3%ADdico.aspx?CT=1751310750721&OR=OWA-NT-Mail&CID=5d1d7d46-a08e-6727-f9fe-4da31b69ce86&web=1")
     ]
@@ -227,9 +216,11 @@ def mostrar_formularios_com_tracking(titulo, lista):
                     </a>
                 """, unsafe_allow_html=True)
             with col2:
+                # Define o texto do botão baseado no nome do formulário
+                texto_botao = "🎥 Video-Aula" if "Dossiê de Planejamento" in nome else "📊 Acompanhar"
                 st.markdown(f"""
                     <a href="{link_list}" target="_blank" style="text-decoration: none;">
-                        <div class="acompanhamento-card">📊 Acompanhar</div>
+                        <div class="acompanhamento-card">{texto_botao}</div>
                     </a>
                 """, unsafe_allow_html=True)
         else:  # Se não tem link de acompanhamento, exibe só o formulário normal
