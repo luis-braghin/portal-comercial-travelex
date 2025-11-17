@@ -15,7 +15,7 @@ eventos = [
 ]
 
 destaque_comercial = {
-    "nome": "Renata Segretti",
+    "nome": "Caio Victor",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
