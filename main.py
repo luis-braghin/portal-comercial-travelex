@@ -143,7 +143,8 @@ conteudos = {
     ("📄 Solicitação de CAM57", "https://forms.office.com/r/KZhZEFYVSW", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FMyX4ZlrIDFMjjE4vDf-S2IBucyUJaW94Uh_aZQN8hHmxg?e=sA3nK8"),
     ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FBDTTxephIFFgD_jqSvyqh4BrgyIDOmFXHK_sCsKq39gKA?e=LSYLWE"),
     ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77", None),
-    ("📄 Formulário de Gatilhos", "https://luis-braghin.github.io/Formulario_Nucleo_Inbound/", None)
+    ("📄 Formulário de Gatilhos", "https://luis-braghin.github.io/Formulario_Nucleo_Inbound/", None),
+    ("📄 Formulário de Indicação - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVp_qK3rzZoxDlPoourIxYWJUQUsyVTFFREZMVTdPVDI2VUo2NU82UERPTS4u", None)
 ],
 
     "📚 Materiais/Treinamento": [
