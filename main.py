@@ -6,16 +6,16 @@ import base64
 mensagem_atualizacao = "🔔 Nova funcionalidade: Dossiê de Planejamento!"
 
 eventos = [
-    "🇺🇸 EUA – CPI de novembro – 10/dez",
-    "🇺🇸 EUA – Reunião do FOMC – 9–10/dez",
-    "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – 5–6/nov",
-    "🇪🇺 Zona do Euro – Reunião do BCE – 6/dez",
-    "🛢️ OPEP+ – Reunião de política de produção – final de novembro",
-    "🇨🇳 China – Crise imobiliária e possíveis estímulos econômicos – novembro–dezembro"
+    "🇺🇸 EUA – CPI de dezembro – meados de jan",
+    "🇺🇸 EUA – Reunião do FOMC (1ª do ano) – 27–28/jan",
+    "🇪🇺 Zona do Euro – Reunião do BCE – final de jan",
+    "🇧🇷 Brasil – IPCA de dezembro – meados de jan",
+    "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – final de jan",
+    "🇨🇳 China – Dados de atividade (PIB Q4 / estímulos) – janeiro"
 ]
 
 destaque_comercial = {
-    "nome": "Caio Ribeiro",
+    "nome": "Gregorio Rheingantz",
     "motivo": "🚀 Top Receitas"
 }
 # ============================================= #
@@ -304,7 +304,7 @@ if selected == "🏠 Início":
         else:
             st.warning("Nenhum resultado encontrado para a busca.")
     else:
-        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana B2C) </div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title'>🏆 Comercial Destaque (Semana Geral) </div>", unsafe_allow_html=True)
         st.markdown(f"""<div class="metric-box">
             🌟 <strong>{destaque_comercial['nome']}</strong><br>
             <span style="font-size: 14px; font-weight: normal">{destaque_comercial['motivo']}</span>
