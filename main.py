@@ -131,7 +131,7 @@ conteudos = {
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
-        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/5tOpR8JJh4"),
+        ("📈 Resultados vs Meta", "https://app.powerbi.com/links/GoZ7Yy9gO-?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare"),
         ("🗂️ Estrutura Comercial", "https://app.powerbi.com/links/8-lwAHL3Bb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare"),
         ("📊 DI/DUE", "https://app.powerbi.com/groups/me/reports/8b08b858-8067-4adb-a1a9-a511c981b816/2e5df3a16e8323e9651f?experience=power-bi"),
         ("📊 PLD a vencer", "https://app.powerbi.com/groups/me/reports/e8fdd4f8-5c18-481f-9919-7bfe53373b50/4f457ae5e54901bee4b0")
