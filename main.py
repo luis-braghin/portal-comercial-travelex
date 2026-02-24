@@ -6,12 +6,16 @@ import base64
 mensagem_atualizacao = "🔔 Nova funcionalidade: Dossiê de Planejamento!"
 
 eventos = [
-    "🇺🇸 EUA – CPI de dezembro – meados de jan",
-    "🇺🇸 EUA – Reunião do FOMC (1ª do ano) – 27–28/jan",
-    "🇪🇺 Zona do Euro – Reunião do BCE – final de jan",
-    "🇧🇷 Brasil – IPCA de dezembro – meados de jan",
-    "🇧🇷 Brasil – Reunião do Copom: decisão da Selic – final de jan",
-    "🇨🇳 China – Dados de atividade (PIB Q4 / estímulos) – janeiro"
+    "🇺🇸 EUA – CPI de fevereiro – 11/mar",
+    "🇺🇸 EUA – Reunião do FOMC com decisão de juros & projeções econômicas – 17–18/mar",
+    "🇪🇺 Zona do Euro – Reunião do BCE e possível atualização de projeções – meados de mar",
+    "🇺🇸 EUA – Payrolls / Relatório de Emprego – 6/mar (1ª sexta-feira)",
+    "🇧🇷 Brasil – IPCA (inflação oficial) – meados de mar",
+    "🇧🇷 Brasil – Reunião do Copom / decisão de Selic – final de mar",
+    "🇨🇳 China – PIB Q1, produção industrial e vendas no varejo – final de mar / início de abr",
+    "🇺🇸 EUA – CPI de março – 10/abr",
+    "🇺🇸 EUA – Reunião do FOMC (abril) – 28–29/abr",
+    "🇪🇺 Zona do Euro – Reunião do BCE – início de abr"
 ]
 
 destaque_comercial = {
