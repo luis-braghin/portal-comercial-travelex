@@ -129,7 +129,7 @@ conteudos = {
         ("📖 Tutorial Ploomes pt.2 (CRM)", "https://confidence1-my.sharepoint.com/:v:/g/personal/gsmiranda_travelexbank_com_br/IQDhpg6Z3MOdRrIJnwiZQ29wAaD24tGEkwJSVf38oHRVC2w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=36WR4d")
     ],
     "📊 Dashboards": [
-        ("🧠 Dashboard Unificado (Versão Beta)", "https://app.powerbi.com/links/g0711Nttbb?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare&bookmarkGuid=35fe9c2f-d75d-40f9-8610-9e5075d7f7c7"),
+        ("💼 Minha Carteira", "https://app.powerbi.com/links/DaDJ0HIo1A?ctid=daed6ffc-b8c9-4777-8ae3-69487d0eef56&pbi_source=linkShare"),
         ("📌 Gestão Comercial – Market Share", "https://app.powerbi.com/links/VrFjeMY32s"),
         ("📡 Telemetria 🆕", "https://app.powerbi.com/links/DN8VawnQyN"),
         ("🔍 Raio X", "https://app.powerbi.com/links/r_cCxY0hQF"),
