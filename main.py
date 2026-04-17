@@ -146,7 +146,8 @@ conteudos = {
     ("📄 Desconto/Isenção de Tarifa", "https://forms.office.com/r/UMUg6gUg4E", "https://confidence1.sharepoint.com/:l:/s/Comercial-Crdito-Jurdico/FBDTTxephIFFgD_jqSvyqh4BrgyIDOmFXHK_sCsKq39gKA?e=LSYLWE"),
     ("📄 Feedback Comercial", "https://forms.office.com/r/7Ct99i1s77", None),
     ("📄 Formulário de Gatilhos", "https://luis-braghin.github.io/Formulario_Nucleo_Inbound/", None),
-    ("📄 Formulário de Indicação - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVp_qK3rzZoxDlPoourIxYWJUQUsyVTFFREZMVTdPVDI2VUo2NU82UERPTS4u", None)
+    ("📄 Formulário de Indicação - Corretora", "https://forms.office.com/Pages/ResponsePage.aspx?id=_G_t2sm4d0eK42lIfQ7vVp_qK3rzZoxDlPoourIxYWJUQUsyVTFFREZMVTdPVDI2VUo2NU82UERPTS4u", None),
+    ("📄 Radar de Oportunidades - Travelex Bank", "https://forms.office.com/r/Z456HfN8Jx", None)
 ],
 
     "📚 Materiais/Treinamento": [
